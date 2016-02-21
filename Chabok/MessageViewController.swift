@@ -76,7 +76,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.showsVerticalScrollIndicator = false
-        
+        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
         buttonMessage.layer.borderWidth = 1
         buttonMessage.layer.borderColor = UIColor.fromRGB(0x00325d).CGColor
         buttonMessage.layer.cornerRadius = 3
@@ -239,7 +239,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
         print(keyboardSize?.height)
         let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
-        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
         self.tableView.scrollIndicatorInsets = contentInsets
         if lastIndexPath.row > 0 {
             self.tableView.scrollToRowAtIndexPath(lastIndexPath, atScrollPosition: .Bottom, animated: true)
@@ -256,7 +255,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     func keyboardWillHide(notification:NSNotification)
     {
-        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)//UIEdgeInsetsZero
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero
         
         
@@ -265,7 +263,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         setViewMoveUp(false, curve: curve, duration: duration)
     }
-  
+  	
     
     func publishMessage () {
         self.manager = PushClientManager.defaultManager()

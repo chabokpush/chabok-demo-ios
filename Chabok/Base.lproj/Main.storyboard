@@ -180,6 +180,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-TR-1W9" customClass="CUButton" customModule="Chabok" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.0039215686274509803" green="0.8901960784313725" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Mwg-b7-ZEi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="15"/>
                                 <state key="normal" title="ارسال و ادامه">
                                     <color key="titleColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
@@ -189,8 +192,15 @@
                                         <color key="value" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="44" y="276" width="312" height="48"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Mwg-b7-ZEi"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Mwg-b7-ZEi"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <action selector="RegisterInChabok:" destination="jsz-LO-Pfo" eventType="touchUpInside" id="AoW-Eq-3a0"/>
@@ -203,18 +213,21 @@
                             <constraint firstItem="EEn-Ba-4VW" firstAttribute="top" secondItem="Iee-Fn-Hg6" secondAttribute="bottom" constant="9" id="1yW-d7-wo3"/>
                             <constraint firstItem="vvJ-VI-Uuu" firstAttribute="top" secondItem="6Zn-vX-wcf" secondAttribute="bottom" constant="4" id="2xd-ax-7n2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EEn-Ba-4VW" secondAttribute="trailing" constant="24" id="3Vx-hz-kFv"/>
+                            <constraint firstItem="wUm-TR-1W9" firstAttribute="top" secondItem="vvJ-VI-Uuu" secondAttribute="bottom" constant="47" id="4Vg-in-VCa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lii-Rc-dPr" secondAttribute="trailing" constant="24" id="5jI-YT-44o"/>
                             <constraint firstItem="vvJ-VI-Uuu" firstAttribute="leading" secondItem="qbe-wp-mu3" secondAttribute="leadingMargin" constant="24" id="BFR-OU-bMd"/>
                             <constraint firstItem="Iee-Fn-Hg6" firstAttribute="top" secondItem="MtX-SC-nJ7" secondAttribute="bottom" id="BN1-2T-gjd"/>
                             <constraint firstItem="6Zn-vX-wcf" firstAttribute="leading" secondItem="qbe-wp-mu3" secondAttribute="leadingMargin" constant="24" id="GRi-Yp-9lf"/>
                             <constraint firstItem="6Zn-vX-wcf" firstAttribute="top" secondItem="Zey-CD-xrF" secondAttribute="bottom" constant="28" id="QtY-1A-rTr"/>
                             <constraint firstItem="EEn-Ba-4VW" firstAttribute="leading" secondItem="qbe-wp-mu3" secondAttribute="leadingMargin" constant="24" id="a8S-TU-Ywx"/>
+                            <constraint firstItem="wUm-TR-1W9" firstAttribute="leading" secondItem="qbe-wp-mu3" secondAttribute="leadingMargin" constant="24" id="bKb-8T-K87"/>
                             <constraint firstItem="Iee-Fn-Hg6" firstAttribute="centerX" secondItem="qbe-wp-mu3" secondAttribute="centerX" id="cdP-aT-Cwd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5b8-VW-NXs" secondAttribute="trailing" constant="24" id="dSo-Ay-klF"/>
                             <constraint firstItem="5b8-VW-NXs" firstAttribute="top" secondItem="Lii-Rc-dPr" secondAttribute="bottom" constant="28" id="dYQ-BS-O8l">
                                 <variation key="widthClass=compact" constant="22"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="vvJ-VI-Uuu" secondAttribute="trailing" constant="24" id="kxW-sb-STr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wUm-TR-1W9" secondAttribute="trailing" constant="24" id="rdp-2D-CIP"/>
                             <constraint firstItem="Lii-Rc-dPr" firstAttribute="top" secondItem="EEn-Ba-4VW" secondAttribute="bottom" constant="4" id="ssQ-Lt-MOv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zey-CD-xrF" secondAttribute="trailing" constant="24" id="w3k-kw-nld"/>
                             <constraint firstItem="Zey-CD-xrF" firstAttribute="top" secondItem="5b8-VW-NXs" secondAttribute="bottom" constant="4" id="w7c-dq-U3Q"/>
@@ -234,26 +247,29 @@
                                 <exclude reference="wUm-TR-1W9"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="01W-YG-yTu"/>
-                                <exclude reference="dSo-Ay-klF"/>
-                                <exclude reference="dYQ-BS-O8l"/>
-                                <exclude reference="GRi-Yp-9lf"/>
-                                <exclude reference="QtY-1A-rTr"/>
-                                <exclude reference="xWj-ck-kRP"/>
+                                <exclude reference="BN1-2T-gjd"/>
+                                <exclude reference="cdP-aT-Cwd"/>
                                 <exclude reference="1yW-d7-wo3"/>
                                 <exclude reference="3Vx-hz-kFv"/>
                                 <exclude reference="a8S-TU-Ywx"/>
-                                <exclude reference="BN1-2T-gjd"/>
-                                <exclude reference="cdP-aT-Cwd"/>
                                 <exclude reference="5jI-YT-44o"/>
                                 <exclude reference="ssQ-Lt-MOv"/>
                                 <exclude reference="yGo-Yh-RiH"/>
+                                <exclude reference="01W-YG-yTu"/>
+                                <exclude reference="dSo-Ay-klF"/>
+                                <exclude reference="dYQ-BS-O8l"/>
                                 <exclude reference="w3k-kw-nld"/>
                                 <exclude reference="w7c-dq-U3Q"/>
                                 <exclude reference="xUy-vm-fqQ"/>
+                                <exclude reference="GRi-Yp-9lf"/>
+                                <exclude reference="QtY-1A-rTr"/>
+                                <exclude reference="xWj-ck-kRP"/>
                                 <exclude reference="2xd-ax-7n2"/>
                                 <exclude reference="BFR-OU-bMd"/>
                                 <exclude reference="kxW-sb-STr"/>
+                                <exclude reference="4Vg-in-VCa"/>
+                                <exclude reference="bKb-8T-K87"/>
+                                <exclude reference="rdp-2D-CIP"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -268,26 +284,29 @@
                                 <include reference="wUm-TR-1W9"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="01W-YG-yTu"/>
-                                <include reference="dSo-Ay-klF"/>
-                                <include reference="dYQ-BS-O8l"/>
-                                <include reference="GRi-Yp-9lf"/>
-                                <include reference="QtY-1A-rTr"/>
-                                <include reference="xWj-ck-kRP"/>
+                                <include reference="BN1-2T-gjd"/>
+                                <include reference="cdP-aT-Cwd"/>
                                 <include reference="1yW-d7-wo3"/>
                                 <include reference="3Vx-hz-kFv"/>
                                 <include reference="a8S-TU-Ywx"/>
-                                <include reference="BN1-2T-gjd"/>
-                                <include reference="cdP-aT-Cwd"/>
                                 <include reference="5jI-YT-44o"/>
                                 <include reference="ssQ-Lt-MOv"/>
                                 <include reference="yGo-Yh-RiH"/>
+                                <include reference="01W-YG-yTu"/>
+                                <include reference="dSo-Ay-klF"/>
+                                <include reference="dYQ-BS-O8l"/>
                                 <include reference="w3k-kw-nld"/>
                                 <include reference="w7c-dq-U3Q"/>
                                 <include reference="xUy-vm-fqQ"/>
+                                <include reference="GRi-Yp-9lf"/>
+                                <include reference="QtY-1A-rTr"/>
+                                <include reference="xWj-ck-kRP"/>
                                 <include reference="2xd-ax-7n2"/>
                                 <include reference="BFR-OU-bMd"/>
                                 <include reference="kxW-sb-STr"/>
+                                <include reference="4Vg-in-VCa"/>
+                                <include reference="bKb-8T-K87"/>
+                                <include reference="rdp-2D-CIP"/>
                             </mask>
                         </variation>
                     </view>

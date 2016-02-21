@@ -34,25 +34,27 @@ class ViewController: UIViewController {
         self.view.addSubview(chabokTitle)
         
 
-        let connectionStatus = UILabel()
+        let connectionStatus = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         connectionStatus.textColor = UIColor.lightGrayColor()
         connectionStatus.font = UIFont.setFamilyFontFromAppFont(size: 12)
+        connectionStatus.textAlignment = .Left
         connectionStatus.text = "آفلاین"
-        connectionStatus.sizeToFit()
-        connectionStatus.frame.origin.x = chabokTitle.frame.origin.x - 40
-        connectionStatus.frame.origin.y = 40
+        connectionStatus.frame.origin.x = 30
+        connectionStatus.frame.origin.y = 30
 
         
         self.view.addSubview(connectionStatus)
 
         self.manager.serverConnectionStateHandler = {() -> Void in
             if self.manager.connectionState == .ConnectedState {
+                 connectionStatus.text = "آنلاین"
+                
             } else if self.manager.connectionState == .DisconnectedState ||
                 self.manager.connectionState == .DisconnectedErrorState {
                     connectionStatus.text = "آفلاین"
             } else {
-                connectionStatus.text = "آنلاین"
-                //
+                connectionStatus.text = "در حال ارتباط"
+            
             }
         }
         

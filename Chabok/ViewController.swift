@@ -52,6 +52,7 @@ class ViewController: UIViewController {
                     connectionStatus.text = "آفلاین"
             } else {
                 connectionStatus.text = "آنلاین"
+                //
             }
         }
         

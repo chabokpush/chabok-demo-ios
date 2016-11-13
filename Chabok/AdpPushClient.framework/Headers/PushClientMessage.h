@@ -19,8 +19,11 @@
 @property (nonatomic, readonly) NSDate *receivedTime;
 @property (nonatomic, readonly) NSString *senderId;
 @property (nonatomic, readonly) NSString *sentId;
-@property (nonatomic, readonly) BOOL inApp;
-@property (nonatomic, readonly) BOOL stateful;
+@property (nonatomic, readwrite) BOOL inApp;
+@property (nonatomic, readwrite) BOOL stateful;
+@property (nonatomic, readwrite) BOOL useAsAlert;
+@property (nonatomic, readwrite) BOOL silent;
+@property (nonatomic, readwrite) NSString *alertText;
 
 - (instancetype)initWithData:(NSData *)data topic:(NSString *)topic;
 

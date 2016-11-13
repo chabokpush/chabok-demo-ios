@@ -163,7 +163,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = "Farshad Ghafari";
+				ORGANIZATIONNAME = "ADP Digital Co.";
 				TargetAttributes = {
 					F892DD561C60811600C1F355 = {
 						CreatedOnToolsVersion = 7.1;
@@ -339,9 +339,9 @@
 				INFOPLIST_FILE = Chabok/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.AnsarPush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a32fad05-0a47-4fa0-b928-ee058a95ab20";
+				PROVISIONING_PROFILE = "a32fad05-0a47-4fa0-b928-ee058a95ab21";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -360,9 +360,9 @@
 				INFOPLIST_FILE = Chabok/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.AnsarPush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a32fad05-0a47-4fa0-b928-ee058a95ab20";
+				PROVISIONING_PROFILE = "a32fad05-0a47-4fa0-b928-ee058a95ab21";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;

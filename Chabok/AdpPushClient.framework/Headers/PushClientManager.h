@@ -206,6 +206,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 @property (nonatomic, readonly) NSString *userId;
 
 
+
 /**
  The UserId which store disk or runtime
  */
@@ -243,6 +244,11 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  */
 @property (nonatomic, readonly) BOOL isRegistered;
 
+
+/**
+ the deliveryTopicState use to detect to subscribe to delivery or not
+*/
+@property (nonatomic,readwrite) BOOL deliveryChannelEnabeled;
 
 /*!
  * @description messageHandler is block type which is used as callback when new message received
@@ -361,7 +367,9 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  * in -pushClientManagerDidFailRegisterUser:error or registrationBlock property
  */
 - (BOOL)registerApplication:(NSString *)appId
-                   userName:(NSString *)userName password:(NSString *)password;
+                     apiKey:(NSString *)apiKey
+                   userName:(NSString *)userName
+                   password:(NSString *)password;
 
 /*!
  * @description register userId in server
@@ -390,6 +398,10 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  * in -pushClientManagerDidFailRegisterUser:error or registrationBlock property
  */
 - (BOOL)registerAgainWithUserId:(NSString *)userId;
+- (BOOL)registerAgainWithUserId:(NSString *)userId channels:(NSArray *)channels;
+
+
+- (NSString*)getRegistrationId;
 
 
 /*!
@@ -397,6 +409,8 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  * @param channel Can a private channel name or public/sth for a public channel
  */
 - (void)subscribe:(NSString *)channel;
+
+- (void)subscribe:(NSString *)channel live:(BOOL)live;
 
 
 /*!
@@ -434,8 +448,20 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 - (NSArray*)deviceSubscriptions;
 
 
+/*!
+ * @description Update notification settings for a channel
+ * @channel the channel to update settings for
+ * @sound sound file name for channel notifications or null
+ * @alert notification should have an alert text or not
+ */
+- (void)updateNotificationSettings:(NSString *)channel sound:(NSString *)sound alert:(BOOL)alert;
 
 
+/*!
+ * @description get current notification settings for a channel
+ * @return dict containing alert, sound keys or nil
+ */
+- (NSDictionary *)notificationSettingsFor:(NSString *)channel;
 
 /*
  * =============================================================

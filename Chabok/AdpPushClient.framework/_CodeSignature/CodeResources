@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>GenerateAPN.txt</key>
+		<data>
+		HHXwCbLRN8h7VhvAvZShlHaq6c4=
+		</data>
 		<key>Headers/AdpPushClient.h</key>
 		<data>
 		juuopZUWVFPJhw1mUjKeg7phlv0=
@@ -14,15 +18,19 @@
 		</data>
 		<key>Headers/PushClientManager.h</key>
 		<data>
-		VzukC0f+ogcUEsCLDpGyB6pLIMg=
+		CcjUqBIm94ZH/pjiw06sOjq+9c4=
 		</data>
 		<key>Headers/PushClientMessage.h</key>
 		<data>
-		WIXdehPo1DkMgf6oKjqfKKgHcOI=
+		dByFDOe3R6okwbsaSX1fgQ/DQrY=
+		</data>
+		<key>Headers/PushClientServerReachability.h</key>
+		<data>
+		+DNR96p92w96/88efcLlFgdyb9k=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GU3fBbkLokE/vN0YUKqXB5coejQ=
+		dSxNzLPgBwnPvap4ctPBhm7UtMc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -31,26 +39,83 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>GenerateAPN.txt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HHXwCbLRN8h7VhvAvZShlHaq6c4=
+			</data>
+			<key>hash2</key>
+			<data>
+			mWqrdo46hooDISzDCCBUCFNGYCVgbXqO7Y35NZS/JEs=
+			</data>
+		</dict>
 		<key>Headers/AdpPushClient.h</key>
-		<data>
-		juuopZUWVFPJhw1mUjKeg7phlv0=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			juuopZUWVFPJhw1mUjKeg7phlv0=
+			</data>
+			<key>hash2</key>
+			<data>
+			bYZmH6yKbPmD2pFaoex2+Vmdgr7bx4GhdeiIYUpNGXI=
+			</data>
+		</dict>
 		<key>Headers/DeliveryMessage.h</key>
-		<data>
-		of7ICC1M/pJUzQqz9qo/Zo5chZ4=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			of7ICC1M/pJUzQqz9qo/Zo5chZ4=
+			</data>
+			<key>hash2</key>
+			<data>
+			rOXqFp2BhzCPj5I6//FcMaDBOSvfDSPHZFB4YgyKoP4=
+			</data>
+		</dict>
 		<key>Headers/PushClientManager.h</key>
-		<data>
-		VzukC0f+ogcUEsCLDpGyB6pLIMg=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			CcjUqBIm94ZH/pjiw06sOjq+9c4=
+			</data>
+			<key>hash2</key>
+			<data>
+			utjByOhp8mlu+a+KxNuGemsnK3RKHWrptJyHtDxV3VU=
+			</data>
+		</dict>
 		<key>Headers/PushClientMessage.h</key>
-		<data>
-		WIXdehPo1DkMgf6oKjqfKKgHcOI=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			dByFDOe3R6okwbsaSX1fgQ/DQrY=
+			</data>
+			<key>hash2</key>
+			<data>
+			laxZPtSnuzFB/QAeWbx90YEyw1LRwTHh8c8v2ZWYamI=
+			</data>
+		</dict>
+		<key>Headers/PushClientServerReachability.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+DNR96p92w96/88efcLlFgdyb9k=
+			</data>
+			<key>hash2</key>
+			<data>
+			d9TwSkF7H6+pWC5frYnt4mtxvuF6/emT8Sb+I2stKJk=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		RmDHKtW9idpzUQnjH67XBUh0Fiw=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			RmDHKtW9idpzUQnjH67XBUh0Fiw=
+			</data>
+			<key>hash2</key>
+			<data>
+			nMIgXR0pjcv2luPdc3lEMDn2Ax2YyOWOW4oUMTvsry4=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>
@@ -69,6 +134,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -114,6 +184,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

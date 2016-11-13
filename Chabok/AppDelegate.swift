@@ -19,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
 
     
     class func applicationId() -> String{
-//        return "chabok-demo"
-//        return "adp-nms-push"
-        return "ansar-dev"
+        return "YOUR_APP_ID"
     }
     
     class func applicationVersion() -> String{
@@ -29,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     }
     
     class func userNameAndPassword() -> (userName : String, password : String){
-//        return ("chabokdemo","chabokdemo")
-        return ("ansar","test")
+        return ("YOUR_SDK_USERNAME","YOUR_SDK_PASSWORD")
     }
 
 
@@ -157,7 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         
         
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("AnsarPush.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("ChabokPushDemo.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         

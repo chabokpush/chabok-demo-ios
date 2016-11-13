@@ -6,12 +6,13 @@ Chabok framework is compatible with iOS 7 and later.
 Import MobileCoreServices.framework and SystemConfiguration.framework, CoreData from Linked Library
 
 
-Please Check Remote Notification Checkmark in:
-Project Setting in file List Menu > Capabilities > Background Mode > turn it on > Check Remote Notification
+Please check *Remote Notifications* checkmark in Project Setting > Capabilities > Background Modes
+Please enable *Push Notifications* in Project Setting > Capabilities.
 
 
-Import framework and define a property to hold the Chabok Client Singleton.
-```obj
+Import framework and define a property in your AppDelegate to hold the Chabok Client Singleton.
+
+```objc
 #import <AdpPushClient/AdpPushClient.h>
 
 @interface AppDelegate () <PushClientManagerDelegate>
@@ -19,10 +20,11 @@ Import framework and define a property to hold the Chabok Client Singleton.
 @end
 ```
 
-Then inside your `didFinishLaunchingWithOptions` do the below:
+Then inside your `didFinishLaunchingWithOptions` method do the below:
 
 
 for development and access to local server use +setDevelopment:develop
+
 ```objc
 [PushClientManager setDevelopment:YES];
 ```
@@ -176,7 +178,7 @@ After first time registration, self.manager.userId property will be set, and you
 
 and implement following observer methods:
 
-```obj
+```objc
 - (void)pushClientNewMessageHandler:(NSNotification*)notification{
     PushClientMessage* message = notification.userInfo[@"message"];
     // handle message

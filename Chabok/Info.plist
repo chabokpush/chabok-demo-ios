@@ -24,6 +24,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>IRANSans(FaNum).ttf</string>
+		<string>IRANSans.ttf</string>
 		<string>IRANSans(FaNum)_Light.ttf</string>
 		<string>IRANSans(FaNum)_Bold.ttf</string>
 		<string>IRANSans(FaNum)_Medium.ttf</string>
@@ -33,7 +35,7 @@
 		<string>remote-notification</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Demo</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

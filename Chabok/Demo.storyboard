@@ -41,14 +41,14 @@
                                 <rect key="frame" x="35" y="307" width="305" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کاپیتان چابک" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFQ-Sf-9Ld">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="62"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="61.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Captain Chabok" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-b7-DIl">
-                                        <rect key="frame" x="0.0" y="62" width="305" height="41"/>
+                                        <rect key="frame" x="0.0" y="61.5" width="305" height="41"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -313,10 +313,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w52-D7-CAV">
-                                <rect key="frame" x="87.5" y="70" width="200" height="200"/>
+                                <rect key="frame" x="112" y="70" width="150" height="170"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="NBx-Iq-v9y"/>
-                                    <constraint firstAttribute="width" constant="200" id="Vrj-Ta-ciY"/>
+                                    <constraint firstAttribute="height" constant="170" id="NBx-Iq-v9y"/>
+                                    <constraint firstAttribute="width" constant="150" id="Vrj-Ta-ciY"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HS-cs-u0d" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
@@ -390,7 +390,7 @@
                             <constraint firstItem="3Ec-J9-RsO" firstAttribute="top" secondItem="8HS-cs-u0d" secondAttribute="bottom" constant="40" id="bcJ-HL-PEE"/>
                             <constraint firstItem="8HS-cs-u0d" firstAttribute="centerX" secondItem="Yk4-vv-gNk" secondAttribute="centerX" id="cYp-Es-LPs"/>
                             <constraint firstItem="w52-D7-CAV" firstAttribute="top" secondItem="ex1-vJ-P9H" secondAttribute="bottom" constant="50" id="g8i-BX-32D"/>
-                            <constraint firstItem="3MV-eT-sEn" firstAttribute="top" secondItem="w52-D7-CAV" secondAttribute="bottom" constant="35" id="uc7-cJ-7ux"/>
+                            <constraint firstItem="3MV-eT-sEn" firstAttribute="top" secondItem="w52-D7-CAV" secondAttribute="bottom" constant="65" id="uc7-cJ-7ux"/>
                         </constraints>
                     </view>
                     <connections>
@@ -408,7 +408,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="FZd-de-lmz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="QBl-uh-hb7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="QBl-uh-hb7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

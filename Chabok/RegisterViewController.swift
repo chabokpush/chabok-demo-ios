@@ -59,8 +59,6 @@ class RegisterViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "باشه",
                 style: UIAlertActionStyle.default,
                 handler: nil))
- 
-            
             
             // Change font of the title and message
             let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 20)! ]
@@ -76,18 +74,22 @@ class RegisterViewController: UIViewController {
 
             return
         }
-        
-        
+     
         self.manager = PushClientManager.default()
-      
-        if !self.manager.registerUser(phone.text,channels: ["public/wall"]) {
-            print("Error : \(self.manager.failureError)")
-            return
+        let userPass = AppDelegate.userNameAndPassword()
+        if self.manager.registerApplication(AppDelegate.applicationId(), apiKey: userPass.apikey,
+                                            userName:userPass.userName, password:userPass.password) {
+            
+            if !self.manager.registerUser(phone.text,channels: ["public/wall"]) {
+                print("Error : \(self.manager.failureError)")
+                return
+            }
+
+            let defaults = UserDefaults.standard
+            defaults.setValue(self.familyName.text, forKey: "name")
+            defaults.synchronize()
+            self.dismiss(animated:true, completion: nil)
         }
-        
-        let defaults = UserDefaults.standard
-        defaults.setValue(self.familyName.text, forKey: "name")
-        defaults.synchronize()
-        self.dismiss(animated: true, completion: nil)
-   }
+    }
+    
 }

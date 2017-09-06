@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
 
     
     class func applicationId() -> String{
-        return "YOUR_APPID"
+        return "chabok-demo"
     }
     
     class func applicationVersion() -> String{
@@ -27,12 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     }
     
     class func userNameAndPassword() -> (userName : String, password : String, apikey : String){
-        return ("SDK_USERNAME","SDK_PASSWORD","YOUR_APIKEY")
+        return ("chabokdemo","chabokdemo","1bd0c7e26ab5bf18ec940d8f7216ce39972aea9b")
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        PushClientManager.setDevelopment(true)
+        PushClientManager.setDevelopment(false)
         PushClientManager.resetBadge()
         self.manager = PushClientManager.default()
         self.manager.addDelegate(self)

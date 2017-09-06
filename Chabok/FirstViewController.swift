@@ -10,31 +10,20 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var startBtn: CornerButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        startBtn.layer.cornerRadius = 43;
+        
     }
     
     @IBAction func startBtnClick(_ sender: UIButton) {
-//        
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
-//        self.navigationController?.pushViewController(newViewController, animated: true)
-//        self.present(newViewController, animated: true, completion: nil)
-        
+       
         let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
-        navigationController?.pushViewController(vc, animated: true)
-        
-        
-//       self.performSegue(withIdentifier: "first2info", sender: nil)
-
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
 
     }
 

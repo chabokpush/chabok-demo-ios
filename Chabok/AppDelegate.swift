@@ -13,7 +13,7 @@ import AudioToolbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate {
-
+    
     var window: UIWindow?
     var manager = PushClientManager()
 
@@ -29,10 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     class func userNameAndPassword() -> (userName : String, password : String, apikey : String){
         return ("SDK_USERNAME","SDK_PASSWORD","YOUR_APIKEY")
     }
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         
         PushClientManager.setDevelopment(true)
         PushClientManager.resetBadge()
@@ -52,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
             }
         }
         
-        
         let attributes = [
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "IRANSans(FaNum)", size: 16)!
@@ -64,8 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         
         return true
     }
-    
-    
+
     func applicationDidEnterBackground(_ application: UIApplication) {
         PushClientManager.resetBadge()
     }
@@ -172,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
             dict[NSUnderlyingErrorKey] = error
             error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             
-            NSLog("Unresolved error \(error), \(error!.userInfo)")
+            NSLog("Unresolved error \(String(describing: error)), \(error!.userInfo)")
             abort()
         } catch {
             fatalError()
@@ -202,7 +198,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
                     try moc.save()
                 } catch let error1 as NSError {
                     error = error1
-                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    NSLog("Unresolved error \(String(describing: error)), \(error!.userInfo)")
                     abort()
                 }
             }

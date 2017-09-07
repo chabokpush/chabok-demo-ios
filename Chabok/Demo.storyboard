@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FZd-de-lmz">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,32 +23,32 @@
                         <viewControllerLayoutGuide type="bottom" id="4cY-6h-n9V"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XaZ-HB-LDN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppf-nB-VSG" customClass="GradientView" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.090196078431372548" green="0.47843137254901957" blue="0.98431372549019602" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chabok" translatesAutoresizingMaskIntoConstraints="NO" id="7xp-mP-c7F">
-                                <rect key="frame" x="87.5" y="90" width="200" height="180"/>
+                                <rect key="frame" x="60" y="90" width="200" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="IfM-8i-JFf"/>
                                     <constraint firstAttribute="height" constant="180" id="utq-4A-gpp"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HF-pF-eMq">
-                                <rect key="frame" x="35" y="307" width="305" height="120"/>
+                                <rect key="frame" x="35" y="307" width="250" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کاپیتان چابک" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFQ-Sf-9Ld">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="61.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="61.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Captain Chabok" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-b7-DIl">
-                                        <rect key="frame" x="0.0" y="61.5" width="305" height="41"/>
+                                        <rect key="frame" x="0.0" y="61.5" width="250" height="41"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,7 +68,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chc-24-G1g">
-                                <rect key="frame" x="142.5" y="537" width="90" height="90"/>
+                                <rect key="frame" x="115" y="438" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="dqd-de-QQu"/>
@@ -113,22 +113,22 @@
                         <viewControllerLayoutGuide type="bottom" id="aV6-nK-vlx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Eim-rw-c17">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ym5-6z-0fN" customClass="GradientView" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="Er3-6c-AyB">
-                                <rect key="frame" x="43.5" y="70" width="288" height="230"/>
+                                <rect key="frame" x="16" y="70" width="288" height="230"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="6qC-WM-V6o"/>
                                     <constraint firstAttribute="width" constant="288" id="cs4-Xk-BP3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NrN-fQ-hth">
-                                <rect key="frame" x="20" y="335" width="335" height="110"/>
+                                <rect key="frame" x="20" y="335" width="280" height="110"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="avx-kN-K1N"/>
@@ -140,7 +140,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFR-bC-wbI" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="116" y="563" width="143" height="64"/>
+                                <rect key="frame" x="88.5" y="464" width="143" height="64"/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.62745098039215685" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Ek6-h2-nBD"/>
@@ -186,15 +186,15 @@
                         <viewControllerLayoutGuide type="bottom" id="KLT-iD-JZE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9g4-Ek-kZ1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5G-8j-CRJ" customClass="GradientView" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cM-cG-AFb">
-                                <rect key="frame" x="47.5" y="70" width="280" height="330"/>
+                                <rect key="frame" x="20" y="70" width="280" height="330"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tB-Ed-tgn">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
@@ -257,7 +257,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDi-pa-Qbf" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="116" y="563" width="143" height="64"/>
+                                <rect key="frame" x="88.5" y="464" width="143" height="64"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Q1E-zD-fpL"/>
@@ -305,22 +305,22 @@
                         <viewControllerLayoutGuide type="bottom" id="3Ec-J9-RsO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yk4-vv-gNk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCt-hl-TgP" customClass="GradientView" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w52-D7-CAV">
-                                <rect key="frame" x="112" y="70" width="150" height="170"/>
+                                <rect key="frame" x="85" y="70" width="150" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="NBx-Iq-v9y"/>
                                     <constraint firstAttribute="width" constant="150" id="Vrj-Ta-ciY"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HS-cs-u0d" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="96.5" y="563" width="182" height="64"/>
+                                <rect key="frame" x="69" y="464" width="182" height="64"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Ywn-wK-kFC"/>
@@ -343,10 +343,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3MV-eT-sEn">
-                                <rect key="frame" x="28" y="305" width="319" height="140"/>
+                                <rect key="frame" x="28" y="305" width="264" height="140"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="شماره تماس" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVG-Qd-5kk" customClass="CornerTextField" customModule="Chabok" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="76" width="319" height="64"/>
+                                        <rect key="frame" x="0.0" y="76" width="264" height="64"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="ybT-L8-FMp"/>
@@ -356,7 +356,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="نام و نام خانوادگی" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3g0-Nf-5OU" customClass="CornerTextField" customModule="Chabok" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="319" height="64"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="64"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="nMu-M4-mte"/>
@@ -403,6 +403,284 @@
             </objects>
             <point key="canvasLocation" x="6589" y="77"/>
         </scene>
+        <!--Discovery View Controller-->
+        <scene sceneID="nv9-kc-vgw">
+            <objects>
+                <viewController id="THc-oL-7rJ" customClass="DiscoveryViewController" customModule="Chabok" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tHQ-eI-6F6"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ic-oc-cj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="57N-Jh-GeS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-tn-uPG" customClass="GradientView" customModule="Chabok" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Dr-c4-OCz">
+                                <rect key="frame" x="85" y="70" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="myL-xB-APA"/>
+                                    <constraint firstAttribute="height" constant="150" id="q1t-n2-tgw"/>
+                                </constraints>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-qW-tnV">
+                                <rect key="frame" x="51" y="270" width="217" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="EeJ-hZ-yJL"/>
+                                </constraints>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84I-I9-x5M">
+                                <rect key="frame" x="107" y="297" width="105" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="8Pl-Yw-mZq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="36"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="84I-I9-x5M" firstAttribute="leading" secondItem="57N-Jh-GeS" secondAttribute="leading" constant="107" id="0mQ-DK-nkA"/>
+                            <constraint firstAttribute="trailing" secondItem="84I-I9-x5M" secondAttribute="trailing" constant="108" id="1xA-cw-2Ca"/>
+                            <constraint firstItem="4ic-oc-cj7" firstAttribute="top" secondItem="LDk-tn-uPG" secondAttribute="bottom" id="JsD-rK-u8S"/>
+                            <constraint firstAttribute="trailing" secondItem="Sba-qW-tnV" secondAttribute="trailing" constant="52" id="KGJ-xx-3pl"/>
+                            <constraint firstItem="LDk-tn-uPG" firstAttribute="top" secondItem="57N-Jh-GeS" secondAttribute="top" id="Lwq-tt-TGc"/>
+                            <constraint firstItem="5Dr-c4-OCz" firstAttribute="top" secondItem="tHQ-eI-6F6" secondAttribute="bottom" constant="50" id="Mx3-sa-Kq3"/>
+                            <constraint firstItem="5Dr-c4-OCz" firstAttribute="centerX" secondItem="57N-Jh-GeS" secondAttribute="centerX" id="Oby-lf-FYd"/>
+                            <constraint firstItem="4ic-oc-cj7" firstAttribute="top" secondItem="84I-I9-x5M" secondAttribute="bottom" constant="210" id="Orb-8y-mSj"/>
+                            <constraint firstItem="Sba-qW-tnV" firstAttribute="leading" secondItem="57N-Jh-GeS" secondAttribute="leading" constant="51" id="epe-RD-gDW"/>
+                            <constraint firstItem="LDk-tn-uPG" firstAttribute="leading" secondItem="57N-Jh-GeS" secondAttribute="leading" id="opM-xl-z2P"/>
+                            <constraint firstAttribute="trailing" secondItem="LDk-tn-uPG" secondAttribute="trailing" id="xTG-ne-Hz9"/>
+                            <constraint firstItem="84I-I9-x5M" firstAttribute="top" secondItem="Sba-qW-tnV" secondAttribute="bottom" constant="25" id="xwj-tt-9Ca"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="discoveryImage" destination="5Dr-c4-OCz" id="d6Q-Sm-pVV"/>
+                        <outlet property="percentLbl" destination="84I-I9-x5M" id="FIs-2N-4BL"/>
+                        <outlet property="percentProgress" destination="Sba-qW-tnV" id="mAs-lL-DPs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WN-hC-UjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7280.625" y="75"/>
+        </scene>
+        <!--Reward View Controller-->
+        <scene sceneID="fsz-KZ-cjM">
+            <objects>
+                <viewController id="c7u-Y1-EUd" customClass="RewardViewController" customModule="Chabok" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k4H-hx-0nK"/>
+                        <viewControllerLayoutGuide type="bottom" id="qtW-hr-1uq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JOj-UL-vP1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anw-tM-R24" customClass="GradientView" customModule="Chabok" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WQl-NI-GXK">
+                                <rect key="frame" x="55" y="70" width="210" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="J9i-pD-8Lf"/>
+                                    <constraint firstAttribute="width" constant="210" id="bmt-8w-LYi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="باید بیشتر کاوش کنیم.این طرفا خبری از گنج نیست!" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CwM-DD-xeg">
+                                <rect key="frame" x="20" y="332" width="280" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="v7H-ug-3r9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-cb-oHv" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
+                                <rect key="frame" x="69" y="464" width="182" height="64"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="182" id="9cr-Id-3nZ"/>
+                                    <constraint firstAttribute="height" constant="64" id="Zxb-am-iFE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="17"/>
+                                <state key="normal" title="باشه">
+                                    <color key="titleColor" red="0.47058823529999999" green="0.29411764709999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="RegisterInChabok:" destination="vvR-FP-6JS" eventType="touchUpInside" id="x8E-HO-A2t"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qtW-hr-1uq" firstAttribute="top" secondItem="Anw-tM-R24" secondAttribute="bottom" id="10I-yY-PjD"/>
+                            <constraint firstItem="qtW-hr-1uq" firstAttribute="top" secondItem="Anw-tM-R24" secondAttribute="bottom" id="4CG-yL-TYs"/>
+                            <constraint firstItem="WQl-NI-GXK" firstAttribute="centerX" secondItem="JOj-UL-vP1" secondAttribute="centerX" id="8nJ-uH-nA8"/>
+                            <constraint firstAttribute="trailing" secondItem="Anw-tM-R24" secondAttribute="trailing" id="9Tn-XW-Kch"/>
+                            <constraint firstItem="WQl-NI-GXK" firstAttribute="top" secondItem="k4H-hx-0nK" secondAttribute="bottom" constant="50" id="APC-Of-aSR"/>
+                            <constraint firstItem="CwM-DD-xeg" firstAttribute="leading" secondItem="JOj-UL-vP1" secondAttribute="leading" constant="20" id="F3W-Yw-meh"/>
+                            <constraint firstItem="jEn-cb-oHv" firstAttribute="top" secondItem="CwM-DD-xeg" secondAttribute="bottom" constant="52" id="IXW-0d-Tgg"/>
+                            <constraint firstItem="jEn-cb-oHv" firstAttribute="centerX" secondItem="JOj-UL-vP1" secondAttribute="centerX" id="Ie4-DS-Bg0"/>
+                            <constraint firstAttribute="trailing" secondItem="CwM-DD-xeg" secondAttribute="trailing" constant="20" id="UYr-3f-jWx"/>
+                            <constraint firstAttribute="trailing" secondItem="Anw-tM-R24" secondAttribute="trailing" id="Whi-4m-MSl"/>
+                            <constraint firstItem="Anw-tM-R24" firstAttribute="leading" secondItem="JOj-UL-vP1" secondAttribute="leading" id="XWW-41-L91"/>
+                            <constraint firstItem="qtW-hr-1uq" firstAttribute="top" secondItem="jEn-cb-oHv" secondAttribute="bottom" constant="40" id="Xwd-tz-ieg"/>
+                            <constraint firstItem="Anw-tM-R24" firstAttribute="top" secondItem="JOj-UL-vP1" secondAttribute="top" id="cXo-1k-ubG"/>
+                            <constraint firstItem="Anw-tM-R24" firstAttribute="leading" secondItem="JOj-UL-vP1" secondAttribute="leading" id="knm-kS-hht"/>
+                            <constraint firstItem="Anw-tM-R24" firstAttribute="top" secondItem="JOj-UL-vP1" secondAttribute="top" id="riC-cz-qwQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwZ-eh-1Zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7955.625" y="76.056338028169009"/>
+        </scene>
+        <!--Failed View Controller-->
+        <scene sceneID="JQ3-UV-Hpd">
+            <objects>
+                <viewController id="6bH-qA-RUP" customClass="FailedViewController" customModule="Chabok" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B9B-Ia-78g"/>
+                        <viewControllerLayoutGuide type="bottom" id="RAO-q1-QxS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NHl-gk-T9T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7p-em-mD4" customClass="GradientView" customModule="Chabok" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R8M-LS-YiG">
+                                <rect key="frame" x="55" y="70" width="210" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="o0J-fP-lSG"/>
+                                    <constraint firstAttribute="width" constant="210" id="sZX-NK-wBH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="شما یه شارژ ۵۰۰۰ تومانی پیدا کردین!" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
+                                <rect key="frame" x="20" y="332" width="280" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="f0p-gB-eS9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9o-0A-3yL" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
+                                <rect key="frame" x="69" y="464" width="182" height="64"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="182" id="M1h-oI-LyF"/>
+                                    <constraint firstAttribute="height" constant="64" id="QQp-hX-C6M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="17"/>
+                                <state key="normal" title="باشه">
+                                    <color key="titleColor" red="0.47058823529999999" green="0.29411764709999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="RegisterInChabok:" destination="vvR-FP-6JS" eventType="touchUpInside" id="sj9-Uu-Tzi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="c7p-em-mD4" secondAttribute="trailing" id="4nF-WF-prw"/>
+                            <constraint firstItem="c7p-em-mD4" firstAttribute="leading" secondItem="NHl-gk-T9T" secondAttribute="leading" id="Dtm-Mg-UYR"/>
+                            <constraint firstAttribute="trailing" secondItem="nBE-gs-5oI" secondAttribute="trailing" constant="20" id="FQh-Ur-DTV"/>
+                            <constraint firstItem="c7p-em-mD4" firstAttribute="top" secondItem="NHl-gk-T9T" secondAttribute="top" id="Lva-kj-s3X"/>
+                            <constraint firstItem="RAO-q1-QxS" firstAttribute="top" secondItem="b9o-0A-3yL" secondAttribute="bottom" constant="40" id="TYH-2t-EKM"/>
+                            <constraint firstAttribute="trailing" secondItem="c7p-em-mD4" secondAttribute="trailing" id="ZMf-wb-drt"/>
+                            <constraint firstItem="R8M-LS-YiG" firstAttribute="top" secondItem="B9B-Ia-78g" secondAttribute="bottom" constant="50" id="aXH-px-22g"/>
+                            <constraint firstItem="RAO-q1-QxS" firstAttribute="top" secondItem="c7p-em-mD4" secondAttribute="bottom" id="gar-bJ-bV3"/>
+                            <constraint firstItem="R8M-LS-YiG" firstAttribute="centerX" secondItem="NHl-gk-T9T" secondAttribute="centerX" id="jBq-fQ-V7a"/>
+                            <constraint firstItem="nBE-gs-5oI" firstAttribute="leading" secondItem="NHl-gk-T9T" secondAttribute="leading" constant="20" id="ndo-DX-7MN"/>
+                            <constraint firstItem="b9o-0A-3yL" firstAttribute="centerX" secondItem="NHl-gk-T9T" secondAttribute="centerX" id="nmU-AF-23g"/>
+                            <constraint firstItem="c7p-em-mD4" firstAttribute="leading" secondItem="NHl-gk-T9T" secondAttribute="leading" id="qEm-sS-kmG"/>
+                            <constraint firstItem="b9o-0A-3yL" firstAttribute="top" secondItem="nBE-gs-5oI" secondAttribute="bottom" constant="52" id="s98-GC-IZJ"/>
+                            <constraint firstItem="RAO-q1-QxS" firstAttribute="top" secondItem="c7p-em-mD4" secondAttribute="bottom" id="wuM-IG-PEF"/>
+                            <constraint firstItem="c7p-em-mD4" firstAttribute="top" secondItem="NHl-gk-T9T" secondAttribute="top" id="yBO-4H-dHu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLy-r5-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8627" y="76"/>
+        </scene>
+        <!--کاپیتان چابک-->
+        <scene sceneID="L6F-VW-4s4">
+            <objects>
+                <viewController id="hm5-J0-A4w" customClass="InboxViewController" customModule="Chabok" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wti-j9-zOC"/>
+                        <viewControllerLayoutGuide type="bottom" id="oBL-Uh-Ryr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6X1-MI-3T2">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hz2-Jg-32N">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Muw-RB-uGO">
+                                <rect key="frame" x="0.0" y="384" width="320" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVL-RL-IqK" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
+                                        <rect key="frame" x="115" y="15" width="90" height="90"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="B0K-jL-6ch"/>
+                                            <constraint firstAttribute="width" constant="90" id="BJh-g4-BW8"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.47058823529999999" green="0.29411764709999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="JVL-RL-IqK" firstAttribute="centerY" secondItem="Muw-RB-uGO" secondAttribute="centerY" id="pAG-jA-FmL"/>
+                                    <constraint firstItem="JVL-RL-IqK" firstAttribute="centerX" secondItem="Muw-RB-uGO" secondAttribute="centerX" id="vd9-fK-8BG"/>
+                                    <constraint firstAttribute="height" constant="120" id="zqc-Aa-s4h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hz2-Jg-32N" firstAttribute="top" secondItem="Wti-j9-zOC" secondAttribute="bottom" id="C8B-VT-MML"/>
+                            <constraint firstAttribute="trailing" secondItem="hz2-Jg-32N" secondAttribute="trailing" id="aKi-Hq-CfX"/>
+                            <constraint firstItem="Muw-RB-uGO" firstAttribute="leading" secondItem="6X1-MI-3T2" secondAttribute="leading" id="hE2-wO-WCJ"/>
+                            <constraint firstItem="oBL-Uh-Ryr" firstAttribute="top" secondItem="hz2-Jg-32N" secondAttribute="bottom" id="nQT-zt-MpT"/>
+                            <constraint firstAttribute="trailing" secondItem="Muw-RB-uGO" secondAttribute="trailing" id="qLZ-LY-ozt"/>
+                            <constraint firstItem="oBL-Uh-Ryr" firstAttribute="top" secondItem="Muw-RB-uGO" secondAttribute="bottom" id="y3B-Hc-uzV"/>
+                            <constraint firstItem="hz2-Jg-32N" firstAttribute="leading" secondItem="6X1-MI-3T2" secondAttribute="leading" id="yrQ-xY-XDu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="کاپیتان چابک" id="QoV-sq-8Oj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Pt0-Ff-8zf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="rdi-Ig-08d"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="discoveryBtn" destination="JVL-RL-IqK" id="m1u-8b-elP"/>
+                        <outlet property="gradientView" destination="Muw-RB-uGO" id="1qG-Di-GsE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARP-jw-yoc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10288.125" y="73.943661971830991"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="GAh-OH-si7">
             <objects>
@@ -420,6 +698,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNh-Bf-AcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3655" y="81"/>
+        </scene>
+        <!--Navigation View Controller-->
+        <scene sceneID="F9c-6O-v4r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OwI-0Z-YLs" customClass="NavigationViewController" customModule="Chabok" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2M0-0I-kRf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hm5-J0-A4w" kind="relationship" relationship="rootViewController" id="BhG-Ra-2ON"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNN-eb-DhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9416" y="74"/>
         </scene>
     </scenes>
     <resources>

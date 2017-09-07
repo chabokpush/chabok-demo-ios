@@ -26,8 +26,21 @@ class RegisterViewController: UIViewController {
         avatarImage.image = image
         let tap = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.hideKeyboard))
         self.view.addGestureRecognizer(tap)
+        
+        familyName.delegate = self as? UITextFieldDelegate
+        phone.delegate = self as? UITextFieldDelegate
+
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        familyName.becomeFirstResponder()
+        phone.becomeFirstResponder()
+
+    }
+    
+    
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
@@ -69,12 +82,12 @@ class RegisterViewController: UIViewController {
 
             alert.setValue(attributedTitle, forKey: "attributedTitle")
             alert.setValue(attributedMessage, forKey: "attributedMessage")
-
+            
             self.present(alert, animated: true, completion: nil)
-
+            
             return
         }
-     
+        
         self.manager = PushClientManager.default()
         let userPass = AppDelegate.userNameAndPassword()
         if self.manager.registerApplication(AppDelegate.applicationId(), apiKey: userPass.apikey,
@@ -84,7 +97,7 @@ class RegisterViewController: UIViewController {
                 print("Error : \(self.manager.failureError)")
                 return
             }
-
+            
             let defaults = UserDefaults.standard
             defaults.setValue(self.familyName.text, forKey: "name")
             defaults.synchronize()
@@ -92,4 +105,54 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    // TextField Methodes
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hideAvatarImage()
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        showAvatarImage()
+    }
+    
+    @available(iOS 10.0, *)
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        showAvatarImage()
+    }
+    
+    
+    // Image Animation
+    
+    func hideAvatarImage() {
+        
+        view.controlScaleAnimation(avatarImage, andToTransform: CGSize(width: 1, height: 1), andFromTransform: CGSize(width: 0.001, height: 0.001))
+        keyboardWillShow()
+        
+    }
+    
+    func showAvatarImage() {
+        
+        view.controlScaleAnimation(avatarImage, andToTransform: CGSize(width: 0.001, height: 0.001), andFromTransform: CGSize(width: 1000000, height: 1000000))
+        keyboardWillHide()
+    }
+    
+    
+    // keyboard movements
+    
+    func keyboardWillShow() {
+        let height: CGFloat = UIScreen.main.bounds.size.height
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in
+            var f: CGRect = self.view.frame
+            f.origin.y = (-1 * (height / 4.5)) + 64.0
+            self.view.frame = f
+        })
+    }
+    
+    func keyboardWillHide() {
+        UIView.animate(withDuration: 0.4, animations: {() -> Void in
+            var f: CGRect = self.view.frame
+            f.origin.y = 64.0
+            self.view.frame = f
+        })
+    }
 }

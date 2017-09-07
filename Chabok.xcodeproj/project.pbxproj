@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		25DB0863E52E96644710C950 /* Pods_Chabok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0B9025DB2930FC4343D07B /* Pods_Chabok.framework */; };
 		6FDEB4DD1DD997CD0098AB52 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDEB4DC1DD997CD0098AB52 /* AdpPushClient.framework */; };
+		C542058A1F609F1E0026661D /* View+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54205891F609F1E0026661D /* View+Animation.swift */; };
+		C542058C1F60B9770026661D /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C542058B1F60B9770026661D /* DiscoveryViewController.swift */; };
+		C542058E1F60C76F0026661D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C542058D1F60C76F0026661D /* NavigationViewController.swift */; };
+		C54205901F60CB620026661D /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C542058F1F60CB620026661D /* InboxViewController.swift */; };
+		C54205921F60CB980026661D /* RewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54205911F60CB980026661D /* RewardViewController.swift */; };
+		C54205941F60D1000026661D /* FailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54205931F60D1000026661D /* FailedViewController.swift */; };
 		C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E0F1F5DBC1400825675 /* GradientView.swift */; };
 		C59A9E121F5DCE8100825675 /* CornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E111F5DCE8100825675 /* CornerButton.swift */; };
 		C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E131F5DD7D200825675 /* CornerTextField.swift */; };
@@ -44,6 +50,12 @@
 		6FDEB4DC1DD997CD0098AB52 /* AdpPushClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdpPushClient.framework; sourceTree = "<group>"; };
 		6FE31F371DD98D5D007EBC2F /* Chabok.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chabok.entitlements; sourceTree = "<group>"; };
 		B8A4838277C8E3DFB91398EF /* Pods-Chabok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chabok.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chabok/Pods-Chabok.release.xcconfig"; sourceTree = "<group>"; };
+		C54205891F609F1E0026661D /* View+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Animation.swift"; sourceTree = "<group>"; };
+		C542058B1F60B9770026661D /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
+		C542058D1F60C76F0026661D /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		C542058F1F60CB620026661D /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		C54205911F60CB980026661D /* RewardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardViewController.swift; sourceTree = "<group>"; };
+		C54205931F60D1000026661D /* FailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedViewController.swift; sourceTree = "<group>"; };
 		C59A9E0F1F5DBC1400825675 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C59A9E111F5DCE8100825675 /* CornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
 		C59A9E131F5DD7D200825675 /* CornerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerTextField.swift; sourceTree = "<group>"; };
@@ -107,6 +119,8 @@
 				C59A9E0F1F5DBC1400825675 /* GradientView.swift */,
 				C59A9E111F5DCE8100825675 /* CornerButton.swift */,
 				C59A9E131F5DD7D200825675 /* CornerTextField.swift */,
+				C54205891F609F1E0026661D /* View+Animation.swift */,
+				C542058D1F60C76F0026661D /* NavigationViewController.swift */,
 			);
 			name = SubClass;
 			sourceTree = "<group>";
@@ -131,6 +145,10 @@
 				C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */,
 				C5BC1D501F5CD13900C45E60 /* AvatarViewController.swift */,
 				C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */,
+				C542058B1F60B9770026661D /* DiscoveryViewController.swift */,
+				C542058F1F60CB620026661D /* InboxViewController.swift */,
+				C54205911F60CB980026661D /* RewardViewController.swift */,
+				C54205931F60D1000026661D /* FailedViewController.swift */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -241,6 +259,7 @@
 				TargetAttributes = {
 					F892DD561C60811600C1F355 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 99XQ6TEKDW;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -354,16 +373,22 @@
 				F892DD711C608E7F00C1F355 /* Chabok.xcdatamodeld in Sources */,
 				C5BC1D511F5CD13900C45E60 /* AvatarViewController.swift in Sources */,
 				F892DD7C1C60956900C1F355 /* RegisterViewController.swift in Sources */,
+				C54205941F60D1000026661D /* FailedViewController.swift in Sources */,
+				C542058C1F60B9770026661D /* DiscoveryViewController.swift in Sources */,
+				C54205921F60CB980026661D /* RewardViewController.swift in Sources */,
 				F892DDB81C60D16000C1F355 /* CAPSPageMenu.swift in Sources */,
+				C542058A1F609F1E0026661D /* View+Animation.swift in Sources */,
 				F892DD5D1C60811600C1F355 /* ViewController.swift in Sources */,
 				F892DD791C608FAA00C1F355 /* UIKitExtension.swift in Sources */,
 				C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */,
 				F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */,
 				C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */,
+				C542058E1F60C76F0026661D /* NavigationViewController.swift in Sources */,
 				F805EA271C6639A00098276A /* Message.swift in Sources */,
 				F892DDBC1C60D23600C1F355 /* AboutViewController.swift in Sources */,
 				C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */,
 				C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */,
+				C54205901F60CB620026661D /* InboxViewController.swift in Sources */,
 				F892DDBA1C60D22600C1F355 /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,18 +511,21 @@
 				CODE_SIGN_ENTITLEMENTS = Chabok/Chabok.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 99XQ6TEKDW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Chabok",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Chabok/PrefixHeader.pch;
 				INFOPLIST_FILE = Chabok/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -512,18 +540,21 @@
 				CODE_SIGN_ENTITLEMENTS = Chabok/Chabok.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 99XQ6TEKDW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Chabok",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Chabok/PrefixHeader.pch;
 				INFOPLIST_FILE = Chabok/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

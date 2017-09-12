@@ -15,6 +15,10 @@
 		C54205901F60CB620026661D /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C542058F1F60CB620026661D /* InboxViewController.swift */; };
 		C54205921F60CB980026661D /* RewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54205911F60CB980026661D /* RewardViewController.swift */; };
 		C54205941F60D1000026661D /* FailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54205931F60D1000026661D /* FailedViewController.swift */; };
+		C55E59E71F65BB620051375A /* InboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C55E59E61F65BB620051375A /* InboxView.xib */; };
+		C55E59E91F65BE790051375A /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59E81F65BE790051375A /* InboxTableViewCell.swift */; };
+		C55E59EB1F65FB350051375A /* YellowGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59EA1F65FB350051375A /* YellowGradientView.swift */; };
+		C55E59ED1F660C1F0051375A /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59EC1F660C1F0051375A /* InboxView.swift */; };
 		C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E0F1F5DBC1400825675 /* GradientView.swift */; };
 		C59A9E121F5DCE8100825675 /* CornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E111F5DCE8100825675 /* CornerButton.swift */; };
 		C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E131F5DD7D200825675 /* CornerTextField.swift */; };
@@ -56,6 +60,10 @@
 		C542058F1F60CB620026661D /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		C54205911F60CB980026661D /* RewardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardViewController.swift; sourceTree = "<group>"; };
 		C54205931F60D1000026661D /* FailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedViewController.swift; sourceTree = "<group>"; };
+		C55E59E61F65BB620051375A /* InboxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxView.xib; sourceTree = "<group>"; };
+		C55E59E81F65BE790051375A /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
+		C55E59EA1F65FB350051375A /* YellowGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowGradientView.swift; sourceTree = "<group>"; };
+		C55E59EC1F660C1F0051375A /* InboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		C59A9E0F1F5DBC1400825675 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C59A9E111F5DCE8100825675 /* CornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
 		C59A9E131F5DD7D200825675 /* CornerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerTextField.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 				C59A9E131F5DD7D200825675 /* CornerTextField.swift */,
 				C54205891F609F1E0026661D /* View+Animation.swift */,
 				C542058D1F60C76F0026661D /* NavigationViewController.swift */,
+				C55E59EA1F65FB350051375A /* YellowGradientView.swift */,
 			);
 			name = SubClass;
 			sourceTree = "<group>";
@@ -140,6 +149,8 @@
 		C5BC1D4D1F5CD10F00C45E60 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C55E59E61F65BB620051375A /* InboxView.xib */,
+				C55E59E81F65BE790051375A /* InboxTableViewCell.swift */,
 				C59A9E0E1F5DBBF100825675 /* SubClass */,
 				C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */,
 				C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */,
@@ -149,6 +160,7 @@
 				C542058F1F60CB620026661D /* InboxViewController.swift */,
 				C54205911F60CB980026661D /* RewardViewController.swift */,
 				C54205931F60D1000026661D /* FailedViewController.swift */,
+				C55E59EC1F660C1F0051375A /* InboxView.swift */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -298,6 +310,7 @@
 			files = (
 				C59A9E151F5DE73B00825675 /* IRANSans.ttf in Resources */,
 				C59A9E161F5DE73B00825675 /* IRANSans(FaNum).ttf in Resources */,
+				C55E59E71F65BB620051375A /* InboxView.xib in Resources */,
 				F892DD651C60811600C1F355 /* LaunchScreen.storyboard in Resources */,
 				F892DD621C60811600C1F355 /* Assets.xcassets in Resources */,
 				F892DD601C60811600C1F355 /* Main.storyboard in Resources */,
@@ -379,7 +392,10 @@
 				F892DDB81C60D16000C1F355 /* CAPSPageMenu.swift in Sources */,
 				C542058A1F609F1E0026661D /* View+Animation.swift in Sources */,
 				F892DD5D1C60811600C1F355 /* ViewController.swift in Sources */,
+				C55E59E91F65BE790051375A /* InboxTableViewCell.swift in Sources */,
 				F892DD791C608FAA00C1F355 /* UIKitExtension.swift in Sources */,
+				C55E59EB1F65FB350051375A /* YellowGradientView.swift in Sources */,
+				C55E59ED1F660C1F0051375A /* InboxView.swift in Sources */,
 				C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */,
 				F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */,
 				C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */,

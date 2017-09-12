@@ -101,7 +101,15 @@ class RegisterViewController: UIViewController {
             let defaults = UserDefaults.standard
             defaults.setValue(self.familyName.text, forKey: "name")
             defaults.synchronize()
-            self.dismiss(animated:true, completion: nil)
+
+            // Navigate to Inbox
+//            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as! UINavigationController
+//            let vc: UINavigationController? = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as? UINavigationController
+
+//            self.navigationController?.pushViewController(newViewController, animated: true)
+            performSegue(withIdentifier: "goToInbox", sender: self)
+            
         }
     }
     

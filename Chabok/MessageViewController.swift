@@ -3,7 +3,7 @@
 //  Chabok
 //
 //  Created by Farshad Ghafari on 11/13/1394 AP.
-//  Copyright © 1394 ADP Digital Co. All rights reserved.
+//  Copyright © 1394 Farshad Ghafari. All rights reserved.
 //
 
 import UIKit
@@ -36,7 +36,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         let entity = NSEntityDescription.entity(forEntityName: "Message", in: managedObjectContext)
         let sort = NSSortDescriptor(key: "createdTime", ascending: true)
         let sortnew = NSSortDescriptor(key: "new", ascending: true)
-        let req : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest()
+        let req = NSFetchRequest<NSFetchRequestResult>()
         req.entity = entity
         req.sortDescriptors = [sort,sortnew]
         req.fetchBatchSize = 10
@@ -57,7 +57,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         return self._fetchedResultsController!
     }
-
+    
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var messageInputView: UIView!
@@ -72,9 +72,10 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     
     //MARK: - LifeCycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "دیوار چابک"
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
         buttonMessage.layer.borderWidth = 1
@@ -95,13 +96,13 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         self.manager = PushClientManager.default()
         
         NotificationCenter.default.addObserver(self,
-            selector: #selector(MessageViewController.keyboardWillShow(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
-            object: nil)
+                                               selector: #selector(MessageViewController.keyboardWillShow(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
         NotificationCenter.default.addObserver(self,
-            selector: #selector(MessageViewController.keyboardWillHide(_:)),
-            name: NSNotification.Name.UIKeyboardWillHide,
-            object: nil)
+                                               selector: #selector(MessageViewController.keyboardWillHide(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(MessageViewController.hide))
         self.tableView.addGestureRecognizer(tap)
@@ -135,16 +136,16 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         return String().cellHeightForMessage(fetchMessage.message!)
         
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! Message
-
+        
         var sender:String = "چابک رسان"
         if let senderName = fetchMessage.data?.value(forKey: "name") {
             sender = senderName as! String
         }
-
+        
         if sender == UserDefaults.standard.value(forKey: "name") as! String {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChabokTableCell
@@ -160,7 +161,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             dateFormatter.calendar = Calendar(identifier: .persian)
             dateFormatter.locale = Locale(identifier: "fa_IR")
             dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            let time =  dateFormatter.string(from: fetchMessage.createdTime!)
+            let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             cell.recieveTime.text = time
             return cell
             
@@ -173,14 +174,14 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             dateFormatter.calendar = Calendar(identifier: .persian)
             dateFormatter.locale = Locale(identifier: "fa_IR")
             dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            let time =  dateFormatter.string(from: fetchMessage.createdTime!)
+            let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             
             cell.recieveTime.text = time
             return cell
         }
         
     }
-
+    
     //MARK: - NSFetchResultController
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
@@ -203,7 +204,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         case .update:
             self.tableView.reloadRows(at: [indexPath!], with: .automatic)
             break
-
+            
         }
         
     }
@@ -222,21 +223,21 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         default:
             break
         }
-
+        
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
     }
     
-
+    
     func hide () {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
-
+    
     func keyboardWillShow(_ notification:Notification) {
-
-        let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        
+        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         print(keyboardSize?.height)
         let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
         self.tableView.scrollIndicatorInsets = contentInsets
@@ -244,12 +245,12 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
         }
         
-        let curve = UIViewAnimationCurve(rawValue: ((notification as NSNotification).userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-        let duration = (notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
         
         setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
-
+        
     }
     
     
@@ -258,22 +259,23 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         self.tableView.scrollIndicatorInsets = UIEdgeInsets.zero
         
         
-        let curve = UIViewAnimationCurve(rawValue: ((notification as NSNotification).userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-        let duration = (notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
         setViewMoveUp(false, curve: curve, duration: duration)
     }
-  	
+    
     
     func publishMessage () {
         self.manager = PushClientManager.default()
         if self.textfieldMessage.text != "" {
             let defaults = UserDefaults.standard
-            let message = PushClientMessage(message: self.textfieldMessage.text!, withData: ["name":defaults.value(forKey: "name")!], topic: "public/wall")
-            
+            var message:PushClientMessage!
+            message = PushClientMessage(message: self.textfieldMessage.text!, withData: ["name":defaults.value(forKey: "name")!], topic: "public/wall")
+            message.alertText = "\(defaults.value(forKey: "name")!):\(self.textfieldMessage.text!)"
             let appcontext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             DispatchQueue.main.async(execute: {
-                Message.messageWithMessage(message!, context: appcontext!)
+                Message.messageWithMessage(message, context: appcontext!)
             })
             self.manager.publish(message)
             self.textfieldMessage.text = ""
@@ -286,13 +288,13 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(duration)
         UIView.setAnimationCurve(curve)
-      
+        
         self.messageInputViewLayout.constant = originY
         self.view.layoutIfNeeded()
-
+        
         UIView.commitAnimations()
     }
-
+    
 }
 
 class ChabokUserTableCell: UITableViewCell {
@@ -303,15 +305,15 @@ class ChabokUserTableCell: UITableViewCell {
     @IBOutlet var msg: UILabel!
     @IBOutlet var avatarName: UILabel!
     
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         self.msgBackground.layer.cornerRadius = 3
-        self.avatarView.layer.cornerRadius = 13
-        self.avatarView.layer.borderWidth = 1.5
-        self.avatarView.layer.borderColor = UIColor.fromRGB(0x65527a).cgColor
+        //   self.avatarView.layer.cornerRadius = 13
+        //    self.avatarView.layer.borderWidth = 1.5
+        //  self.avatarView.layer.borderColor = UIColor.fromRGB(0x65527a).CGColor
     }
 }
 
@@ -325,14 +327,14 @@ class ChabokTableCell: UITableViewCell {
     @IBOutlet var msgBackground: UIView!
     @IBOutlet var avatarName: UILabel!
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         
         self.msgBackground.layer.cornerRadius = 3
-        self.avatarView.layer.cornerRadius = 13
-        self.avatarView.layer.borderWidth = 1.5
-        self.avatarView.layer.borderColor = UIColor.fromRGB(0x525d7a).cgColor
+        //        self.avatarView.layer.cornerRadius = 13
+        //        self.avatarView.layer.borderWidth = 1.5
+        //        self.avatarView.layer.borderColor = UIColor.fromRGB(0x525d7a).CGColor
     }
 }

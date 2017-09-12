@@ -3,7 +3,7 @@
 //  Chabok
 //
 //  Created by Farshad Ghafari on 11/13/1394 AP.
-//  Copyright © 1394 ADP Digital Co. All rights reserved.
+//  Copyright © 1394 Farshad Ghafari. All rights reserved.
 //
 
 import UIKit
@@ -47,6 +47,15 @@ extension UIColor {
             alpha: CGFloat(1.0)
         )
         
+    }
+    
+    class func fromRGBA(_ rgb:UInt32,alpha:CGFloat) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgb & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
     }
     
     
@@ -99,7 +108,7 @@ extension UIFont {
         let familyName = "IRANSans(FaNum)"
         let fontNames = UIFont.fontNames(forFamilyName: familyName) as [NSString]
         var boldFont: UIFont!
-    
+        
         for fontName: NSString in fontNames
         {
             if fontName.range(of: family.rawValue, options: .caseInsensitive).location != NSNotFound {
@@ -121,14 +130,19 @@ extension String {
     
     func cellHeightForMessage(_ message:String) -> CGFloat {
         
-        var height:CGFloat = 70
+        var height:CGFloat = 80
         
         let size = CGSize(width: 304,height: CGFloat.greatestFiniteMagnitude)
         let  attributes = [NSFontAttributeName:UIFont.setFamilyFontFromAppFont(size: 14)]
         
         let text = message as NSString
+        
+        
         let rect = text.boundingRect(with: size, options:[.usesLineFragmentOrigin, .usesFontLeading, .truncatesLastVisibleLine] , attributes: attributes, context:nil).size.height
-        height += max(rect, 30)
+        
+        
+        
+        height += max(rect, 30) + 10
         
         return height
     }
@@ -147,7 +161,7 @@ class ChabokTextField: UITextField {
         ]
         
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes:attributes)
-
+        
     }
 }
 

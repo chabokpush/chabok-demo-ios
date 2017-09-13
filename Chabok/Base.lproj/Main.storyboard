@@ -318,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="1686" y="193"/>
         </scene>
-        <!--View Controller-->
+        <!--Message View Controller-->
         <scene sceneID="Btl-ku-sOv">
             <objects>
-                <viewController storyboardIdentifier="msg" id="Aor-in-m3x" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="msg" id="Aor-in-m3x" customClass="MessageViewController" customModule="Chabok" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tPM-GV-OUs"/>
                         <viewControllerLayoutGuide type="bottom" id="lE2-6Q-kcq"/>
@@ -498,7 +498,7 @@
                                                     <rect key="frame" x="18" y="45" width="322" height="56"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUM-Jw-RzP">
-                                                            <rect key="frame" x="8" y="7" width="306" height="25.5"/>
+                                                            <rect key="frame" x="8" y="7" width="306" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -778,7 +778,7 @@
                                                     <rect key="frame" x="46" y="45" width="322" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxs-V0-mYY">
-                                                            <rect key="frame" x="8" y="7" width="306" height="25.5"/>
+                                                            <rect key="frame" x="8" y="7" width="306" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1246,7 +1246,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ktz-ni-And" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FLF-hT-gkF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FLF-hT-gkF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

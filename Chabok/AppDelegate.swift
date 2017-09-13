@@ -102,26 +102,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         print(error)
         print(self.manager.failureError)
     }
-
+    
     
     func pushClientManagerDidReceivedMessage(_ message: PushClientMessage!) {
-
+        
         if message.senderId != self.manager.userId {
             if message.messageBody == nil {
                 return
             }
             DispatchQueue.main.async(execute: {
-                if  Message.messageWithMessage(message, context: self.managedObjectContext!) == true {
-                    AudioServicesPlayAlertSound(1007)
+                if message.topicName.contains("public/wall"){
+                    if  Message.messageWithMessage(message, context: self.managedObjectContext!) == true {
+                        AudioServicesPlayAlertSound(1007)
+                    }
+                }else{
+                    if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
+                        AudioServicesPlayAlertSound(1005)
+                    }
                 }
             })
             
         } else {
-             DispatchQueue.main.async(execute: {
+            DispatchQueue.main.async(execute: {
                 Message.messageWithSent(message, context: self.managedObjectContext!)
             })
         }
-
     }
     
     

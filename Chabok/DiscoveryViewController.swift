@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class DiscoveryViewController: UIViewController {
 
@@ -35,21 +36,22 @@ class DiscoveryViewController: UIViewController {
         // start the timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(DiscoveryViewController.setProgressBar), userInfo: nil, repeats: true)
         
-        // dismiss view
-        let tap = UITapGestureRecognizer(target: self, action: #selector(DiscoveryViewController.hide))
-        tap.delegate = self as? UIGestureRecognizerDelegate
-        self.backgroundView.addGestureRecognizer(tap)
-        self.backgroundView.isUserInteractionEnabled = true
-    }
-
-    func hide () {
-        dismiss(animated: true, completion: nil)
+        // lottie animation
+        let animationView = LOTAnimationView(name: "kiss.json")
+        animationView.frame = CGRect(x: 10, y: 30, width: 300, height: 300)
+        animationView.loopAnimation = true
+        self.view.addSubview(animationView)
+        animationView.play()
+    
     }
     
     func getNextPoseData()
     {
         // do next pose stuff
-        currentPoseIndex += 1
+        if currentPoseIndex == 1 {
+            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+        }
         print(currentPoseIndex)
     }
     

@@ -11,9 +11,14 @@ import UIKit
 class InboxTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cornerView: UIView!
+    @IBOutlet weak var inboxImage: UIImageView!
+    @IBOutlet weak var inboxText: UITextView!
+    @IBOutlet weak var inboxImageHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        cornerView.layer.cornerRadius = 10
 
     }
 

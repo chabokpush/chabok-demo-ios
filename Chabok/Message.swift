@@ -21,12 +21,13 @@ extension Message {
     @NSManaged var senderId: String?
     @NSManaged var sent: String?
     @NSManaged var deliveryCount: NSNumber?
+    @NSManaged var topic: String?
     
 }
 
 
 class Message: NSManagedObject {
-
+    
     class func messageWithMessage(_ message: PushClientMessage, context:NSManagedObjectContext) -> Bool {
         print(message)
         let newMessage = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
@@ -34,6 +35,7 @@ class Message: NSManagedObject {
         if message.data != nil {
             newMessage.data = message.data as NSObject?
         }
+//        newMessage.topic = message.topicName
         newMessage.sent = "send"
         newMessage.deliveryCount = 0
         newMessage.senderId = message.senderId
@@ -42,7 +44,7 @@ class Message: NSManagedObject {
         newMessage.id = message.id
         newMessage.createdTime = message.serverTime != nil ? message.serverTime : Date()
         newMessage.new = true
-                
+        
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
         let components = (cal as NSCalendar).components([.day , .month, .year ], from: message.receivedTime)
         let newDate = cal.date(from: components)
@@ -54,9 +56,9 @@ class Message: NSManagedObject {
         } catch {
             
         }
-    
+        
         return false
-
+        
     }
     
     class func messageWithDeliveryId(_ delivery:DeliveryMessage, context:NSManagedObjectContext) {
@@ -84,7 +86,7 @@ class Message: NSManagedObject {
         }
         
     }
-
+    
     
     class func messageWithSent(_ message:PushClientMessage, context:NSManagedObjectContext) {
         
@@ -108,6 +110,6 @@ class Message: NSManagedObject {
                 
             }
         }
-
+        
     }
 }

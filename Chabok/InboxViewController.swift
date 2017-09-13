@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import AdpPushClient
+import SDWebImage
 
 class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate {
     
@@ -16,7 +17,17 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var discoveryBtn: UIButton!
     var manager = PushClientManager()
-
+   
+    
+    var lastIndexPath : IndexPath! {
+        
+        let sectionsAmount = self.inboxTableView.numberOfSections - 1
+        let rowAmount = self.inboxTableView.numberOfRows(inSection: sectionsAmount)
+        let lastIndexPath = IndexPath(row: rowAmount - 1, section: 0)
+        return lastIndexPath
+        
+    }
+    
     let mCntxt = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     var _fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
@@ -28,11 +39,12 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         let managedObjectContext = mCntxt!
         
-        let entity = NSEntityDescription.entity(forEntityName: "Message", in: managedObjectContext)
-        let sort = NSSortDescriptor(key: "createdTime", ascending: true)
-        let sortnew = NSSortDescriptor(key: "new", ascending: true)
+        let entity = NSEntityDescription.entity(forEntityName: "Inbox", in: managedObjectContext)
+        let sort = NSSortDescriptor(key: "createdTime", ascending: false)
+        let sortnew = NSSortDescriptor(key: "new", ascending: false)
         let req : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest()
         req.entity = entity
+//        req.predicate = NSPredicate(format: "message = %@","j")
         req.sortDescriptors = [sort,sortnew]
         req.fetchBatchSize = 10
         
@@ -75,56 +87,110 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         gradient.locations = [0.0, 1.0 , 0.95 , 1.0]
         self.gradientView.layer.addSublayer(gradient)
         
+        inboxTableView.register(UINib(nibName: "InboxView", bundle: nil), forCellReuseIdentifier: "inboxCell")
+
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        PushClientManager.resetBadge()
+
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
-        //        let sectionCount = self.fetchedResultsController.sections!.count;
-        //        return sectionCount
-        return 1
+        let sectionCount = self.fetchedResultsController.sections!.count;
+        return sectionCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        let fetchInfo = self.fetchedResultsController.sections! as [NSFetchedResultsSectionInfo]
-        //        return fetchInfo[section].numberOfObjects
-        return 5
+        let fetchInfo = self.fetchedResultsController.sections! as [NSFetchedResultsSectionInfo]
+        return fetchInfo[section].numberOfObjects
     }
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! Message
+        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! InboxModel
+        let cell :InboxTableViewCell = tableView.dequeueReusableCell(withIdentifier: "inboxCell") as! InboxTableViewCell!
         
-        let cell:InboxTableViewCell = tableView.dequeueReusableCell(withIdentifier: "inboxCell") as! InboxTableViewCell!
-        
-        let card:InboxView = Bundle.main.loadNibNamed("InboxView", owner: self, options: nil)?[0] as! InboxView
-//        card.frame = CGRect(x: 16, y: 16, width: UIScreen.main.bounds.size.width - 17, height: 173)
-        
-//        card.bodyMsg.text = fetchMessage.message
-        
-        
-        var frame: CGRect? = cell.cornerView?.frame
-        frame?.origin.x = 0
-        frame?.origin.y = 0
-        frame?.size.width -= 0
-        frame?.size.height -= 0
-        card.frame = frame!
- 
-        cell.cornerView.addSubview(card)
+        cell.inboxText.text = fetchMessage.message
+
+        if (fetchMessage.data != nil) {
+            let dataModel = DataModel(data: fetchMessage.data as! NSDictionary)
+            if (dataModel.img != nil) {
+                cell.inboxImage.isHidden = false
+                cell.inboxImage.sd_setImage(with: URL(string: dataModel.img!), placeholderImage: UIImage(named:""))
+                cell.inboxImageHeight.constant = (UIScreen.main.bounds.size.width) * 0.5
+            }else{
+                cell.inboxImage.isHidden = true
+                cell.inboxImageHeight.constant = 0
+            }
+        }
+       
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        //        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! Message
-        //        return String().cellHeightForMessage(fetchMessage.message!)
-        return 200
+        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! InboxModel
+        return String().cellHeightForMessage(fetchMessage.message!)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
+    
+    //MARK: - NSFetchResultController
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.inboxTableView.endUpdates()
+    }
+    
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            self.inboxTableView.deleteRows(at: [indexPath!], with: .automatic)
+            break
+        case .insert:
+            self.inboxTableView.insertRows(at: [newIndexPath!], with: .automatic)
+            break
+        case .move:
+            self.inboxTableView.deleteRows(at: [indexPath!], with: .automatic)
+            self.inboxTableView.insertRows(at: [newIndexPath!], with: .automatic)
+            break
+        case .update:
+            self.inboxTableView.reloadRows(at: [indexPath!], with: .automatic)
+            break
+            
+        }
+        
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .delete:
+            self.inboxTableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+            break
+        case .insert:
+            self.inboxTableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+            break
+        case .update:
+            self.inboxTableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
+            break
+        default:
+            break
+        }
+        
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.inboxTableView.beginUpdates()
+    }
     
     @IBAction func aboutChabok(_ sender: UIBarButtonItem) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)

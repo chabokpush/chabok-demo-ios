@@ -30,6 +30,7 @@
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
 		C5BC1D511F5CD13900C45E60 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D501F5CD13900C45E60 /* AvatarViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
+		C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */; };
 		F805EA271C6639A00098276A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805EA251C6639A00098276A /* Message.swift */; };
 		F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DD5A1C60811600C1F355 /* AppDelegate.swift */; };
 		F892DD5D1C60811600C1F355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DD5C1C60811600C1F355 /* ViewController.swift */; };
@@ -78,6 +79,7 @@
 		C5BC1D501F5CD13900C45E60 /* AvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarViewController.swift; path = AdpPushClient.framework/AvatarViewController.swift; sourceTree = "<group>"; };
 		C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C5BC1D541F5CD26400C45E60 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerView.swift; sourceTree = "<group>"; };
 		F805EA251C6639A00098276A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F892DD571C60811600C1F355 /* Chabok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chabok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F892DD5A1C60811600C1F355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				C59A9E0F1F5DBC1400825675 /* GradientView.swift */,
 				C59A9E111F5DCE8100825675 /* CornerButton.swift */,
 				C59A9E131F5DD7D200825675 /* CornerTextField.swift */,
+				C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */,
 				C54205891F609F1E0026661D /* View+Animation.swift */,
 				C542058D1F60C76F0026661D /* NavigationViewController.swift */,
 				C55E59EA1F65FB350051375A /* YellowGradientView.swift */,
@@ -410,6 +413,7 @@
 				F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */,
 				C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */,
 				C542058E1F60C76F0026661D /* NavigationViewController.swift in Sources */,
+				C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */,
 				F805EA271C6639A00098276A /* Message.swift in Sources */,
 				F892DDBC1C60D23600C1F355 /* AboutViewController.swift in Sources */,
 				C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */,

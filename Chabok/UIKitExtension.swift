@@ -130,7 +130,7 @@ extension String {
     
     func cellHeightForMessage(_ message:String) -> CGFloat {
         
-        var height:CGFloat = 80
+        var height:CGFloat = 50
         
         let size = CGSize(width: 304,height: CGFloat.greatestFiniteMagnitude)
         let  attributes = [NSFontAttributeName:UIFont.setFamilyFontFromAppFont(size: 14)]

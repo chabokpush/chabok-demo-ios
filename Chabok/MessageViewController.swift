@@ -67,10 +67,8 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     var textIntry: UITextField!
     var manager = PushClientManager()
-    
-    
-    
-    
+    var AvatarImage = String()
+
     //MARK: - LifeCycle Methods
     
     override func viewDidLoad() {
@@ -78,14 +76,14 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         self.title = "دیوار چابک"
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
-        buttonMessage.layer.borderWidth = 1
-        buttonMessage.layer.borderColor = UIColor.fromRGB(0x00325d).cgColor
-        buttonMessage.layer.cornerRadius = 3
+    //  buttonMessage.layer.borderWidth = 1
+    //  buttonMessage.layer.borderColor = UIColor.fromRGB(0x00325d).cgColor
+        buttonMessage.layer.cornerRadius = 13
         buttonMessage.addTarget(self, action: #selector(MessageViewController.publishMessage), for: .touchUpInside)
         
-        textfieldMessage.layer.borderWidth = 1
+        textfieldMessage.layer.borderWidth = 0.25
         textfieldMessage.layer.borderColor = UIColor.fromRGB(0x525d7a).cgColor
-        textfieldMessage.layer.cornerRadius = 3
+        textfieldMessage.layer.cornerRadius = 15
         
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 35))
         textfieldMessage.leftView = paddingView
@@ -134,7 +132,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! Message
         return String().cellHeightForMessage(fetchMessage.message!)
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -150,19 +147,18 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChabokTableCell
             cell.msg.text = fetchMessage.message
-            cell.avatarName.text = sender
-            cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
+          //  cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
             if fetchMessage.sent == "send" {
-                cell.sendImg.image = UIImage(named: "tick")
+                cell.avatarName.text = "تحویل داده شد"
             } else {
-                cell.sendImg.image = UIImage(named: "tick-green")
+                cell.avatarName.text = "خطا در ارسال"
             }
-            let dateFormatter = DateFormatter()
-            dateFormatter.calendar = Calendar(identifier: .persian)
-            dateFormatter.locale = Locale(identifier: "fa_IR")
-            dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
-            cell.recieveTime.text = time
+            //   let dateFormatter = DateFormatter()
+            //  dateFormatter.calendar = Calendar(identifier: .persian)
+            //   dateFormatter.locale = Locale(identifier: "fa_IR")
+            //    dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
+            //    let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
+            //     cell.recieveTime.text = time
             return cell
             
         } else {
@@ -170,13 +166,16 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             let cell = tableView.dequeueReusableCell(withIdentifier: "uCell", for: indexPath) as! ChabokUserTableCell
             cell.msg.text  = fetchMessage.message
             cell.avatarName.text = sender
-            let dateFormatter = DateFormatter()
-            dateFormatter.calendar = Calendar(identifier: .persian)
-            dateFormatter.locale = Locale(identifier: "fa_IR")
-            dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
+            cell.sendImage.sd_setImage(with: URL(string:AvatarImage), placeholderImage: UIImage(named:""))
+
+            // let dateFormatter = DateFormatter()
+            //dateFormatter.calendar = Calendar(identifier: .persian)
+            // dateFormatter.locale = Locale(identifier: "fa_IR")
+            //dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
+            //  let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             
-            cell.recieveTime.text = time
+            //     cell.recieveTime.text = time
+
             return cell
         }
         
@@ -299,6 +298,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
 
 class ChabokUserTableCell: UITableViewCell {
     
+    @IBOutlet weak var sendImage: UIImageView!
     @IBOutlet var recieveTime: UILabel!
     @IBOutlet var msgBackground: UIView!
     @IBOutlet var avatarView: UIView!

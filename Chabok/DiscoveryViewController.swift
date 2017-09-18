@@ -14,8 +14,7 @@ class DiscoveryViewController: UIViewController {
     @IBOutlet weak var backgroundView: YellowGradientView!
     @IBOutlet weak var percentLbl: UILabel!
     @IBOutlet weak var percentProgress: UIProgressView!
-    @IBOutlet weak var discoveryImage: UIImageView!
-    var poseDuration = 10
+    var poseDuration = 11
     var indexProgressBar = 1
     var currentPoseIndex = 0
     var timer = Timer()
@@ -23,7 +22,6 @@ class DiscoveryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        discoveryImage.layer.cornerRadius = 75
         percentProgress.transform = percentProgress.transform.scaledBy(x: 1, y: 7)
         percentProgress.layer.cornerRadius = 8
         percentProgress.clipsToBounds = true
@@ -34,7 +32,7 @@ class DiscoveryViewController: UIViewController {
         getNextPoseData()
         
         // start the timer
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(DiscoveryViewController.setProgressBar), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(DiscoveryViewController.setProgressBar), userInfo: nil, repeats: true)
         
         // lottie animation
         let animationView = LOTAnimationView(name: "kiss.json")
@@ -57,12 +55,17 @@ class DiscoveryViewController: UIViewController {
     
     func setProgressBar()
     {
-        if indexProgressBar == poseDuration
+        if indexProgressBar == 11
         {
-            getNextPoseData()
+//            getNextPoseData()
             
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "rewardViewID") as! RewardViewController
+            self.navigationController?.pushViewController(newViewController, animated: true)
+
             // reset the progress counter
-            indexProgressBar = 1
+//            indexProgressBar = 1
+            
         }
         
         // update the display

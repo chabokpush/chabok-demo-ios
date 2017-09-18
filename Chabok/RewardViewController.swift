@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import Lottie
 
 class RewardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // lottie animation
+        let animationView = LOTAnimationView(name: "kiss.json")
+        animationView.frame = CGRect(x: 10, y: 30, width: 300, height: 300)
+        animationView.loopAnimation = true
+        self.view.addSubview(animationView)
+        animationView.play()
+    
     }
 
     @IBAction func dismissBtnClick(_ sender: Any) {
-        
+        self.navigationController?.popToRootViewController(animated: true)
+
     }
 }

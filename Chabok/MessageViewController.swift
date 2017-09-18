@@ -115,7 +115,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         }
     }
     
-    
     //MARK: - table view delegates and data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -235,18 +234,17 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     }
     
     func keyboardWillShow(_ notification:Notification) {
-        
+
         let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         print(keyboardSize?.height)
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
+        let contentInsets = UIEdgeInsetsMake(50.0, 50.0, keyboardSize!.height , 0.0)
         self.tableView.scrollIndicatorInsets = contentInsets
         if lastIndexPath.row > 0 {
-            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+            self.tableView.scrollToRow(at: lastIndexPath, at: .top, animated: true)
         }
         
         let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
         let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
-        
         
         setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
         

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2z-iG-sZi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2z-iG-sZi">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -298,6 +298,7 @@
                     </view>
                     <connections>
                         <outlet property="avatarView" destination="6cM-cG-AFb" id="cDo-et-8qJ"/>
+                        <outlet property="nextPageBtn" destination="GDi-pa-Qbf" id="zUe-UK-3VH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQZ-8v-n4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,14 +429,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Dr-c4-OCz">
-                                <rect key="frame" x="85" y="110" width="150" height="150"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="myL-xB-APA"/>
-                                    <constraint firstAttribute="height" constant="150" id="q1t-n2-tgw"/>
-                                </constraints>
-                            </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-qW-tnV">
                                 <rect key="frame" x="51" y="310" width="217" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -463,8 +456,6 @@
                             <constraint firstItem="4ic-oc-cj7" firstAttribute="top" secondItem="LDk-tn-uPG" secondAttribute="bottom" id="JsD-rK-u8S"/>
                             <constraint firstAttribute="trailing" secondItem="Sba-qW-tnV" secondAttribute="trailing" constant="52" id="KGJ-xx-3pl"/>
                             <constraint firstItem="LDk-tn-uPG" firstAttribute="top" secondItem="57N-Jh-GeS" secondAttribute="top" id="Lwq-tt-TGc"/>
-                            <constraint firstItem="5Dr-c4-OCz" firstAttribute="top" secondItem="tHQ-eI-6F6" secondAttribute="bottom" constant="90" id="Mx3-sa-Kq3"/>
-                            <constraint firstItem="5Dr-c4-OCz" firstAttribute="centerX" secondItem="57N-Jh-GeS" secondAttribute="centerX" id="Oby-lf-FYd"/>
                             <constraint firstItem="4ic-oc-cj7" firstAttribute="top" secondItem="84I-I9-x5M" secondAttribute="bottom" constant="164" id="Orb-8y-mSj"/>
                             <constraint firstItem="Sba-qW-tnV" firstAttribute="leading" secondItem="57N-Jh-GeS" secondAttribute="leading" constant="51" id="epe-RD-gDW"/>
                             <constraint firstItem="LDk-tn-uPG" firstAttribute="leading" secondItem="57N-Jh-GeS" secondAttribute="leading" id="opM-xl-z2P"/>
@@ -474,7 +465,6 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="LDk-tn-uPG" id="CVe-ty-lAh"/>
-                        <outlet property="discoveryImage" destination="5Dr-c4-OCz" id="d6Q-Sm-pVV"/>
                         <outlet property="percentLbl" destination="84I-I9-x5M" id="FIs-2N-4BL"/>
                         <outlet property="percentProgress" destination="Sba-qW-tnV" id="mAs-lL-DPs"/>
                     </connections>
@@ -499,13 +489,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WQl-NI-GXK">
-                                <rect key="frame" x="55" y="70" width="210" height="210"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="J9i-pD-8Lf"/>
-                                    <constraint firstAttribute="width" constant="210" id="bmt-8w-LYi"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="باید بیشتر کاوش کنیم.این طرفا خبری از گنج نیست!" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CwM-DD-xeg">
                                 <rect key="frame" x="20" y="332" width="280" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -513,7 +496,7 @@
                                     <constraint firstAttribute="height" constant="80" id="v7H-ug-3r9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-cb-oHv" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
@@ -537,9 +520,7 @@
                         <constraints>
                             <constraint firstItem="qtW-hr-1uq" firstAttribute="top" secondItem="Anw-tM-R24" secondAttribute="bottom" id="10I-yY-PjD"/>
                             <constraint firstItem="qtW-hr-1uq" firstAttribute="top" secondItem="Anw-tM-R24" secondAttribute="bottom" id="4CG-yL-TYs"/>
-                            <constraint firstItem="WQl-NI-GXK" firstAttribute="centerX" secondItem="JOj-UL-vP1" secondAttribute="centerX" id="8nJ-uH-nA8"/>
                             <constraint firstAttribute="trailing" secondItem="Anw-tM-R24" secondAttribute="trailing" id="9Tn-XW-Kch"/>
-                            <constraint firstItem="WQl-NI-GXK" firstAttribute="top" secondItem="k4H-hx-0nK" secondAttribute="bottom" constant="50" id="APC-Of-aSR"/>
                             <constraint firstItem="CwM-DD-xeg" firstAttribute="leading" secondItem="JOj-UL-vP1" secondAttribute="leading" constant="20" id="F3W-Yw-meh"/>
                             <constraint firstItem="jEn-cb-oHv" firstAttribute="top" secondItem="CwM-DD-xeg" secondAttribute="bottom" constant="52" id="IXW-0d-Tgg"/>
                             <constraint firstItem="jEn-cb-oHv" firstAttribute="centerX" secondItem="JOj-UL-vP1" secondAttribute="centerX" id="Ie4-DS-Bg0"/>
@@ -573,13 +554,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R8M-LS-YiG">
-                                <rect key="frame" x="55" y="70" width="210" height="210"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="o0J-fP-lSG"/>
-                                    <constraint firstAttribute="width" constant="210" id="sZX-NK-wBH"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="شما یه شارژ ۵۰۰۰ تومانی پیدا کردین!" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
                                 <rect key="frame" x="20" y="332" width="280" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -587,7 +561,7 @@
                                     <constraint firstAttribute="height" constant="80" id="f0p-gB-eS9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9o-0A-3yL" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
@@ -615,9 +589,7 @@
                             <constraint firstItem="c7p-em-mD4" firstAttribute="top" secondItem="NHl-gk-T9T" secondAttribute="top" id="Lva-kj-s3X"/>
                             <constraint firstItem="RAO-q1-QxS" firstAttribute="top" secondItem="b9o-0A-3yL" secondAttribute="bottom" constant="40" id="TYH-2t-EKM"/>
                             <constraint firstAttribute="trailing" secondItem="c7p-em-mD4" secondAttribute="trailing" id="ZMf-wb-drt"/>
-                            <constraint firstItem="R8M-LS-YiG" firstAttribute="top" secondItem="B9B-Ia-78g" secondAttribute="bottom" constant="50" id="aXH-px-22g"/>
                             <constraint firstItem="RAO-q1-QxS" firstAttribute="top" secondItem="c7p-em-mD4" secondAttribute="bottom" id="gar-bJ-bV3"/>
-                            <constraint firstItem="R8M-LS-YiG" firstAttribute="centerX" secondItem="NHl-gk-T9T" secondAttribute="centerX" id="jBq-fQ-V7a"/>
                             <constraint firstItem="nBE-gs-5oI" firstAttribute="leading" secondItem="NHl-gk-T9T" secondAttribute="leading" constant="20" id="ndo-DX-7MN"/>
                             <constraint firstItem="b9o-0A-3yL" firstAttribute="centerX" secondItem="NHl-gk-T9T" secondAttribute="centerX" id="nmU-AF-23g"/>
                             <constraint firstItem="c7p-em-mD4" firstAttribute="leading" secondItem="NHl-gk-T9T" secondAttribute="leading" id="qEm-sS-kmG"/>
@@ -1200,12 +1172,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUT-Vy-C57" customClass="CornerView" customModule="Chabok" customModuleProvider="target">
-                                                    <rect key="frame" x="64" y="13" width="249" height="38"/>
+                                                    <rect key="frame" x="64" y="13.5" width="249" height="37.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h8w-fE-Bka">
-                                                            <rect key="frame" x="8" y="7" width="233" height="21"/>
+                                                            <rect key="frame" x="8" y="7" width="233" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>

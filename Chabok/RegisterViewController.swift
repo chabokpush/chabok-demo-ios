@@ -9,7 +9,7 @@
 import UIKit
 import AdpPushClient
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController,UITextFieldDelegate {
 
     var image = UIImage()
     var avatarIndex = NSInteger()
@@ -27,19 +27,10 @@ class RegisterViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.hideKeyboard))
         self.view.addGestureRecognizer(tap)
         
-        familyName.delegate = self as? UITextFieldDelegate
-        phone.delegate = self as? UITextFieldDelegate
+        familyName.delegate = self
+        phone.delegate = self
 
     }
-
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        familyName.becomeFirstResponder()
-        phone.becomeFirstResponder()
-
-    }
-    
     
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
@@ -56,11 +47,11 @@ class RegisterViewController: UIViewController {
         var message: String = ""
         let actionTitle: String = "خطا"
 
-        if familyName.text == "" && (familyName.text?.length)! < 2 {
+        if (familyName.text?.characters.count)! < 3 {
             message = "نام خود را وارد کنید\n"
         }
-        if phone.text == ""  && (phone.text?.length)! < 11{
-            message += "شماره تماس خود را وارد کنید"
+        if !isOnlyNumber(input: phone.text!) || (phone.text?.characters.count)! < 11{
+                message += "شماره تماس خود را وارد کنید"
         }
         
         if message.length > 0 {
@@ -87,7 +78,9 @@ class RegisterViewController: UIViewController {
             
             return
         }
-        
+
+//        phone.text = persianNumberToEnglish(mobileNumber:phone.text!)
+
         self.manager = PushClientManager.default()
         let userPass = AppDelegate.userNameAndPassword()
         if self.manager.registerApplication(AppDelegate.applicationId(), apiKey: userPass.apikey,
@@ -151,7 +144,7 @@ class RegisterViewController: UIViewController {
         let height: CGFloat = UIScreen.main.bounds.size.height
         UIView.animate(withDuration: 0.5, animations: {() -> Void in
             var f: CGRect = self.view.frame
-            f.origin.y = (-1 * (height / 4.5)) + 64.0
+            f.origin.y = (-1 * (height / 4.5))
             self.view.frame = f
         })
     }
@@ -159,8 +152,31 @@ class RegisterViewController: UIViewController {
     func keyboardWillHide() {
         UIView.animate(withDuration: 0.4, animations: {() -> Void in
             var f: CGRect = self.view.frame
-            f.origin.y = 64.0
+            f.origin.y = 0.0
             self.view.frame = f
         })
     }
+    
+    func isOnlyNumber(input: String) -> Bool {
+        
+        let cs = CharacterSet(charactersIn: "0123456789۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩").inverted
+        var filtered: String = (input.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
+        if (filtered.characters.count ) == input.length {
+            return true
+        }
+        return false
+    }
+    
+    func persianNumberToEnglish(mobileNumber: String) -> String {
+        let Formatter = NumberFormatter()
+        let locale = NSLocale(localeIdentifier: "en")
+        Formatter.locale = locale as Locale!
+        let newNum = Formatter.number(from: mobileNumber)
+        if mobileNumber.hasPrefix("0") || mobileNumber.hasPrefix("۰") || mobileNumber.hasPrefix("٠") {
+            return "0\(String(describing: newNum))"
+        }
+        return String(describing: newNum)
+    }
+
 }
+

@@ -15,6 +15,13 @@ class CornerView: UIView {
         
         self.layer.cornerRadius = 10;
         
+        //       let maskPath = UIBezierPath(roundedRect: self.bounds,
+        //                                    byRoundingCorners: [.topLeft,.topRight,.bottomRight],
+        //                                   cornerRadii: CGSize(width: 5.0, height: UIScreen.main.bounds.size.height))
+        //       let maskLayer = CAShapeLayer()
+        //       maskLayer.path = maskPath.cgPath
+        //        self.layer.mask = maskLayer
+        
     }
 
 }

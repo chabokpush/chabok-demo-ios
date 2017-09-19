@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
                 print("Error : \(self.manager.failureError)")
                 
             }
+            
         }
         
         let attributes = [

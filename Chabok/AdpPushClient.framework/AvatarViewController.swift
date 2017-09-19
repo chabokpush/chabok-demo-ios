@@ -13,15 +13,18 @@ class AvatarViewController: UIViewController {
     @IBOutlet weak var avatarView: UIView!
     var imageWasSelected = UIImage()
     var selectedAvatarIndex = NSInteger()
-    
     @IBOutlet weak var nextPageBtn: CornerButton!
+    
     var avatarSelectedArr : NSArray = [#imageLiteral(resourceName: "avatar1selected"),#imageLiteral(resourceName: "avatar2selected"),#imageLiteral(resourceName: "avatar3selected"),#imageLiteral(resourceName: "avatar4selected")]
     var avatarNotselectedArr : NSArray = [#imageLiteral(resourceName: "avatar1"),#imageLiteral(resourceName: "avatar2"),#imageLiteral(resourceName: "avatar3"),#imageLiteral(resourceName: "avatar4")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         nextPageBtn.isEnabled = false
+        nextPageBtn.isEnabled = false
+        nextPageBtn.setTitle("کاپیتان چابکت رو انتخاب کن ", for: .normal)
+        nextPageBtn.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        nextPageBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
     }
     
     @IBAction func avatar1Click(_ sender: Any) {
@@ -64,10 +67,14 @@ class AvatarViewController: UIViewController {
         
         resetAvatarSelection()
         nextPageBtn.isEnabled = true
+        nextPageBtn.setTitle("برو بعدی", for: .normal)
+        nextPageBtn.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.6274509804, blue: 0, alpha: 1)
+        nextPageBtn.setTitleColor(#colorLiteral(red: 0.4705882353, green: 0.2941176471, blue: 0.168627451, alpha: 1), for: .normal)
+        
         let btn = avatarView.subviews[index] as! UIButton
         btn.setImage(avatarSelectedArr[index] as? UIImage, for: .normal)
 
-        imageWasSelected = (avatarNotselectedArr[index] as? UIImage)!
+        imageWasSelected = (avatarSelectedArr[index] as? UIImage)!
         selectedAvatarIndex = index
         
     }

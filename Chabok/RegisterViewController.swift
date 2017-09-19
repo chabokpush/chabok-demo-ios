@@ -50,7 +50,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         if (familyName.text?.characters.count)! < 3 {
             message = "نام خود را وارد کنید\n"
         }
-        if !isOnlyNumber(input: phone.text!) || (phone.text?.characters.count)! < 11{
+        if !isOnlyNumber(input: phone.text!) || (phone.text?.characters.count)! < 11 {
                 message += "شماره تماس خود را وارد کنید"
         }
         
@@ -79,7 +79,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             return
         }
 
-//        phone.text = persianNumberToEnglish(mobileNumber:phone.text!)
+//       phone.text? = persianNumberToEnglish(mobileNumber:phone.text!)
 
         self.manager = PushClientManager.default()
         let userPass = AppDelegate.userNameAndPassword()
@@ -93,6 +93,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             
             let defaults = UserDefaults.standard
             defaults.setValue(self.familyName.text, forKey: "name")
+            defaults.setValue(self.image.images, forKey: "avatar")
             defaults.synchronize()
 
             // Navigate to Inbox
@@ -179,4 +180,3 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     }
 
 }
-

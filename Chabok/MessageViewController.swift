@@ -141,39 +141,46 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         if let senderName = fetchMessage.data?.value(forKey: "name") {
             sender = senderName as! String
         }
-        
+
         if sender == UserDefaults.standard.value(forKey: "name") as! String {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChabokTableCell
             cell.msg.text = fetchMessage.message
           //  cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
             if fetchMessage.sent == "send" {
-                cell.avatarName.text = "تحویل داده شد"
+                cell.messageState.text = "تحویل داده شد"
+                cell.deliverImg.isHidden = false
             } else {
-                cell.avatarName.text = "خطا در ارسال"
+                cell.messageState.text = "خطا در ارسال"
+                cell.deliverImg.isHidden = true
             }
-            //   let dateFormatter = DateFormatter()
-            //  dateFormatter.calendar = Calendar(identifier: .persian)
-            //   dateFormatter.locale = Locale(identifier: "fa_IR")
-            //    dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            //    let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
-            //     cell.recieveTime.text = time
+               let dateFormatter = DateFormatter()
+              dateFormatter.calendar = Calendar(identifier: .persian)
+               dateFormatter.locale = Locale(identifier: "fa_IR")
+                dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
+                let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
+                 cell.recieveTime.text = time
             return cell
             
         } else {
             
+//            var avatar:String = "BlueChabok"
+//            if  let avatarImg = fetchMessage.data?.value(forKey: "avatar") {
+//                avatar = avatarImg as! String
+//            }
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "uCell", for: indexPath) as! ChabokUserTableCell
             cell.msg.text  = fetchMessage.message
             cell.avatarName.text = sender
-            cell.sendImage.sd_setImage(with: URL(string:AvatarImage), placeholderImage: UIImage(named:""))
+//            cell.sendImage.sd_setImage(with: URL(string:avatar), placeholderImage: UIImage(named:"BlueChabok"))
 
-            // let dateFormatter = DateFormatter()
-            //dateFormatter.calendar = Calendar(identifier: .persian)
-            // dateFormatter.locale = Locale(identifier: "fa_IR")
-            //dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            //  let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
+             let dateFormatter = DateFormatter()
+            dateFormatter.calendar = Calendar(identifier: .persian)
+             dateFormatter.locale = Locale(identifier: "fa_IR")
+            dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
+              let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             
-            //     cell.recieveTime.text = time
+                 cell.recieveTime.text = time
 
             return cell
         }
@@ -237,7 +244,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
 
         let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         print(keyboardSize?.height)
-        let contentInsets = UIEdgeInsetsMake(50.0, 50.0, keyboardSize!.height , 0.0)
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
         self.tableView.scrollIndicatorInsets = contentInsets
         if lastIndexPath.row > 0 {
             self.tableView.scrollToRow(at: lastIndexPath, at: .top, animated: true)
@@ -278,7 +285,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             self.textfieldMessage.text = ""
             
         }
-        
     }
     
     func setViewMoveUp(_ moveUp:Bool,originY:CGFloat = 0,curve:UIViewAnimationCurve, duration:Double) {
@@ -297,18 +303,19 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
 class ChabokUserTableCell: UITableViewCell {
     
     @IBOutlet weak var sendImage: UIImageView!
-    @IBOutlet var recieveTime: UILabel!
     @IBOutlet var msgBackground: UIView!
     @IBOutlet var avatarView: UIView!
     @IBOutlet var msg: UILabel!
     @IBOutlet var avatarName: UILabel!
+    @IBOutlet weak var recieveTime: UILabel!
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.msgBackground.layer.cornerRadius = 3
+//        self.msgBackground.layer.cornerRadius = 3
+        
         //   self.avatarView.layer.cornerRadius = 13
         //    self.avatarView.layer.borderWidth = 1.5
         //  self.avatarView.layer.borderColor = UIColor.fromRGB(0x65527a).CGColor
@@ -318,20 +325,20 @@ class ChabokUserTableCell: UITableViewCell {
 class ChabokTableCell: UITableViewCell {
     
     @IBOutlet var sendImg: UIImageView!
-    @IBOutlet var recieveTime: UILabel!
     @IBOutlet var deliveryCounter: UILabel!
     @IBOutlet var avatarView: UIView!
     @IBOutlet var msg: UILabel!
     @IBOutlet var msgBackground: UIView!
-    @IBOutlet var avatarName: UILabel!
+    @IBOutlet var messageState: UILabel!
+    @IBOutlet weak var recieveTime: UILabel!
+    @IBOutlet weak var deliverImg: UIImageView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        self.msgBackground.layer.cornerRadius = 3
-        //        self.avatarView.layer.cornerRadius = 13
+                
+//        self.msgBackground.layer.cornerRadius = 3
+//                self.avatarView.layer.cornerRadius = 13
         //        self.avatarView.layer.borderWidth = 1.5
         //        self.avatarView.layer.borderColor = UIColor.fromRGB(0x525d7a).CGColor
     }

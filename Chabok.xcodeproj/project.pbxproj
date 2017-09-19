@@ -21,6 +21,7 @@
 		C55E59E71F65BB620051375A /* InboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C55E59E61F65BB620051375A /* InboxView.xib */; };
 		C55E59E91F65BE790051375A /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59E81F65BE790051375A /* InboxTableViewCell.swift */; };
 		C55E59EB1F65FB350051375A /* YellowGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59EA1F65FB350051375A /* YellowGradientView.swift */; };
+		C56B87081F703BFA004E4627 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B87071F703BFA004E4627 /* SettingViewController.swift */; };
 		C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E0F1F5DBC1400825675 /* GradientView.swift */; };
 		C59A9E121F5DCE8100825675 /* CornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E111F5DCE8100825675 /* CornerButton.swift */; };
 		C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E131F5DD7D200825675 /* CornerTextField.swift */; };
@@ -69,6 +70,7 @@
 		C55E59E61F65BB620051375A /* InboxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxView.xib; sourceTree = "<group>"; };
 		C55E59E81F65BE790051375A /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		C55E59EA1F65FB350051375A /* YellowGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowGradientView.swift; sourceTree = "<group>"; };
+		C56B87071F703BFA004E4627 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C59A9E0F1F5DBC1400825675 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C59A9E111F5DCE8100825675 /* CornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
 		C59A9E131F5DD7D200825675 /* CornerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerTextField.swift; sourceTree = "<group>"; };
@@ -127,6 +129,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C56B87091F703CD0004E4627 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				C548B05F1F68AD010018C7C3 /* kiss.json */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		C56B870A1F703CF4004E4627 /* Inbox Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C55E59E61F65BB620051375A /* InboxView.xib */,
+				C55E59E81F65BE790051375A /* InboxTableViewCell.swift */,
+			);
+			name = "Inbox Cell";
+			sourceTree = "<group>";
+		};
 		C59A9E0E1F5DBBF100825675 /* SubClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,9 +175,9 @@
 		C5BC1D4D1F5CD10F00C45E60 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				C55E59E61F65BB620051375A /* InboxView.xib */,
-				C55E59E81F65BE790051375A /* InboxTableViewCell.swift */,
 				C59A9E0E1F5DBBF100825675 /* SubClass */,
+				C56B87091F703CD0004E4627 /* Animations */,
+				C56B870A1F703CF4004E4627 /* Inbox Cell */,
 				C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */,
 				C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */,
 				C5BC1D501F5CD13900C45E60 /* AvatarViewController.swift */,
@@ -167,6 +186,7 @@
 				C542058F1F60CB620026661D /* InboxViewController.swift */,
 				C54205911F60CB980026661D /* RewardViewController.swift */,
 				C54205931F60D1000026661D /* FailedViewController.swift */,
+				C56B87071F703BFA004E4627 /* SettingViewController.swift */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -203,7 +223,6 @@
 		F892DD591C60811600C1F355 /* Chabok */ = {
 			isa = PBXGroup;
 			children = (
-				C548B05F1F68AD010018C7C3 /* kiss.json */,
 				C5BC1D481F5CD09400C45E60 /* Fobts */,
 				6FE31F371DD98D5D007EBC2F /* Chabok.entitlements */,
 				F805EA281C6639AB0098276A /* DataModel */,
@@ -417,6 +436,7 @@
 				F805EA271C6639A00098276A /* Message.swift in Sources */,
 				F892DDBC1C60D23600C1F355 /* AboutViewController.swift in Sources */,
 				C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */,
+				C56B87081F703BFA004E4627 /* SettingViewController.swift in Sources */,
 				C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */,
 				C54205901F60CB620026661D /* InboxViewController.swift in Sources */,
 				F892DDBA1C60D22600C1F355 /* MessageViewController.swift in Sources */,

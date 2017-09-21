@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Farshad Mousalou. All rights reserved.
 //
 
+//--------------------------Move all method to ChabokClientMessage class---------------------
 #import <Foundation/Foundation.h>
 
 @interface PushClientMessage : NSObject
@@ -20,6 +21,7 @@
 @property (nonatomic, readonly) NSString *senderId;
 @property (nonatomic, readonly) NSString *sentId;
 @property (nonatomic, readwrite) BOOL inApp;
+@property (nonatomic, readwrite) BOOL live;
 @property (nonatomic, readwrite) BOOL stateful;
 @property (nonatomic, readwrite) BOOL useAsAlert;
 @property (nonatomic, readwrite) BOOL silent;
@@ -32,6 +34,8 @@
 - (instancetype)initWithMessage:(NSString *)content topic:(NSString *)topic;
 
 - (instancetype)initWithMessage:(NSString *)content withData:(NSDictionary *)data topic:(NSString *)topic;
+
+- (NSData *)toDict;
 
 - (NSData *)toData;
 

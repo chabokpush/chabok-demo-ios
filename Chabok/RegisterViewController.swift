@@ -78,8 +78,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             
             return
         }
-
-//       phone.text? = persianNumberToEnglish(mobileNumber:phone.text!)
+    
+        let phoneNumber: String = phone.text!
+        phone.text = persianNumberToEnglish(mobileNumber:phoneNumber)
 
         self.manager = PushClientManager.default()
         let userPass = AppDelegate.userNameAndPassword()
@@ -171,12 +172,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     func persianNumberToEnglish(mobileNumber: String) -> String {
         let Formatter = NumberFormatter()
         let locale = NSLocale(localeIdentifier: "en")
-        Formatter.locale = locale as Locale!
+        Formatter.locale = locale as Locale
         let newNum = Formatter.number(from: mobileNumber)
         if mobileNumber.hasPrefix("0") || mobileNumber.hasPrefix("۰") || mobileNumber.hasPrefix("٠") {
-            return "0\(String(describing: newNum))"
+            return "0\(Formatter.string(from: newNum!)!)"
         }
-        return String(describing: newNum)
+        
+        return Formatter.string(from: newNum!)!
     }
 
 }

@@ -26,11 +26,11 @@ class AboutViewController: UIViewController {
     
     func navigateToSetting() {
         
-
         let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
         let vc: SettingViewController? = storyBoard.instantiateViewController(withIdentifier:  "settingViewID") as? SettingViewController
-        self.present(vc!, animated: true, completion: nil)
-
+//        self.present(vc!, animated: true, completion: nil)
+        vc?.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(vc!, animated: true)
     }
     @IBAction func openUrl(_ sender: Any) {
         if let url = URL(string: "http://www.chabokpush.com") {

@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     
     var window: UIWindow?
     var manager = PushClientManager()
-
+    // use for location
+    var locationManager = CoreGeoLocation()
+    
     
     class func applicationId() -> String{
         return "chabok-demo"
@@ -31,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+  
         PushClientManager.setDevelopment(false)
         PushClientManager.resetBadge()
         self.manager = PushClientManager.default()
@@ -46,9 +48,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         if let userId = self.manager.userId {
             if !self.manager.registerUser(userId) {
                 print("Error : \(self.manager.failureError)")
-                
             }
-            
+            // use for location
+            locationManager = self.manager.instanceCoreGeoLocation
+            if #available(iOS 90000, *) {
+                locationManager.allowBackgroundLocationUpdates = true
+            }
+            if ((launchOptions?[UIApplicationLaunchOptionsKey.location]) != nil) {
+                
+                locationManager.distanceFilter = 500
+                locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+            }else{
+                locationManager.distanceFilter = 50
+                locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            }
+            locationManager.startMonitoringSignificantLocationChanges()
+
         }
         
         let attributes = [

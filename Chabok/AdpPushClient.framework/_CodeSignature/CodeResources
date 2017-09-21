@@ -10,7 +10,11 @@
 		</data>
 		<key>Headers/AdpPushClient.h</key>
 		<data>
-		juuopZUWVFPJhw1mUjKeg7phlv0=
+		xqbZPOTenQyTzp1OqONCM8BCS5E=
+		</data>
+		<key>Headers/CoreGeoLocation.h</key>
+		<data>
+		Nk4gFaudXXnMJA+vnqobjmMq8lw=
 		</data>
 		<key>Headers/DeliveryMessage.h</key>
 		<data>
@@ -18,11 +22,11 @@
 		</data>
 		<key>Headers/PushClientManager.h</key>
 		<data>
-		CcjUqBIm94ZH/pjiw06sOjq+9c4=
+		aBL5KNp3oKxm6ZkUvjiXn1M0BNk=
 		</data>
 		<key>Headers/PushClientMessage.h</key>
 		<data>
-		dByFDOe3R6okwbsaSX1fgQ/DQrY=
+		Xn/zzYI+IcBj+NTYf0etR6x2IfI=
 		</data>
 		<key>Headers/PushClientServerReachability.h</key>
 		<data>
@@ -30,7 +34,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dSxNzLPgBwnPvap4ctPBhm7UtMc=
+		+VO8K+yBQFuDXkCnryWgQ9W31nI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -54,11 +58,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			juuopZUWVFPJhw1mUjKeg7phlv0=
+			xqbZPOTenQyTzp1OqONCM8BCS5E=
 			</data>
 			<key>hash2</key>
 			<data>
-			bYZmH6yKbPmD2pFaoex2+Vmdgr7bx4GhdeiIYUpNGXI=
+			UTDLH6x97q8AAbDjagskyH2j3ebM91zjSy1Tt69s6Cc=
+			</data>
+		</dict>
+		<key>Headers/CoreGeoLocation.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Nk4gFaudXXnMJA+vnqobjmMq8lw=
+			</data>
+			<key>hash2</key>
+			<data>
+			38gGui0niHMzEFgVgnKpcMYLL0pcSlrJ79L8SB9+RpY=
 			</data>
 		</dict>
 		<key>Headers/DeliveryMessage.h</key>
@@ -76,22 +91,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CcjUqBIm94ZH/pjiw06sOjq+9c4=
+			aBL5KNp3oKxm6ZkUvjiXn1M0BNk=
 			</data>
 			<key>hash2</key>
 			<data>
-			utjByOhp8mlu+a+KxNuGemsnK3RKHWrptJyHtDxV3VU=
+			MLNBoZT6aUq3tTZjQRaD9D2DEltaAw+ZGwxgIiAXhg0=
 			</data>
 		</dict>
 		<key>Headers/PushClientMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dByFDOe3R6okwbsaSX1fgQ/DQrY=
+			Xn/zzYI+IcBj+NTYf0etR6x2IfI=
 			</data>
 			<key>hash2</key>
 			<data>
-			laxZPtSnuzFB/QAeWbx90YEyw1LRwTHh8c8v2ZWYamI=
+			+vtePKeCKQOy0aCN0fSDssJNrsCeHWObdX3o2Ipnfu8=
 			</data>
 		</dict>
 		<key>Headers/PushClientServerReachability.h</key>

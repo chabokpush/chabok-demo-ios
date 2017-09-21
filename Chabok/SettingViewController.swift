@@ -11,20 +11,32 @@ import AdpPushClient
 
 class SettingViewController: UIViewController {
     
+    @IBOutlet weak var notificationSwitch: UISwitch!
     let manager = PushClientManager.default()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SettingViewController.hideView))
+        self.view.addGestureRecognizer(tap)
+        
+        var notificationSetting = self.manager?.notificationSettings(for: "public/wall")
+        
+        let alert = notificationSetting?["alert"]
+        
+//        if (alert as! NSObject) as! Decimal == 1 {
+//            self.notificationSwitch.setOn(true, animated: true)
+//        } else {
+//            self.notificationSwitch.setOn(false, animated: true)
+//        }
     }
     
-
+    func hideView() {
+        self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "bview"), object: nil)
+        
+    }
+    
     @IBAction func changeNotificationState(_ sender: UISwitch) {
         if sender.isOn {
             self.manager?.updateNotificationSettings("public/wall", sound: "default", alert: true)
@@ -32,7 +44,7 @@ class SettingViewController: UIViewController {
             self.manager?.updateNotificationSettings("public/wall", sound: "", alert: false)
         }
     }
-
+    
     @IBAction func dissmisBtn(_ sender: Any) {
         navigationController?.popViewController(animated: true)
         

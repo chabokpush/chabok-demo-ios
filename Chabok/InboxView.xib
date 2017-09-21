@@ -45,15 +45,25 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lov-nR-YWR">
+                                <rect key="frame" x="0.0" y="281" width="7" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="O4H-ty-PH8"/>
+                                    <constraint firstAttribute="width" constant="7" id="mbO-MF-XEd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MDy-U1-gkf" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" id="63C-oO-2ht"/>
                             <constraint firstItem="2sN-oM-n3h" firstAttribute="top" secondItem="MDy-U1-gkf" secondAttribute="bottom" id="7TQ-b6-66f"/>
+                            <constraint firstItem="lov-nR-YWR" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" id="9mF-Ky-IDf"/>
                             <constraint firstAttribute="trailing" secondItem="MDy-U1-gkf" secondAttribute="trailing" id="YDu-hE-Kam"/>
                             <constraint firstItem="MDy-U1-gkf" firstAttribute="top" secondItem="aKy-bx-3NN" secondAttribute="top" id="hbL-Wg-vDw"/>
                             <constraint firstAttribute="bottom" secondItem="2sN-oM-n3h" secondAttribute="bottom" constant="10" id="ld8-VF-UbV"/>
                             <constraint firstAttribute="trailing" secondItem="2sN-oM-n3h" secondAttribute="trailing" constant="13" id="wQm-dk-uMe"/>
+                            <constraint firstAttribute="bottom" secondItem="lov-nR-YWR" secondAttribute="bottom" id="wuY-az-19b"/>
                             <constraint firstItem="2sN-oM-n3h" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" constant="15" id="ycB-GV-vuR"/>
                         </constraints>
                     </view>

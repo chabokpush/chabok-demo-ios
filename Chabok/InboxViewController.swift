@@ -214,10 +214,11 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
     func ShowFirstView() {
-        let firstView = self.storyboard?.instantiateViewController(withIdentifier: "firstViewID")
-        self.navigationController!.present(firstView!, animated: true, completion: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+        let firstView = storyBoard.instantiateViewController(withIdentifier: "firstViewNavID")
+        self.navigationController!.present(firstView, animated: true, completion: nil)
     }
-    
+
     // shake view and navigate to discovery
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake {

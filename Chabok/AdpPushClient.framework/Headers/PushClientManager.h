@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "CoreGeoLocation.h"
+@import UserNotifications;
 
 @class PushClientMessage,PushClientManager,DeliveryMessage;
 
@@ -167,7 +169,7 @@ extern NSString *const kPushClientErrorDomain;
  which determine the success or failure of registration or communication with server
 */
 NS_CLASS_AVAILABLE_IOS(7_0)
-@interface PushClientManager : NSObject
+@interface PushClientManager : NSObject<UNUserNotificationCenterDelegate>
 
 
 /**
@@ -316,6 +318,13 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  */
 @property (nonatomic, strong,readonly)  NSError *failureError;
 
+/*!
+ * @description get instance of CoreGeoLocation
+ * @see -CoreGeoLocation
+ * @author AdpDigital co.
+ */
+@property (nonatomic, strong ,readonly) CoreGeoLocation *instanceCoreGeoLocation;
+
 
 /*!
  * @description delegate for legacy callback in objective-c or swift is protocol
@@ -348,7 +357,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 - (void)removeAllDelegates;
 
 
-
+//###Change codes untill this line
 
 
 /*
@@ -400,6 +409,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 - (BOOL)registerAgainWithUserId:(NSString *)userId;
 - (BOOL)registerAgainWithUserId:(NSString *)userId channels:(NSArray *)channels;
 
+- (void)unregisterUser;
 
 - (NSString*)getRegistrationId;
 
@@ -409,6 +419,8 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  * @param channel Can a private channel name or public/sth for a public channel
  */
 - (void)subscribe:(NSString *)channel;
+
+- (void)subscribeList:(NSArray *)channels;
 
 - (void)subscribe:(NSString *)channel live:(BOOL)live;
 
@@ -426,6 +438,14 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  */
 - (BOOL)publish:(PushClientMessage *)message;
 
+/*!
+ * @description Publish event with data
+ * @param eventName is the NSString to sent event with deviceId.
+ * @param dataDictionary is the NSDictionary you want to sent out.
+ * @author AdpDigital co.
+ *
+ */
+- (BOOL)publishEvent:(NSString*)eventName data:(NSDictionary*)dataDictionary;
 
 /*!
  * @description Mark a message as read

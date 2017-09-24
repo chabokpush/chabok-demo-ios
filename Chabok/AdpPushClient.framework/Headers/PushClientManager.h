@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "CoreGeoLocation.h"
+#import "EventMessage.h"
 @import UserNotifications;
 
 @class PushClientMessage,PushClientManager,DeliveryMessage;
@@ -133,6 +134,8 @@ extern NSString *const kPushClientErrorDomain;
 - (void)pushClientManagerDidReceivedMessage:(PushClientMessage *)message;
 
 - (void)pushClientManagerDidReceivedDelivery:(DeliveryMessage *)delivery;
+
+- (void)pushClientManagerDidReceivedEventMessage:(EventMessage *)eventMessage;
 
 - (void)pushClientManagerUILocalNotificationDidReceivedMessage:(PushClientMessage *)message;
 
@@ -325,6 +328,9 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  */
 @property (nonatomic, strong ,readonly) CoreGeoLocation *instanceCoreGeoLocation;
 
+@property (nonatomic) BOOL enableLocationOnLaunch;
+
+@property (nonatomic, strong) NSDictionary *locationOnLaunchWithDictionary;
 
 /*!
  * @description delegate for legacy callback in objective-c or swift is protocol
@@ -436,16 +442,26 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  * @description Publish a message to a channel
  * @message message is the PushClientMessage you want to sent out
  */
-- (BOOL)publish:(PushClientMessage *)message;
+- (BOOL)publishMessage:(PushClientMessage *)message;
+
+#pragma mark - publish events
 
 /*!
  * @description Publish event with data
  * @param eventName is the NSString to sent event with deviceId.
- * @param dataDictionary is the NSDictionary you want to sent out.
+ * @param data is the NSDictionary you want to sent out.
  * @author AdpDigital co.
  *
  */
-- (BOOL)publishEvent:(NSString*)eventName data:(NSDictionary*)dataDictionary;
+- (BOOL)publishEvent:(NSString*)eventName data:(NSDictionary*)data;
+- (BOOL)publishEvent:(NSString*)eventName data:(NSDictionary*)data live:(BOOL)live;
+- (BOOL)publishEvent:(NSString*)eventName data:(NSDictionary*)data stateful:(BOOL)stateful;
+- (BOOL)publishEvent:(NSString*)eventName data:(NSDictionary*)data live:(BOOL)live stateful:(BOOL)stateful;
+
+- (void)enableEventDelivery:(NSString*)eventName;
+- (void)enableEventDelivery:(NSString*)eventName live:(BOOL)live;
+- (void)enableEventDelivery:(NSString*)eventName forPublic:(BOOL)forPublic live:(BOOL)live;
+
 
 /*!
  * @description Mark a message as read

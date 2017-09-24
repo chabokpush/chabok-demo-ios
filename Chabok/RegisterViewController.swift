@@ -10,7 +10,7 @@ import UIKit
 import AdpPushClient
 
 class RegisterViewController: UIViewController,UITextFieldDelegate {
-
+    
     var image = UIImage()
     var avatarIndex = NSInteger()
     
@@ -22,14 +22,14 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         avatarImage.image = image
         let tap = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.hideKeyboard))
         self.view.addGestureRecognizer(tap)
         
         familyName.delegate = self
         phone.delegate = self
-
+        
     }
     
     func hideKeyboard() {
@@ -46,31 +46,31 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         var message: String = ""
         let actionTitle: String = "خطا"
-
+        
         if (familyName.text?.characters.count)! < 3 {
             message = "نام خود را وارد کنید\n"
         }
         if !isOnlyNumber(input: phone.text!) || (phone.text?.characters.count)! < 11 {
-                message += "شماره تماس خود را وارد کنید"
+            message += "شماره تماس خود را وارد کنید"
         }
         
         if message.length > 0 {
             let alert = UIAlertController(title: actionTitle,
-                message: message,
-                preferredStyle: UIAlertControllerStyle.alert)
-        
+                                          message: message,
+                                          preferredStyle: UIAlertControllerStyle.alert)
+            
             
             alert.addAction(UIAlertAction(title: "باشه",
-                style: UIAlertActionStyle.default,
-                handler: nil))
+                                          style: UIAlertActionStyle.default,
+                                          handler: nil))
             
             // Change font of the title and message
             let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 20)! ]
             let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 14)! ]
-
+            
             let attributedTitle = NSMutableAttributedString(string: "خطا", attributes: titleFont)
             let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
-
+            
             alert.setValue(attributedTitle, forKey: "attributedTitle")
             alert.setValue(attributedMessage, forKey: "attributedMessage")
             
@@ -78,34 +78,44 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             
             return
         }
-    
+        
         let phoneNumber: String = phone.text!
         phone.text = persianNumberToEnglish(mobileNumber:phoneNumber)
-
+        
         self.manager = PushClientManager.default()
-        let userPass = AppDelegate.userNameAndPassword()
-        if self.manager.registerApplication(AppDelegate.applicationId(), apiKey: userPass.apikey,
-                                            userName:userPass.userName, password:userPass.password) {
-            
-            if !self.manager.registerUser(phone.text,channels: ["public/wall"]) {
-                print("Error : \(self.manager.failureError)")
-                return
+        
+        let userInfo =  ["name":self.familyName.text ?? "چابک رسان" ,"avatarIdx": self.avatarIndex] as [String : Any]
+        self.manager.userInfo = userInfo
+        
+        
+        self.manager.enableLocationOnLaunch = true
+        
+        let registrationState = self.manager.registerUser(phone.text, channels: ["public/wall"]) {
+            (isRegistered, userId, error) in
+            if error == nil {
+                self.manager.enableEventDelivery("treasure")
             }
-            
-            let defaults = UserDefaults.standard
-            defaults.setValue(self.familyName.text, forKey: "name")
-            defaults.setValue(self.image.images, forKey: "avatar")
-            defaults.synchronize()
-
-            // Navigate to Inbox
-//            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as! UINavigationController
-//            let vc: UINavigationController? = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as? UINavigationController
-
-//            self.navigationController?.pushViewController(newViewController, animated: true)
-            performSegue(withIdentifier: "goToInbox", sender: self)
-            
         }
+        
+        if !registrationState {
+            print("Error : \(self.manager.failureError)")
+            return
+        }
+        
+        let defaults = UserDefaults.standard
+        defaults.setValue(self.familyName.text, forKey: "name")
+        defaults.setValue(self.avatarIndex, forKey: "avatarIdx")
+        defaults.synchronize()
+        
+        
+        // Navigate to Inbox
+        //            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+        //            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as! UINavigationController
+        //            let vc: UINavigationController? = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as? UINavigationController
+        //            self.navigationController?.pushViewController(newViewController, animated: true)
+        performSegue(withIdentifier: "goToInbox", sender: self)
+        
+        
     }
     
     // TextField Methodes
@@ -113,7 +123,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         hideAvatarImage()
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         showAvatarImage()
     }
@@ -180,5 +190,5 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         return Formatter.string(from: newNum!)!
     }
-
+    
 }

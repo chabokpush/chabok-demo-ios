@@ -16,9 +16,9 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var discoveryBtn: UIButton!
+    @IBOutlet weak var leftBarButtonIcon: UIBarButtonItem!
     var manager = PushClientManager()
-   
-    
+
     var lastIndexPath : IndexPath! {
         
         let sectionsAmount = self.inboxTableView.numberOfSections - 1
@@ -44,7 +44,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let sortnew = NSSortDescriptor(key: "new", ascending: false)
         let req : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest()
         req.entity = entity
-//        req.predicate = NSPredicate(format: "message = %@","j")
         req.sortDescriptors = [sort,sortnew]
         req.fetchBatchSize = 10
         
@@ -67,12 +66,12 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.manager = PushClientManager.default()
         if self.manager.userId == nil {
             ShowFirstView()
         }
-        
+
         discoveryBtn.layer.cornerRadius = 45
         
         // Gradient
@@ -89,6 +88,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         inboxTableView.register(UINib(nibName: "InboxView", bundle: nil), forCellReuseIdentifier: "inboxCell")
 
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -208,26 +208,40 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     @IBAction func discoveryBtnClick(_ sender: Any) {
+        
+        self.publishCaptainStatusEvent()
+
         let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
+    
+    // shake view and navigate to discovery
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if event?.subtype == .motionShake {
+  
+            self.publishCaptainStatusEvent()
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.navigationController?.pushViewController(newViewController, animated: true)
+            
+        }
+    }
+    
+    func publishCaptainStatusEvent() {
+        
+        // send location and publish event
+        let coreGeoLocation = self.manager.instanceCoreGeoLocation
+        let lastLocation = coreGeoLocation?.lastLocation
+        self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "0","lng":lastLocation?.coordinate.longitude ?? "0"])
+    }
+    
     func ShowFirstView() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
         let firstView = storyBoard.instantiateViewController(withIdentifier: "firstViewNavID")
         self.navigationController!.present(firstView, animated: true, completion: nil)
     }
-
-    // shake view and navigate to discovery
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if event?.subtype == .motionShake {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            self.navigationController?.pushViewController(newViewController, animated: true)
-
-        }
-    }
-    
 }

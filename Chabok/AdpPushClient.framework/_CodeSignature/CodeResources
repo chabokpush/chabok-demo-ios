@@ -10,23 +10,27 @@
 		</data>
 		<key>Headers/AdpPushClient.h</key>
 		<data>
-		xqbZPOTenQyTzp1OqONCM8BCS5E=
+		9W/sUDntdSfckqZyI47nrCIopVQ=
 		</data>
 		<key>Headers/CoreGeoLocation.h</key>
 		<data>
-		Nk4gFaudXXnMJA+vnqobjmMq8lw=
+		dKjdU3zdPr8pT+pYwRvdhfJg4Xg=
 		</data>
 		<key>Headers/DeliveryMessage.h</key>
 		<data>
 		of7ICC1M/pJUzQqz9qo/Zo5chZ4=
 		</data>
+		<key>Headers/EventMessage.h</key>
+		<data>
+		nunZaNjnnhsOemiBMXeYusRnd7E=
+		</data>
 		<key>Headers/PushClientManager.h</key>
 		<data>
-		aBL5KNp3oKxm6ZkUvjiXn1M0BNk=
+		qFxD4f2HmZBbTU5sw5HOx9kni5U=
 		</data>
 		<key>Headers/PushClientMessage.h</key>
 		<data>
-		Xn/zzYI+IcBj+NTYf0etR6x2IfI=
+		dHypUw4KE82Vc+n031JvkoJqqCY=
 		</data>
 		<key>Headers/PushClientServerReachability.h</key>
 		<data>
@@ -34,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+VO8K+yBQFuDXkCnryWgQ9W31nI=
+		UbMtIDTPn5LR1qMu01J+PDJtZec=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -58,22 +62,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xqbZPOTenQyTzp1OqONCM8BCS5E=
+			9W/sUDntdSfckqZyI47nrCIopVQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			UTDLH6x97q8AAbDjagskyH2j3ebM91zjSy1Tt69s6Cc=
+			Wh9qFQZOUHiNxuk/swa/t93weFe73n2/ewfN42uSaRs=
 			</data>
 		</dict>
 		<key>Headers/CoreGeoLocation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Nk4gFaudXXnMJA+vnqobjmMq8lw=
+			dKjdU3zdPr8pT+pYwRvdhfJg4Xg=
 			</data>
 			<key>hash2</key>
 			<data>
-			38gGui0niHMzEFgVgnKpcMYLL0pcSlrJ79L8SB9+RpY=
+			BV/PbBeu0UtUjuRd5Y99F6Kr5IZc+b44xCdtfcfKo6g=
 			</data>
 		</dict>
 		<key>Headers/DeliveryMessage.h</key>
@@ -87,26 +91,37 @@
 			rOXqFp2BhzCPj5I6//FcMaDBOSvfDSPHZFB4YgyKoP4=
 			</data>
 		</dict>
+		<key>Headers/EventMessage.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nunZaNjnnhsOemiBMXeYusRnd7E=
+			</data>
+			<key>hash2</key>
+			<data>
+			vvUkNPXTorOqA7X3tP0Yb81SXVD/sSpFgPtmaoI/HEI=
+			</data>
+		</dict>
 		<key>Headers/PushClientManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aBL5KNp3oKxm6ZkUvjiXn1M0BNk=
+			qFxD4f2HmZBbTU5sw5HOx9kni5U=
 			</data>
 			<key>hash2</key>
 			<data>
-			MLNBoZT6aUq3tTZjQRaD9D2DEltaAw+ZGwxgIiAXhg0=
+			jgF5iabHKNCVdJHxj+PtkZOhFqs+77sO3VXou7fVZmY=
 			</data>
 		</dict>
 		<key>Headers/PushClientMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xn/zzYI+IcBj+NTYf0etR6x2IfI=
+			dHypUw4KE82Vc+n031JvkoJqqCY=
 			</data>
 			<key>hash2</key>
 			<data>
-			+vtePKeCKQOy0aCN0fSDssJNrsCeHWObdX3o2Ipnfu8=
+			1ASiJzXUEhYlmf/Hxa6w7l9pdS9HlLEAE3IgbpFhoww=
 			</data>
 		</dict>
 		<key>Headers/PushClientServerReachability.h</key>

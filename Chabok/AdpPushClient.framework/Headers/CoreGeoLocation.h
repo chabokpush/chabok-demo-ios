@@ -139,14 +139,6 @@ typedef enum {
 @property (nonatomic, readonly) BOOL isUserWasAutorizeLocation;
 
 /**
- * isMonitoringSignificantLocationChangesStarted
- *
- * Discussion:
- *      Check startMonitoringSignificantLocationChanges was started or stopped.
- */
-@property (nonatomic,readonly) BOOL isMonitoringSignificantLocationChangesStarted;
-
-/**
  * Singletone of coreGeoLocation
  */
 +(instancetype _Nonnull ) sharedInstance;
@@ -219,6 +211,6 @@ typedef enum {
  *      If no location can be determined, the geoLocationFailWithError:error
  *      delegate callback will be delivered with error location unknown.
  */
-- (void) requestSingleLocation: (void(^_Nullable)( CLLocation * _Nullable )) locationCallBack;
+-(void) requestSingleLocation:(void (^_Nullable)( CLLocation * _Nullable location,NSError * _Nullable error))locationCallBack;
 
 @end

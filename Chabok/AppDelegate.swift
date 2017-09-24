@@ -119,6 +119,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         print(self.manager.failureError)
     }
     
+    func pushClientManagerDidChangedServerConnectionState() {
+        if self.manager.connectionState == .connectedState {
+            print("we are connected")
+            self.manager.enableEventDelivery("treasure")
+
+        }
+    }
+    
+    func pushClientManagerDidReceivedEventMessage(_ eventMessage: EventMessage!) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "discoveryDataStatusNotif"), object: nil)
+        print("pushClientManagerDidReceivedEventMessage\(eventMessage.data)")
+    }
     
     func pushClientManagerDidReceivedMessage(_ message: PushClientMessage!) {
         

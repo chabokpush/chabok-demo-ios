@@ -29,8 +29,8 @@
 		C59A9E161F5DE73B00825675 /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4A1F5CD0C700C45E60 /* IRANSans(FaNum).ttf */; };
 		C5BC1D4C1F5CD10300C45E60 /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */; };
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
-		C5BC1D511F5CD13900C45E60 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D501F5CD13900C45E60 /* AvatarViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
+		C5F49AB01F771A3D00FE3EB9 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */; };
 		C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */; };
 		F805EA271C6639A00098276A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805EA251C6639A00098276A /* Message.swift */; };
 		F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DD5A1C60811600C1F355 /* AppDelegate.swift */; };
@@ -78,9 +78,9 @@
 		C5BC1D4A1F5CD0C700C45E60 /* IRANSans(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum).ttf"; sourceTree = "<group>"; };
 		C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Demo.storyboard; sourceTree = "<group>"; };
 		C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		C5BC1D501F5CD13900C45E60 /* AvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarViewController.swift; path = AdpPushClient.framework/AvatarViewController.swift; sourceTree = "<group>"; };
 		C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C5BC1D541F5CD26400C45E60 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerView.swift; sourceTree = "<group>"; };
 		F805EA251C6639A00098276A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F892DD571C60811600C1F355 /* Chabok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chabok.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,8 +179,8 @@
 				C56B87091F703CD0004E4627 /* Animations */,
 				C56B870A1F703CF4004E4627 /* Inbox Cell */,
 				C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */,
+				C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */,
 				C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */,
-				C5BC1D501F5CD13900C45E60 /* AvatarViewController.swift */,
 				C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */,
 				C542058B1F60B9770026661D /* DiscoveryViewController.swift */,
 				C542058F1F60CB620026661D /* InboxViewController.swift */,
@@ -416,7 +416,6 @@
 				C59A9E121F5DCE8100825675 /* CornerButton.swift in Sources */,
 				C548B0621F69A9CC0018C7C3 /* InboxModel.swift in Sources */,
 				F892DD711C608E7F00C1F355 /* Chabok.xcdatamodeld in Sources */,
-				C5BC1D511F5CD13900C45E60 /* AvatarViewController.swift in Sources */,
 				F892DD7C1C60956900C1F355 /* RegisterViewController.swift in Sources */,
 				C54205941F60D1000026661D /* FailedViewController.swift in Sources */,
 				C548B05E1F689CB70018C7C3 /* DataModel.swift in Sources */,
@@ -424,6 +423,7 @@
 				C54205921F60CB980026661D /* RewardViewController.swift in Sources */,
 				F892DDB81C60D16000C1F355 /* CAPSPageMenu.swift in Sources */,
 				C542058A1F609F1E0026661D /* View+Animation.swift in Sources */,
+				C5F49AB01F771A3D00FE3EB9 /* AvatarViewController.swift in Sources */,
 				F892DD5D1C60811600C1F355 /* ViewController.swift in Sources */,
 				C55E59E91F65BE790051375A /* InboxTableViewCell.swift in Sources */,
 				F892DD791C608FAA00C1F355 /* UIKitExtension.swift in Sources */,

@@ -27,15 +27,15 @@
 @property (nonatomic, readwrite) BOOL silent;
 @property (nonatomic, readwrite) NSString *alertText;
 
-- (instancetype)initWithData:(NSData *)data topic:(NSString *)topic;
+- (instancetype)initWithData:(NSData *)data channel:(NSString *)channel;
 
-- (instancetype)initWithJson:(NSDictionary *)json topic:(NSString *)topic;
+- (instancetype)initWithJson:(NSDictionary *)json channel:(NSString *)channel;
 
-- (instancetype)initWithMessage:(NSString *)content topic:(NSString *)topic;
+- (instancetype)initWithMessage:(NSString *)content channel:(NSString *)channel;
 
-- (instancetype)initWithMessage:(NSString *)content withData:(NSDictionary *)data topic:(NSString *)topic;
+- (instancetype)initWithMessage:(NSString *)content withData:(NSDictionary *)data channel:(NSString *)channel;
 
-- (NSData *)toDict;
+- (NSDictionary *)toDict;
 
 - (NSData *)toData;
 

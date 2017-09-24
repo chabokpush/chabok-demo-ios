@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import AdpPushClient
 
 class DiscoveryViewController: UIViewController {
 
@@ -18,7 +19,8 @@ class DiscoveryViewController: UIViewController {
     var indexProgressBar = 1
     var currentPoseIndex = 0
     var timer = Timer()
-    
+    var manager = PushClientManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,9 +42,17 @@ class DiscoveryViewController: UIViewController {
         animationView.loopAnimation = true
         self.view.addSubview(animationView)
         animationView.play()
-    
+
+        NotificationCenter.default.addObserver(self, selector: #selector(DiscoveryViewController.discoveryResualt), name: NSNotification.Name(rawValue: "discoveryDataStatusNotif"), object: nil)
+
+        print("digging")
     }
     
+    func discoveryResualt() {
+    
+
+    }
+//
     func getNextPoseData()
     {
         // do next pose stuff
@@ -57,15 +67,13 @@ class DiscoveryViewController: UIViewController {
     {
         if indexProgressBar == 11
         {
-//            getNextPoseData()
-            
+            print("end digging")
+
+            // send treassure event  (found or failed)
             let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "rewardViewID") as! RewardViewController
             self.navigationController?.pushViewController(newViewController, animated: true)
-
-            // reset the progress counter
-//            indexProgressBar = 1
-            
+        
         }
         
         // update the display

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "smartphone25.png",
+      "filename" : "mobile.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "smartphone45.png",
+      "filename" : "mobile@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "smartphone65.png",
+      "filename" : "mobile@3x.png",
       "scale" : "3x"
     }
   ],

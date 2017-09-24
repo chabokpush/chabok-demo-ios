@@ -11,6 +11,8 @@ import Lottie
 
 class FailedViewController: UIViewController {
 
+    @IBOutlet weak var resualtLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,9 @@ class FailedViewController: UIViewController {
         animationView.loopAnimation = true
         self.view.addSubview(animationView)
         animationView.play()
-    
+        
+//        self.resualtLabel.text = "شما یک \() پیدا کردین!"
+        
     }
 
     @IBAction func dismissBtnClick(_ sender: Any) {

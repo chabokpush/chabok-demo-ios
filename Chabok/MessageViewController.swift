@@ -13,8 +13,17 @@ import AdpPushClient
 let KOffset:CGFloat = 219
 var keyboardshow: Bool = false
 
+enum statusEnumType {
+    case typing
+    case idle
+    case sent
+    
+}
+
 class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource,NSFetchedResultsControllerDelegate,UITextViewDelegate{
     let mCntxt = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+    
+    var eventStatus = statusEnumType.idle
     
     var lastIndexPath : IndexPath! {
         
@@ -68,7 +77,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     var textIntry: UITextField!
     var manager = PushClientManager()
     var AvatarImage = String()
-
+    
     //MARK: - LifeCycle Methods
     
     override func viewDidLoad() {
@@ -76,16 +85,14 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         self.title = "دیوار چابک"
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
- 
+        
         buttonMessage.layer.cornerRadius = 13
         buttonMessage.addTarget(self, action: #selector(MessageViewController.publishMessage), for: .touchUpInside)
         
         textViewMessage.layer.borderWidth = 0.25
         textViewMessage.layer.borderColor = UIColor.fromRGB(0x525d7a).cgColor
         textViewMessage.layer.cornerRadius = 15
-        
-
-        textViewMessage.delegate = self as UITextViewDelegate
+        textViewMessage.delegate = self
         
         self.manager = PushClientManager.default()
         
@@ -101,7 +108,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         let tap = UITapGestureRecognizer(target: self, action: #selector(MessageViewController.hide))
         self.tableView.addGestureRecognizer(tap)
         textViewMessage.autocorrectionType = .no
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -117,6 +124,36 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         PushClientManager.resetBadge()
     }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        // isTyping event
+        if eventStatus != statusEnumType.typing {
+            eventStatus = statusEnumType.typing
+            
+            self.manager.publishEvent("captainStatus", data: ["status":"typing"])
+
+            print("istyping")
+        }else{
+            
+            if textViewMessage.text.isEmpty && eventStatus != statusEnumType.idle {
+                eventStatus = statusEnumType.idle
+                self.manager.publishEvent("captainStatus", data: ["status":"idle"])
+                print("idle")
+
+            }
+        }
+        return true
+    }
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        if eventStatus != statusEnumType.idle {
+            eventStatus = statusEnumType.idle
+            self.manager.publishEvent("captainStatus", data: ["status":"idle"])
+            print("idle")
+
+        }
+        return true
+    }
+    
     //MARK: - table view delegates and data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -235,21 +272,21 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     func hide () {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
-  
+    
     func keyboardWillShow(_ notification:Notification) {
-
-//        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-//        print(keyboardSize?.height)
-//        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
-//        self.tableView.scrollIndicatorInsets = contentInsets
-//        if lastIndexPath.row > 0 {
-//            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-//        }
-//        
-//        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-//        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
-//        
-//        setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
+        
+        //        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        //        print(keyboardSize?.height)
+        //        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
+        //        self.tableView.scrollIndicatorInsets = contentInsets
+        //        if lastIndexPath.row > 0 {
+        //            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        //        }
+        //
+        //        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+        //        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        //
+        //        setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
         
         let height: CGFloat = UIScreen.main.bounds.size.height
         UIView.animate(withDuration: 0.5, animations: {() -> Void in
@@ -262,13 +299,13 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     func keyboardWillHide(_ notification:Notification)
     {
-//        self.tableView.scrollIndicatorInsets = UIEdgeInsets.zero
-//        
-//        
-//        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-//        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
-//        
-//        setViewMoveUp(false, curve: curve, duration: duration)
+        //        self.tableView.scrollIndicatorInsets = UIEdgeInsets.zero
+        //
+        //
+        //        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+        //        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        //
+        //        setViewMoveUp(false, curve: curve, duration: duration)
         
         UIView.animate(withDuration: 0.4, animations: {() -> Void in
             var f: CGRect = self.view.frame
@@ -283,15 +320,17 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         if self.textViewMessage.text != "" {
             let defaults = UserDefaults.standard
             var message:PushClientMessage!
-            message = PushClientMessage(message: self.textViewMessage.text!, withData: ["name":defaults.value(forKey: "name")!], topic: "public/wall")
+            message = PushClientMessage(message: self.textViewMessage.text!, withData: ["name":defaults.value(forKey: "name")!], channel: "public/wall")
             message.alertText = "\(defaults.value(forKey: "name")!):\(self.textViewMessage.text!)"
             let appcontext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             DispatchQueue.main.async(execute: {
                 Message.messageWithMessage(message, context: appcontext!)
             })
-            self.manager.publish(message)
+            self.manager.publishMessage(message)
+            self.manager.publishEvent("captainStatus", data: ["status":"sent"])
             self.textViewMessage.text = ""
-            
+            // send sent event
+
         }
     }
     
@@ -321,7 +360,7 @@ class ChabokUserTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         
     }
 }
@@ -340,6 +379,6 @@ class ChabokTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
 }

@@ -27,14 +27,24 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKy-bx-3NN">
                         <rect key="frame" x="15" y="13" width="240" height="299"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-U1-gkf">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A30-0R-5GU">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="8"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-U1-gkf">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="8"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="8" id="xBd-Jp-VCm"/>
+                                    <constraint firstAttribute="bottom" secondItem="MDy-U1-gkf" secondAttribute="bottom" id="47E-NY-v5F"/>
+                                    <constraint firstItem="MDy-U1-gkf" firstAttribute="top" secondItem="A30-0R-5GU" secondAttribute="top" id="Yu6-or-bfu"/>
+                                    <constraint firstItem="MDy-U1-gkf" firstAttribute="leading" secondItem="A30-0R-5GU" secondAttribute="leading" id="j0j-dy-wTD"/>
+                                    <constraint firstAttribute="height" constant="8" id="qZO-xF-PId"/>
+                                    <constraint firstAttribute="trailing" secondItem="MDy-U1-gkf" secondAttribute="trailing" id="yiq-La-9UC"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="2sN-oM-n3h">
-                                <rect key="frame" x="15" y="33" width="212" height="256"/>
+                                <rect key="frame" x="15" y="18" width="212" height="271"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
@@ -56,11 +66,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MDy-U1-gkf" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" id="63C-oO-2ht"/>
-                            <constraint firstItem="2sN-oM-n3h" firstAttribute="top" secondItem="MDy-U1-gkf" secondAttribute="bottom" constant="25" id="7TQ-b6-66f"/>
+                            <constraint firstItem="2sN-oM-n3h" firstAttribute="top" secondItem="A30-0R-5GU" secondAttribute="bottom" constant="10" id="7Q6-AC-zqi"/>
+                            <constraint firstItem="A30-0R-5GU" firstAttribute="top" secondItem="aKy-bx-3NN" secondAttribute="top" id="7d8-sx-YUH"/>
                             <constraint firstItem="lov-nR-YWR" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" id="9mF-Ky-IDf"/>
-                            <constraint firstAttribute="trailing" secondItem="MDy-U1-gkf" secondAttribute="trailing" id="YDu-hE-Kam"/>
-                            <constraint firstItem="MDy-U1-gkf" firstAttribute="top" secondItem="aKy-bx-3NN" secondAttribute="top" id="hbL-Wg-vDw"/>
+                            <constraint firstAttribute="trailing" secondItem="A30-0R-5GU" secondAttribute="trailing" id="AeQ-kG-ArE"/>
+                            <constraint firstItem="A30-0R-5GU" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" id="FrQ-o4-bIk"/>
                             <constraint firstAttribute="bottom" secondItem="2sN-oM-n3h" secondAttribute="bottom" constant="10" id="ld8-VF-UbV"/>
                             <constraint firstAttribute="trailing" secondItem="2sN-oM-n3h" secondAttribute="trailing" constant="13" id="wQm-dk-uMe"/>
                             <constraint firstAttribute="bottom" secondItem="lov-nR-YWR" secondAttribute="bottom" id="wuY-az-19b"/>
@@ -78,8 +88,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="cornerView" destination="aKy-bx-3NN" id="Eyh-Mn-j7h"/>
+                <outlet property="imageFrameView" destination="A30-0R-5GU" id="meo-ZR-Wkh"/>
                 <outlet property="inboxImage" destination="MDy-U1-gkf" id="iAP-mj-DzM"/>
-                <outlet property="inboxImageHeight" destination="xBd-Jp-VCm" id="iQz-fa-OSR"/>
+                <outlet property="inboxImageHeight" destination="qZO-xF-PId" id="qC3-2o-kzK"/>
                 <outlet property="inboxText" destination="2sN-oM-n3h" id="bzQ-wm-4ij"/>
             </connections>
             <point key="canvasLocation" x="-210" y="24"/>

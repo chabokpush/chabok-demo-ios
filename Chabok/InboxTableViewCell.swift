@@ -14,12 +14,13 @@ class InboxTableViewCell: UITableViewCell {
     @IBOutlet weak var inboxImage: UIImageView!
     @IBOutlet weak var inboxText: UITextView!
     @IBOutlet weak var inboxImageHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageFrameView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
         cornerView.layer.cornerRadius = 10
-
+        imageFrameView.layer.cornerRadius = 10;
     }
 
 }

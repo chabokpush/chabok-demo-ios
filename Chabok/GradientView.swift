@@ -12,11 +12,15 @@ class GradientView: UIView {
 
     override  func awakeFromNib() {
         super.awakeFromNib()
+
+    }
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         let gradient = CAGradientLayer()
-
+        
         // 2
-        gradient.frame = self.bounds
+        gradient.frame = rect
         
         // 3
         let color1 = (#colorLiteral(red: 0.08397377282, green: 0.5688710809, blue: 0.9887786508, alpha: 1)).cgColor as CGColor
@@ -29,6 +33,6 @@ class GradientView: UIView {
         
         // 5
         self.layer.addSublayer(gradient)
-  
     }
+    
 }

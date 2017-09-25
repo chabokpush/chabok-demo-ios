@@ -77,7 +77,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // Gradient
         let gradient = CAGradientLayer()
         
-        gradient.frame = self.gradientView.bounds 
+        gradient.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: gradientView.frame.size.height)
         
         let color1 = UIColor.clear
         let color2 = (#colorLiteral(red: 1, green: 0.831372549, blue: 0.5333333333, alpha: 1)).cgColor as CGColor

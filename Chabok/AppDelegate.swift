@@ -39,30 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         self.manager = PushClientManager.default()
         self.manager.addDelegate(self)
         
-        self.manager.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         let userPass = AppDelegate.userNameAndPassword()
         self.manager.registerApplication(AppDelegate.applicationId(),
             apiKey : userPass.apikey,userName:userPass.userName ,password:userPass.password )
-                
+        self.manager.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         if let userId = self.manager.userId {
             if !self.manager.registerUser(userId) {
                 print("Error : \(self.manager.failureError)")
             }
-            // use for location
-            locationManager = self.manager.instanceCoreGeoLocation
-            if #available(iOS 90000, *) {
-                locationManager.allowBackgroundLocationUpdates = true
-            }
-            if ((launchOptions?[UIApplicationLaunchOptionsKey.location]) != nil) {
-                
-                locationManager.distanceFilter = 500
-                locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-            }else{
-                locationManager.distanceFilter = 50
-                locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            }
-            locationManager.startMonitoringSignificantLocationChanges()
+            
 
         }
         
@@ -129,7 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     
     func pushClientManagerDidReceivedEventMessage(_ eventMessage: EventMessage!) {
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "discoveryDataStatusNotif"), object: nil)
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "discoveryDataStatusNotif"), object: ["data":eventMessage])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "discoveryDataStatusNotif"), object: nil, userInfo: ["data":eventMessage])
         print("pushClientManagerDidReceivedEventMessage\(eventMessage.data)")
     }
     

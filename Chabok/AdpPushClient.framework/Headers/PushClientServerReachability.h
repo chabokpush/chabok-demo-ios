@@ -42,6 +42,7 @@ typedef void (^NetworkStatusBlock)(PushClientServerReachability * reachability,N
 +(instancetype)reachabilityForInternetConnection;
 +(instancetype)reachabilityWithAddress:(void *)hostAddress;
 +(instancetype)reachabilityForLocalWiFi;
++ (NSString *) getConnectionType;
 
 -(instancetype)initWithReachabilityRef:(SCNetworkReachabilityRef)ref;
 

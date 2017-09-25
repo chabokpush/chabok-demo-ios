@@ -8,9 +8,13 @@
 
 import UIKit
 import Lottie
+import AdpPushClient
 
 class RewardViewController: UIViewController {
 
+    @IBOutlet weak var msgLabel: UILabel!
+    var resualMessage = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +25,7 @@ class RewardViewController: UIViewController {
         self.view.addSubview(animationView)
         animationView.play()
     
+        self.msgLabel.text = "شما \(resualMessage) پیدا کردین!"
     }
 
     @IBAction func dismissBtnClick(_ sender: Any) {

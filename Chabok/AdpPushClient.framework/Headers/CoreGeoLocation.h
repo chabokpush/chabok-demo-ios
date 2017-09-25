@@ -211,6 +211,6 @@ typedef enum {
  *      If no location can be determined, the geoLocationFailWithError:error
  *      delegate callback will be delivered with error location unknown.
  */
--(void) requestSingleLocation:(void (^_Nullable)( CLLocation * _Nullable location,NSError * _Nullable error))locationCallBack;
+-(void) requestSingleLocation:(void (^_Nullable)( CLLocation * _Nullable location,NSError * _Nullable error))locationCallBack; __IOS_AVAILABLE(__IPHONE_9_0);
 
 @end

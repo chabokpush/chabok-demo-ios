@@ -328,7 +328,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  */
 @property (nonatomic, strong ,readonly) CoreGeoLocation *instanceCoreGeoLocation;
 
-@property (nonatomic) BOOL enableLocationOnLaunch;
+@property (nonatomic) BOOL enableLocationOnLaunch; __IOS_AVAILABLE(__IPHONE_9_0);
 
 @property (nonatomic, strong) NSDictionary *locationOnLaunchWithDictionary;
 

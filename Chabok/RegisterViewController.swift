@@ -36,6 +36,31 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
     
+    // TextField Methodes
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hideAvatarImage()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        showAvatarImage()
+    }
+    
+    @available(iOS 10.0, *)
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        showAvatarImage()
+    }
+    
+//    private func textField(_ textField: phone.text, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if (textField.text as NSString?) != nil {
+//            
+//            let persianPhoneNumber: String = persianNumberToEnglish(mobileNumber:phone.text!)
+//            let phoneNum: String = (persianPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 0, length: 1), with: "98")
+//            self.manager.registerUser(phoneNum)
+//        }
+//        return true
+//    }
+    
     @IBAction func backBtnClick(_ sender: AnyObject) {
         
         _ = navigationController?.popViewController(animated: true)
@@ -79,22 +104,28 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             return
         }
         
-        let phoneNumber: String = phone.text!
-        phone.text = persianNumberToEnglish(mobileNumber:phoneNumber)
+        var englishPhoneNumber: String = persianNumberToEnglish(mobileNumber:phone.text!)
+//        let indexOne = englishPhoneNumber.remove(at: englishPhoneNumber.index(before:englishPhoneNumber.startIndex))
+//
+//        var phoneNum = String()
+        
+//        print(">>>>>>>>>>>>>>>>indexOne\(String(describing: indexOne))")
+        
+//        englishPhoneNumber = (englishPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 1, length: 0), with: "98")
+     
+        
         
         self.manager = PushClientManager.default()
         
-        let userInfo =  ["name":self.familyName.text ?? "چابک رسان" ,"avatarIdx": self.avatarIndex] as [String : Any]
+        let userInfo =  ["name":self.familyName.text ?? "چابک رسان" ,"avatarIdx": self.avatarIndex,"userId": englishPhoneNumber] as [String : Any]
         self.manager.userInfo = userInfo
         
         
         self.manager.enableLocationOnLaunch = true
         
-        let registrationState = self.manager.registerUser(phone.text, channels: ["public/wall"]) {
+        let registrationState = self.manager.registerUser(englishPhoneNumber, channels: ["public/wall"]) {
             (isRegistered, userId, error) in
-            if error == nil {
-                self.manager.enableEventDelivery("treasure")
-            }
+         
         }
         
         if !registrationState {
@@ -105,6 +136,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         let defaults = UserDefaults.standard
         defaults.setValue(self.familyName.text, forKey: "name")
         defaults.setValue(self.avatarIndex, forKey: "avatarIdx")
+        defaults.setValue(englishPhoneNumber, forKey: "userId")
         defaults.synchronize()
         
         
@@ -117,22 +149,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         
     }
-    
-    // TextField Methodes
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        hideAvatarImage()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        showAvatarImage()
-    }
-    
-    @available(iOS 10.0, *)
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        showAvatarImage()
-    }
-    
     
     // Image Animation
     
@@ -191,4 +207,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         return Formatter.string(from: newNum!)!
     }
     
+
+
 }

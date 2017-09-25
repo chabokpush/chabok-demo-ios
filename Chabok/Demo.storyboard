@@ -498,7 +498,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="باید بیشتر کاوش کنیم.این طرفا خبری از گنج نیست!" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CwM-DD-xeg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CwM-DD-xeg">
                                 <rect key="frame" x="20" y="332" width="280" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -542,10 +542,13 @@
                             <constraint firstItem="Anw-tM-R24" firstAttribute="top" secondItem="JOj-UL-vP1" secondAttribute="top" id="riC-cz-qwQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="msgLabel" destination="CwM-DD-xeg" id="gBt-C9-v1A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BwZ-eh-1Zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8777" y="-657"/>
+            <point key="canvasLocation" x="8776.875" y="-657.04225352112678"/>
         </scene>
         <!--Failed View Controller-->
         <scene sceneID="JQ3-UV-Hpd">
@@ -563,7 +566,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="باید بیشتر کاوش کنیم.این طرفا خبری از گنج نیست!" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
                                 <rect key="frame" x="20" y="332" width="280" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -607,9 +610,6 @@
                             <constraint firstItem="c7p-em-mD4" firstAttribute="top" secondItem="NHl-gk-T9T" secondAttribute="top" id="yBO-4H-dHu"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="resualtLabel" destination="nBE-gs-5oI" id="CDY-cJ-vFw"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLy-r5-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1146,7 +1146,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="jPV-br-xeX">
-                                                            <rect key="frame" x="124" y="-1.5" width="15" height="16"/>
+                                                            <rect key="frame" x="124" y="-2" width="15" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="15" id="4I5-yo-4XZ"/>
                                                                 <constraint firstAttribute="height" constant="16" id="Ize-81-HVs"/>

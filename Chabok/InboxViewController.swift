@@ -236,7 +236,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // send location and publish event
         let coreGeoLocation = self.manager.instanceCoreGeoLocation
         let lastLocation = coreGeoLocation?.lastLocation
-        self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "0","lng":lastLocation?.coordinate.longitude ?? "0"])
+        self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "","lng":lastLocation?.coordinate.longitude ?? ""])
     }
     
     func ShowFirstView() {

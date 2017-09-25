@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="2sN-oM-n3h">
-                                <rect key="frame" x="15" y="8" width="212" height="281"/>
+                                <rect key="frame" x="15" y="33" width="212" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
@@ -57,7 +57,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MDy-U1-gkf" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" id="63C-oO-2ht"/>
-                            <constraint firstItem="2sN-oM-n3h" firstAttribute="top" secondItem="MDy-U1-gkf" secondAttribute="bottom" id="7TQ-b6-66f"/>
+                            <constraint firstItem="2sN-oM-n3h" firstAttribute="top" secondItem="MDy-U1-gkf" secondAttribute="bottom" constant="25" id="7TQ-b6-66f"/>
                             <constraint firstItem="lov-nR-YWR" firstAttribute="leading" secondItem="aKy-bx-3NN" secondAttribute="leading" id="9mF-Ky-IDf"/>
                             <constraint firstAttribute="trailing" secondItem="MDy-U1-gkf" secondAttribute="trailing" id="YDu-hE-Kam"/>
                             <constraint firstItem="MDy-U1-gkf" firstAttribute="top" secondItem="aKy-bx-3NN" secondAttribute="top" id="hbL-Wg-vDw"/>

@@ -19,16 +19,17 @@ class SettingViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(SettingViewController.hideView))
         self.view.addGestureRecognizer(tap)
-        
         var notificationSetting = self.manager?.notificationSettings(for: "public/wall")
-        
-        let alert = notificationSetting?["alert"]
-        
-//        if (alert as! NSObject) as! Decimal == 1 {
-//            self.notificationSwitch.setOn(true, animated: true)
-//        } else {
-//            self.notificationSwitch.setOn(false, animated: true)
-//        }
+       
+        if notificationSetting != nil {
+            let alert = notificationSetting?["alert"]
+            
+            if alert as! Bool {
+                self.notificationSwitch.setOn(true, animated: true)
+            } else {
+                self.notificationSwitch.setOn(false, animated: true)
+            }
+        }
     }
     
     func hideView() {

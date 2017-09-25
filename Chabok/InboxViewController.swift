@@ -102,6 +102,8 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         PushClientManager.resetBadge()
 
     }
+    
+    // tableView methodes
     func numberOfSections(in tableView: UITableView) -> Int {
         let sectionCount = self.fetchedResultsController.sections!.count;
         return sectionCount
@@ -114,31 +116,37 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! InboxModel
         let cell :InboxTableViewCell = tableView.dequeueReusableCell(withIdentifier: "inboxCell") as! InboxTableViewCell!
         
-        cell.inboxText.text = fetchMessage.message
-
         if (fetchMessage.data != nil) {
-            let dataModel = DataModel(data: fetchMessage.data as! NSDictionary)
-            if (dataModel.img != nil) {
+            let data = fetchMessage.data!;
+
+            let dataModel = DataModel(data: data as! NSDictionary)
+            if (dataModel.imgUrl != nil) {
                 cell.inboxImage.isHidden = false
-                cell.inboxImage.sd_setImage(with: URL(string: dataModel.img!), placeholderImage: UIImage(named:""))
+                cell.inboxImage.sd_setImage(with: URL(string: dataModel.imgUrl!), placeholderImage: UIImage(named:""))
                 cell.inboxImageHeight.constant = (UIScreen.main.bounds.size.width) * 0.5
             }else{
                 cell.inboxImage.isHidden = true
                 cell.inboxImageHeight.constant = 0
             }
+            
+        } else {
+            cell.inboxImage.isHidden = true
+            cell.inboxImageHeight.constant = 0
         }
-       
+        
+        cell.inboxText.text = fetchMessage.message
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! InboxModel
-        return String().cellHeightForMessage(fetchMessage.message!)
+//        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! InboxModel
+//        return String().cellHeightForMessage(fetchMessage.message!)
+        return UITableViewAutomaticDimension
+
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -244,4 +252,26 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let firstView = storyBoard.instantiateViewController(withIdentifier: "firstViewNavID")
         self.navigationController!.present(firstView, animated: true, completion: nil)
     }
+    
+//    func navBarIconBadge(notification : NSNotification) {
+//        
+//        var value : String? = nil
+//        let userInfo : NSDictionary = notification.userInfo! as NSDictionary
+//        
+//        let message:String = userInfo .object(forKey: ["message"]) as! String
+//        let inbox: String = userInfo.object(forKey: ["inbox"]) as! String
+//        
+//        if (message != nil) {
+//            
+//            value = nil
+//            
+//        }else{
+//            if (message == "0") {
+//                value = nil
+//            }else{
+//                value == ""
+//            }
+//        }
+//        
+//    }
 }

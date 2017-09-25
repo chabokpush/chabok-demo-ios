@@ -186,13 +186,17 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChabokTableCell
             cell.msg.text = fetchMessage.message
             //  cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
-            if fetchMessage.sent == "send" {
+            if fetchMessage.sent == "sent" {
                 cell.messageState.text = "تحویل داده شد"
                 cell.deliverImg.isHidden = false
-            } else {
+            } else if fetchMessage.sent == "send"{
+                cell.messageState.text = "ارسال"
+                cell.deliverImg.isHidden = true
+            }else{
                 cell.messageState.text = "خطا در ارسال"
                 cell.deliverImg.isHidden = true
             }
+            
             let dateFormatter = DateFormatter()
             dateFormatter.calendar = Calendar(identifier: .persian)
             dateFormatter.locale = Locale(identifier: "fa_IR")
@@ -217,7 +221,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             
             return cell
         }
-        
     }
     
     //MARK: - NSFetchResultController
@@ -275,43 +278,42 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     func keyboardWillShow(_ notification:Notification) {
         
-        //        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        //        print(keyboardSize?.height)
-        //        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
-        //        self.tableView.scrollIndicatorInsets = contentInsets
-        //        if lastIndexPath.row > 0 {
-        //            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-        //        }
-        //
-        //        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-        //        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
-        //
-        //        setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
+                let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+                print(keyboardSize?.height)
+                let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
+                self.tableView.contentInset = contentInsets
         
-        let height: CGFloat = UIScreen.main.bounds.size.height
-        UIView.animate(withDuration: 0.5, animations: {() -> Void in
-            var f: CGRect = self.view.frame
-            f.origin.y = (-1 * (height / 3.75))
-            self.view.frame = f
-        })
+                if lastIndexPath.row > 0 {
+                    self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+                }
+        
+                let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        
+                setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
+        
+//        let height: CGFloat = UIScreen.main.bounds.size.height
+//        UIView.animate(withDuration: 0.5, animations: {() -> Void in
+//            var f: CGRect = self.view.frame
+//            f.origin.y = (-1 * (height / 3.75))
+//            self.view.frame = f
+//        })
     }
     
     
     func keyboardWillHide(_ notification:Notification)
     {
-        //        self.tableView.scrollIndicatorInsets = UIEdgeInsets.zero
-        //
-        //
-        //        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-        //        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
-        //
-        //        setViewMoveUp(false, curve: curve, duration: duration)
+                self.tableView.contentInset = UIEdgeInsets.zero
+                let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
-        UIView.animate(withDuration: 0.4, animations: {() -> Void in
-            var f: CGRect = self.view.frame
-            f.origin.y = 63.0
-            self.view.frame = f
-        })
+                setViewMoveUp(false, curve: curve, duration: duration)
+        
+//        UIView.animate(withDuration: 0.4, animations: {() -> Void in
+//            var f: CGRect = self.view.frame
+//            f.origin.y = 0.0
+//            self.view.frame = f
+//        })
     }
     
     

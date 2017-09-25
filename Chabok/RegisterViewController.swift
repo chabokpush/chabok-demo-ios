@@ -105,15 +105,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         }
         
         var englishPhoneNumber: String = persianNumberToEnglish(mobileNumber:phone.text!)
-//        let indexOne = englishPhoneNumber.remove(at: englishPhoneNumber.index(before:englishPhoneNumber.startIndex))
-//
-//        var phoneNum = String()
-        
-//        print(">>>>>>>>>>>>>>>>indexOne\(String(describing: indexOne))")
-        
-//        englishPhoneNumber = (englishPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 1, length: 0), with: "98")
-     
-        
+
+        englishPhoneNumber = (englishPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 0, length: 1), with: "98")
+
+        print(englishPhoneNumber)
         
         self.manager = PushClientManager.default()
         

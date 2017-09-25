@@ -842,7 +842,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-Wy-2SB">
-                                <rect key="frame" x="22" y="396" width="275" height="1"/>
+                                <rect key="frame" x="22.5" y="396" width="275" height="1"/>
                                 <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="d0M-nW-WDA"/>
@@ -1113,7 +1113,6 @@
                                                         <constraint firstItem="2jl-GD-r4h" firstAttribute="top" secondItem="jtj-Zh-TIZ" secondAttribute="top" constant="7" id="IcI-E4-ZxO"/>
                                                         <constraint firstAttribute="bottom" secondItem="AN5-Mw-8Qb" secondAttribute="bottom" id="Ix5-4y-9dn"/>
                                                         <constraint firstAttribute="trailing" secondItem="2jl-GD-r4h" secondAttribute="trailing" constant="8" id="KQe-mj-NWR"/>
-                                                        <constraint firstAttribute="width" constant="245" id="Rab-da-89K"/>
                                                         <constraint firstAttribute="trailing" secondItem="AN5-Mw-8Qb" secondAttribute="trailing" id="Ts4-Pp-a6L"/>
                                                         <constraint firstItem="2jl-GD-r4h" firstAttribute="leading" secondItem="jtj-Zh-TIZ" secondAttribute="leading" constant="8" id="Vka-ep-mFA"/>
                                                         <constraint firstAttribute="bottom" secondItem="2jl-GD-r4h" secondAttribute="bottom" constant="5.5" id="hjM-Xu-Ujv"/>
@@ -1139,14 +1138,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl5-or-YTm">
-                                                            <rect key="frame" x="7" y="0.0" width="45" height="12"/>
+                                                            <rect key="frame" x="21" y="0.0" width="45" height="12"/>
                                                             <string key="text">	۱۲ شهریور ۱۳:۴۵</string>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="7"/>
                                                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="jPV-br-xeX">
-                                                            <rect key="frame" x="124" y="-2" width="15" height="16"/>
+                                                            <rect key="frame" x="124" y="-1.5" width="15" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="15" id="4I5-yo-4XZ"/>
                                                                 <constraint firstAttribute="height" constant="16" id="Ize-81-HVs"/>
@@ -1156,7 +1155,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="nQn-0O-Qt4" secondAttribute="bottom" id="0zs-an-vsT"/>
-                                                        <constraint firstItem="fl5-or-YTm" firstAttribute="leading" secondItem="pKz-OI-Qbe" secondAttribute="leading" constant="6.5" id="6bD-Vx-2gg"/>
+                                                        <constraint firstItem="fl5-or-YTm" firstAttribute="leading" secondItem="pKz-OI-Qbe" secondAttribute="leading" constant="21" id="6bD-Vx-2gg"/>
                                                         <constraint firstItem="fl5-or-YTm" firstAttribute="top" secondItem="pKz-OI-Qbe" secondAttribute="top" id="FMT-5W-YJz"/>
                                                         <constraint firstItem="jPV-br-xeX" firstAttribute="centerY" secondItem="pKz-OI-Qbe" secondAttribute="centerY" id="Qqa-Nl-lll"/>
                                                         <constraint firstAttribute="trailing" secondItem="jPV-br-xeX" secondAttribute="trailing" id="UmB-2c-twq"/>
@@ -1173,6 +1172,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="pKz-OI-Qbe" secondAttribute="bottom" constant="2" id="KB9-Ty-2yc"/>
                                                 <constraint firstItem="jtj-Zh-TIZ" firstAttribute="top" secondItem="JyI-wH-r81" secondAttribute="top" constant="19" id="Y1f-PZ-IJ5"/>
                                                 <constraint firstItem="pKz-OI-Qbe" firstAttribute="top" secondItem="jtj-Zh-TIZ" secondAttribute="bottom" constant="5" id="zN9-aV-EPG"/>
+                                                <constraint firstAttribute="trailing" secondItem="jtj-Zh-TIZ" secondAttribute="trailing" constant="11" id="zYR-mE-aLW"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -1243,7 +1243,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zw-Nt-5wO">
                                                     <rect key="frame" x="11" y="53" width="85" height="22"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="چابک رسان" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRm-Px-Zs2">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="چابک رسان" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRm-Px-Zs2">
                                                             <rect key="frame" x="0.0" y="0.0" width="33" height="22"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="7"/>
                                                             <nil key="highlightedColor"/>

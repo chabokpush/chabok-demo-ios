@@ -24,7 +24,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     let mCntxt = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     var eventStatus = statusEnumType.idle
-    
+
     var lastIndexPath : IndexPath! {
         
         let sectionsAmount = self.tableView.numberOfSections - 1
@@ -77,17 +77,28 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     var textIntry: UITextField!
     var manager = PushClientManager()
     var AvatarImage = String()
+    var imageView = UIImageView()
+    var image = UIImage()
+    
     
     //MARK: - LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "دیوار چابک"
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
+        
         buttonMessage.layer.cornerRadius = 13
-        buttonMessage.addTarget(self, action: #selector(MessageViewController.publishMessage), for: .touchUpInside)
+        buttonMessage.addTarget(self, action: #selector(publishMessage), for: .touchUpInside)
         
         textViewMessage.layer.borderWidth = 0.25
         textViewMessage.layer.borderColor = UIColor.fromRGB(0x525d7a).cgColor
@@ -95,22 +106,68 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         textViewMessage.delegate = self
         
         self.manager = PushClientManager.default()
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(MessageViewController.keyboardWillShow(_:)),
-                                               name: NSNotification.Name.UIKeyboardWillShow,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(MessageViewController.keyboardWillHide(_:)),
-                                               name: NSNotification.Name.UIKeyboardWillHide,
-                                               object: nil)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(MessageViewController.hide))
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hide))
         self.tableView.addGestureRecognizer(tap)
         textViewMessage.autocorrectionType = .no
         
+        // NavBar Map Icon
+        let mapBtn = UIBarButtonItem(image: UIImage(named: "mapIcon"), style: .plain, target: self, action: #selector(showPanel))
+        self.navigationItem.rightBarButtonItem  = mapBtn
+
+        // online or offline observer
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pushClientServerConnectionStateHandler), name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
+
     }
     
+    func pushClientServerConnectionStateHandler(_ notification: Notification) {
+        
+        
+        if manager.connectionState == .connectedState {
+            
+            imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
+            image = UIImage(named: "online")!
+            imageView.image = image
+            
+            let title = UILabel(frame: CGRect(x:10, y: 0, width: 95, height: 40))
+            title.text = "دیوار چابک"
+            title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
+            title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
+            let titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
+            
+            titleView.addSubview(imageView)
+            titleView.addSubview(title)
+            
+            navigationItem.titleView = titleView
+            
+            
+        } else if manager.connectionState == .disconnectedState || manager.connectionState == .disconnectedErrorState {
+            
+            imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
+            image = UIImage(named: "offline")!
+            imageView.image = image
+            
+            let title = UILabel(frame: CGRect(x: 10, y: 0, width: 95, height: 40))
+            title.text = "دیوار چابک"
+            title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
+            title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
+            let titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
+            
+            titleView.addSubview(imageView)
+            titleView.addSubview(title)
+            
+            navigationItem.titleView = titleView
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -185,16 +242,24 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChabokTableCell
             cell.msg.text = fetchMessage.message
-            //  cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
+            print("seen cout >>>>>>@@@@ \(fetchMessage.deliveryCount?.stringValue)")
+//            cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
+            
             if fetchMessage.sent == "sent" {
                 cell.messageState.text = "تحویل داده شد"
                 cell.deliverImg.isHidden = false
+                cell.failedImg.isHidden = true
+
             } else if fetchMessage.sent == "send"{
-                cell.messageState.text = "ارسال"
+                cell.messageState.text = "خطا در ارسال"
                 cell.deliverImg.isHidden = true
+                cell.failedImg.isHidden = false
+
             }else{
                 cell.messageState.text = "خطا در ارسال"
                 cell.deliverImg.isHidden = true
+                cell.failedImg.isHidden = false
+
             }
             
             let dateFormatter = DateFormatter()
@@ -247,7 +312,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             break
             
         }
-        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
@@ -264,7 +328,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         default:
             break
         }
-        
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -278,44 +341,38 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     func keyboardWillShow(_ notification:Notification) {
         
-                let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-                print(keyboardSize?.height)
-                let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
-                self.tableView.contentInset = contentInsets
+        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        print(keyboardSize?.height ?? 0)
         
-                if lastIndexPath.row > 0 {
-                    self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-                }
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0,(keyboardSize?.height)!, 0.0)
         
-                let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
-        
-                setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
-        
-//        let height: CGFloat = UIScreen.main.bounds.size.height
-//        UIView.animate(withDuration: 0.5, animations: {() -> Void in
-//            var f: CGRect = self.view.frame
-//            f.origin.y = (-1 * (height / 3.75))
-//            self.view.frame = f
-//        })
-    }
+
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
     
+            
+        if lastIndexPath.row > 0 {
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
+        
+        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        
+        setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
+        
+        self.tableView.isScrollEnabled = false
+    }
     
     func keyboardWillHide(_ notification:Notification)
     {
-                self.tableView.contentInset = UIEdgeInsets.zero
-                let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
-                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        self.tableView.contentInset = UIEdgeInsets.zero
+        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
-                setViewMoveUp(false, curve: curve, duration: duration)
+        setViewMoveUp(false, curve: curve, duration: duration)
+        self.tableView.isScrollEnabled = true
         
-//        UIView.animate(withDuration: 0.4, animations: {() -> Void in
-//            var f: CGRect = self.view.frame
-//            f.origin.y = 0.0
-//            self.view.frame = f
-//        })
     }
-    
     
     func publishMessage () {
         self.manager = PushClientManager.default()
@@ -332,6 +389,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             self.manager.publishEvent("captainStatus", data: ["status":"sent"])
             self.textViewMessage.text = ""
             // send sent event
+            self.tableView.contentInset = UIEdgeInsets.zero
 
         }
     }
@@ -347,6 +405,24 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         UIView.commitAnimations()
     }
     
+    func showPanel() {
+    
+        let coreGeoLocation = self.manager.instanceCoreGeoLocation
+        let lastLocation = coreGeoLocation?.lastLocation
+        let lat = lastLocation?.coordinate.latitude
+        let lng = lastLocation?.coordinate.longitude
+        
+        if lat != nil && lng != nil {
+//            let url = NSURL(string: "http://demo.chabokpush.com/?location=\(lat,lng)")
+//            UIApplication.shared.openURL(url! as URL)
+            let url = URL(string: "http://demo.chabokpush.com/?location=35.713,24.416")
+            UIApplication.shared.openURL(url!)
+        }
+        
+
+        
+        
+    }
 }
 
 class ChabokUserTableCell: UITableViewCell {
@@ -377,10 +453,12 @@ class ChabokTableCell: UITableViewCell {
     @IBOutlet var messageState: UILabel!
     @IBOutlet weak var recieveTime: UILabel!
     @IBOutlet weak var deliverImg: UIImageView!
-    
+    @IBOutlet weak var deliveryCount: UILabel!
+    @IBOutlet weak var failedImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
 }
+

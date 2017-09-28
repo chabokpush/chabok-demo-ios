@@ -143,8 +143,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-//        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! InboxModel
-//        return String().cellHeightForMessage(fetchMessage.message!)
         return UITableViewAutomaticDimension
 
     }
@@ -213,28 +211,18 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "msgViewID") as! MessageViewController
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationController?.pushViewController(newViewController, animated: true)
-    }
+        
+        }
     
     @IBAction func discoveryBtnClick(_ sender: Any) {
         
         self.publishCaptainStatusEvent()
-
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationController?.pushViewController(newViewController, animated: true)
     }
     
     // shake view and navigate to discovery
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake {
-  
             self.publishCaptainStatusEvent()
-            
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            self.navigationController?.pushViewController(newViewController, animated: true)
             
         }
     }
@@ -245,6 +233,22 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let coreGeoLocation = self.manager.instanceCoreGeoLocation
         let lastLocation = coreGeoLocation?.lastLocation
         self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "","lng":lastLocation?.coordinate.longitude ?? ""])
+
+        if lastLocation != nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
+            self.navigationController?.pushViewController(newViewController, animated: true)
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            
+        }else{
+            let alert = UIAlertController(title: title,
+                                          message: " دسترسی به لوکیشن خود را روشن کنید",
+                                          preferredStyle: UIAlertControllerStyle.alert)
+            let cancelAction = UIAlertAction(title: "باشه",
+                                             style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func ShowFirstView() {
@@ -252,26 +256,4 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let firstView = storyBoard.instantiateViewController(withIdentifier: "firstViewNavID")
         self.navigationController!.present(firstView, animated: true, completion: nil)
     }
-    
-//    func navBarIconBadge(notification : NSNotification) {
-//        
-//        var value : String? = nil
-//        let userInfo : NSDictionary = notification.userInfo! as NSDictionary
-//        
-//        let message:String = userInfo .object(forKey: ["message"]) as! String
-//        let inbox: String = userInfo.object(forKey: ["inbox"]) as! String
-//        
-//        if (message != nil) {
-//            
-//            value = nil
-//            
-//        }else{
-//            if (message == "0") {
-//                value = nil
-//            }else{
-//                value == ""
-//            }
-//        }
-//        
-//    }
 }

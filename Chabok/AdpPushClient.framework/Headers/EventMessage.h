@@ -10,6 +10,7 @@
 
 @interface EventMessage : NSObject
 
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *eventName;
 @property (nonatomic, strong) NSString *deviceId;
 @property (nonatomic, strong) NSDictionary *data;

@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-  
+        
         PushClientManager.setDevelopment(false)
         PushClientManager.resetBadge()
         self.manager = PushClientManager.default()
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         
         let userPass = AppDelegate.userNameAndPassword()
         self.manager.registerApplication(AppDelegate.applicationId(),
-            apiKey : userPass.apikey,userName:userPass.userName ,password:userPass.password )
+                                         apiKey : userPass.apikey,userName:userPass.userName ,password:userPass.password )
         self.manager.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         if let userId = self.manager.userId {
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
                 print("Error : \(self.manager.failureError)")
             }
             
-
+            
         }
         
         let attributes = [
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         
         return true
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         PushClientManager.resetBadge()
     }
@@ -110,15 +110,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         if self.manager.connectionState == .connectedState {
             print("we are connected")
             self.manager.enableEventDelivery("treasure")
-
+            
         }
     }
     
     func pushClientManagerDidReceivedEventMessage(_ eventMessage: EventMessage!) {
         
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "discoveryDataStatusNotif"), object: ["data":eventMessage])
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "discoveryDataStatusNotif"), object: nil, userInfo: ["data":eventMessage])
         print("pushClientManagerDidReceivedEventMessage\(eventMessage.data)")
+        
     }
     
     func pushClientManagerDidReceivedMessage(_ message: PushClientMessage!) {
@@ -128,13 +128,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
                 return
             }
             DispatchQueue.main.async(execute: {
-                if message.topicName.contains("public/wall"){
+                if message.topicName.contains("captain"){
+                    if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
+                        AudioServicesPlayAlertSound(1009)
+                    }
+
+                }else{
                     if  Message.messageWithMessage(message, context: self.managedObjectContext!) == true {
                         AudioServicesPlayAlertSound(1007)
-                    }
-                }else{
-                    if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
-                        AudioServicesPlayAlertSound(1005)
                     }
                 }
             })
@@ -148,12 +149,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     
     
     func pushClientManagerDidReceivedDelivery(_ delivery: DeliveryMessage!) {
-
+        
         DispatchQueue.main.async(execute: {
             Message.messageWithDeliveryId(delivery, context: self.managedObjectContext!)
         })
     }
-
+    
     
     // MARK: - Core Data stack
     
@@ -163,7 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
-      
+        
         let modelURL = Bundle.main.url(forResource: "Chabok", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
@@ -178,7 +179,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         
         do {
             try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: [NSMigratePersistentStoresAutomaticallyOption:true,
-                NSInferMappingModelAutomaticallyOption:true])
+                                                                                                                      NSInferMappingModelAutomaticallyOption:true])
         } catch var error1 as NSError {
             error = error1
             coordinator = nil
@@ -200,7 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
     }()
     
     lazy var managedObjectContext: NSManagedObjectContext? = {
-
+        
         let coordinator = self.persistentStoreCoordinator
         if coordinator == nil {
             return nil
@@ -236,7 +237,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         
     }
     
-
-
+    
+    
 }
 

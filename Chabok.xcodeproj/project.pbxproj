@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		25DB0863E52E96644710C950 /* Pods_Chabok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0B9025DB2930FC4343D07B /* Pods_Chabok.framework */; };
-		6FDEB4DD1DD997CD0098AB52 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDEB4DC1DD997CD0098AB52 /* AdpPushClient.framework */; };
 		C542058A1F609F1E0026661D /* View+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54205891F609F1E0026661D /* View+Animation.swift */; };
 		C542058C1F60B9770026661D /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C542058B1F60B9770026661D /* DiscoveryViewController.swift */; };
 		C542058E1F60C76F0026661D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C542058D1F60C76F0026661D /* NavigationViewController.swift */; };
@@ -21,12 +20,16 @@
 		C55E59E71F65BB620051375A /* InboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C55E59E61F65BB620051375A /* InboxView.xib */; };
 		C55E59E91F65BE790051375A /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59E81F65BE790051375A /* InboxTableViewCell.swift */; };
 		C55E59EB1F65FB350051375A /* YellowGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59EA1F65FB350051375A /* YellowGradientView.swift */; };
+		C55EBD921F7B16AC004AB4B4 /* empty_box (1).json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD8F1F7B16AC004AB4B4 /* empty_box (1).json */; };
+		C55EBD931F7B16AC004AB4B4 /* search-ask_loop.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD901F7B16AC004AB4B4 /* search-ask_loop.json */; };
+		C55EBD941F7B16AC004AB4B4 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD911F7B16AC004AB4B4 /* trophy.json */; };
 		C56B87081F703BFA004E4627 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B87071F703BFA004E4627 /* SettingViewController.swift */; };
 		C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E0F1F5DBC1400825675 /* GradientView.swift */; };
 		C59A9E121F5DCE8100825675 /* CornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E111F5DCE8100825675 /* CornerButton.swift */; };
 		C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E131F5DD7D200825675 /* CornerTextField.swift */; };
 		C59A9E151F5DE73B00825675 /* IRANSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D491F5CD0C700C45E60 /* IRANSans.ttf */; };
 		C59A9E161F5DE73B00825675 /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4A1F5CD0C700C45E60 /* IRANSans(FaNum).ttf */; };
+		C5AF28CB1F7C7FA400E03E82 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
 		C5BC1D4C1F5CD10300C45E60 /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */; };
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
@@ -46,7 +49,6 @@
 		F892DD7C1C60956900C1F355 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DD7B1C60956900C1F355 /* RegisterViewController.swift */; };
 		F892DDB21C60A64100C1F355 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F892DDB11C60A64100C1F355 /* MobileCoreServices.framework */; };
 		F892DDB41C60A64E00C1F355 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F892DDB31C60A64E00C1F355 /* SystemConfiguration.framework */; };
-		F892DDB61C60A65300C1F355 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F892DDB51C60A65300C1F355 /* CoreData.framework */; };
 		F892DDB81C60D16000C1F355 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DDB71C60D16000C1F355 /* CAPSPageMenu.swift */; };
 		F892DDBA1C60D22600C1F355 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DDB91C60D22600C1F355 /* MessageViewController.swift */; };
 		F892DDBC1C60D23600C1F355 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DDBB1C60D23600C1F355 /* AboutViewController.swift */; };
@@ -55,9 +57,9 @@
 /* Begin PBXFileReference section */
 		485757E0708D43EF4140429D /* Pods-Chabok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chabok.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chabok/Pods-Chabok.debug.xcconfig"; sourceTree = "<group>"; };
 		5D0B9025DB2930FC4343D07B /* Pods_Chabok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chabok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FDEB4DC1DD997CD0098AB52 /* AdpPushClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdpPushClient.framework; sourceTree = "<group>"; };
 		6FE31F371DD98D5D007EBC2F /* Chabok.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chabok.entitlements; sourceTree = "<group>"; };
 		B8A4838277C8E3DFB91398EF /* Pods-Chabok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chabok.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chabok/Pods-Chabok.release.xcconfig"; sourceTree = "<group>"; };
+		C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdpPushClient.framework; sourceTree = "<group>"; };
 		C54205891F609F1E0026661D /* View+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Animation.swift"; sourceTree = "<group>"; };
 		C542058B1F60B9770026661D /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		C542058D1F60C76F0026661D /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,9 @@
 		C55E59E61F65BB620051375A /* InboxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxView.xib; sourceTree = "<group>"; };
 		C55E59E81F65BE790051375A /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		C55E59EA1F65FB350051375A /* YellowGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowGradientView.swift; sourceTree = "<group>"; };
+		C55EBD8F1F7B16AC004AB4B4 /* empty_box (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "empty_box (1).json"; sourceTree = "<group>"; };
+		C55EBD901F7B16AC004AB4B4 /* search-ask_loop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-ask_loop.json"; sourceTree = "<group>"; };
+		C55EBD911F7B16AC004AB4B4 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trophy.json; sourceTree = "<group>"; };
 		C56B87071F703BFA004E4627 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C59A9E0F1F5DBC1400825675 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C59A9E111F5DCE8100825675 /* CornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
@@ -109,10 +114,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F892DDB61C60A65300C1F355 /* CoreData.framework in Frameworks */,
+				C5AF28CB1F7C7FA400E03E82 /* AdpPushClient.framework in Frameworks */,
 				F892DDB41C60A64E00C1F355 /* SystemConfiguration.framework in Frameworks */,
 				F892DDB21C60A64100C1F355 /* MobileCoreServices.framework in Frameworks */,
-				6FDEB4DD1DD997CD0098AB52 /* AdpPushClient.framework in Frameworks */,
 				25DB0863E52E96644710C950 /* Pods_Chabok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +136,9 @@
 		C56B87091F703CD0004E4627 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				C55EBD8F1F7B16AC004AB4B4 /* empty_box (1).json */,
+				C55EBD901F7B16AC004AB4B4 /* search-ask_loop.json */,
+				C55EBD911F7B16AC004AB4B4 /* trophy.json */,
 				C548B05F1F68AD010018C7C3 /* kiss.json */,
 			);
 			name = Animations;
@@ -246,7 +253,7 @@
 		F892DD6E1C608BD300C1F355 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6FDEB4DC1DD997CD0098AB52 /* AdpPushClient.framework */,
+				C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */,
 				F892DDB51C60A65300C1F355 /* CoreData.framework */,
 				F892DDB31C60A64E00C1F355 /* SystemConfiguration.framework */,
 				F892DDB11C60A64100C1F355 /* MobileCoreServices.framework */,
@@ -338,7 +345,10 @@
 			files = (
 				C59A9E151F5DE73B00825675 /* IRANSans.ttf in Resources */,
 				C59A9E161F5DE73B00825675 /* IRANSans(FaNum).ttf in Resources */,
+				C55EBD931F7B16AC004AB4B4 /* search-ask_loop.json in Resources */,
+				C55EBD941F7B16AC004AB4B4 /* trophy.json in Resources */,
 				C55E59E71F65BB620051375A /* InboxView.xib in Resources */,
+				C55EBD921F7B16AC004AB4B4 /* empty_box (1).json in Resources */,
 				C548B0601F68AD010018C7C3 /* kiss.json in Resources */,
 				F892DD651C60811600C1F355 /* LaunchScreen.storyboard in Resources */,
 				F892DD621C60811600C1F355 /* Assets.xcassets in Resources */,

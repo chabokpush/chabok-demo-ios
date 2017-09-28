@@ -118,8 +118,15 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         self.manager.enableLocationOnLaunch = true
         
-        let registrationState = self.manager.registerUser(englishPhoneNumber, channels: ["public/wall"])
-        if !registrationState {
+        let registrationStateInWall = self.manager.registerUser(englishPhoneNumber, channels: ["public/wall"])
+        let registrationStateInCaptain = self.manager.registerUser(englishPhoneNumber, channels: ["captain"])
+
+        if !registrationStateInWall {
+            print("Error : \(self.manager.failureError)")
+            return
+        }
+        
+        if !registrationStateInCaptain {
             print("Error : \(self.manager.failureError)")
             return
         }

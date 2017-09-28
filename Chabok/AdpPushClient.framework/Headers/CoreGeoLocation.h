@@ -167,6 +167,15 @@ typedef enum {
 -(void) addDelegate:(id<CoreGeoLocationDelegate>) delegate;
 
 /**
+ * Get access to Location with 2 type authorization
+ * For instance : WhenInUse or Always
+ * @author AdpDigital co.
+ *
+ * @param locationAutorization is EnumType with 2 item [useInApp , always]
+ */
+- (BOOL) requestLocationAuthorization:(locationAutorizationEnumType) locationAutorization;
+
+/**
  * Start location tracking, First check location manager was enabled and after that
  * start tracking location
  * @author AdpDigital co.
@@ -211,6 +220,6 @@ typedef enum {
  *      If no location can be determined, the geoLocationFailWithError:error
  *      delegate callback will be delivered with error location unknown.
  */
--(void) requestSingleLocation:(void (^_Nullable)( CLLocation * _Nullable location,NSError * _Nullable error))locationCallBack; __IOS_AVAILABLE(__IPHONE_9_0);
-
+-(void) requestSingleLocation:(void (^_Nullable)( CLLocation * _Nullable location,NSError * _Nullable error))locationCallBack;
+    
 @end

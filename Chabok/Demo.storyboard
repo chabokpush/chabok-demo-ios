@@ -1196,7 +1196,7 @@
                                         <color key="backgroundColor" red="0.9478019754" green="0.9478019754" blue="0.9478019754" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="deliverImg" destination="jPV-br-xeX" id="HmE-gc-wrn"/>
-                                            <outlet property="deliveryCount" destination="fBW-qr-4G4" id="gUe-YP-tM9"/>
+                                            <outlet property="deliveryCounter" destination="fBW-qr-4G4" id="0y9-f7-Thm"/>
                                             <outlet property="failedImg" destination="Lpn-hQ-PxY" id="SFj-lN-N9G"/>
                                             <outlet property="messageState" destination="nQn-0O-Qt4" id="lR0-4W-dvg"/>
                                             <outlet property="msg" destination="2jl-GD-r4h" id="UdX-hs-4Tj"/>

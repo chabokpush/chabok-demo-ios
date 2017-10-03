@@ -29,11 +29,11 @@
 		C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E131F5DD7D200825675 /* CornerTextField.swift */; };
 		C59A9E151F5DE73B00825675 /* IRANSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D491F5CD0C700C45E60 /* IRANSans.ttf */; };
 		C59A9E161F5DE73B00825675 /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4A1F5CD0C700C45E60 /* IRANSans(FaNum).ttf */; };
-		C5AF28CB1F7C7FA400E03E82 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
 		C5BC1D4C1F5CD10300C45E60 /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */; };
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
 		C5F49AB01F771A3D00FE3EB9 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */; };
+		C5FD213D1F8419FF00301D44 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
 		C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */; };
 		F805EA271C6639A00098276A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805EA251C6639A00098276A /* Message.swift */; };
 		F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DD5A1C60811600C1F355 /* AppDelegate.swift */; };
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5AF28CB1F7C7FA400E03E82 /* AdpPushClient.framework in Frameworks */,
+				C5FD213D1F8419FF00301D44 /* AdpPushClient.framework in Frameworks */,
 				F892DDB41C60A64E00C1F355 /* SystemConfiguration.framework in Frameworks */,
 				F892DDB21C60A64100C1F355 /* MobileCoreServices.framework in Frameworks */,
 				25DB0863E52E96644710C950 /* Pods_Chabok.framework in Frameworks */,
@@ -167,7 +167,7 @@
 			name = SubClass;
 			sourceTree = "<group>";
 		};
-		C5BC1D481F5CD09400C45E60 /* Fobts */ = {
+		C5BC1D481F5CD09400C45E60 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				C5BC1D491F5CD0C700C45E60 /* IRANSans.ttf */,
@@ -176,7 +176,7 @@
 				F892DD731C608F1C00C1F355 /* IRANSans(FaNum)_Bold.ttf */,
 				F892DD741C608F1C00C1F355 /* IRANSans(FaNum)_Medium.ttf */,
 			);
-			name = Fobts;
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		C5BC1D4D1F5CD10F00C45E60 /* Demo */ = {
@@ -230,8 +230,8 @@
 		F892DD591C60811600C1F355 /* Chabok */ = {
 			isa = PBXGroup;
 			children = (
-				C5BC1D481F5CD09400C45E60 /* Fobts */,
 				6FE31F371DD98D5D007EBC2F /* Chabok.entitlements */,
+				C5BC1D481F5CD09400C45E60 /* Fonts */,
 				F805EA281C6639AB0098276A /* DataModel */,
 				F892DD7A1C608FB000C1F355 /* UIKitExtension */,
 				F892DDB71C60D16000C1F355 /* CAPSPageMenu.swift */,
@@ -306,7 +306,7 @@
 				TargetAttributes = {
 					F892DD561C60811600C1F355 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 99XQ6TEKDW;
+						DevelopmentTeam = 3P8VW5SG6R;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -570,7 +570,7 @@
 				CODE_SIGN_ENTITLEMENTS = Chabok/Chabok.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 99XQ6TEKDW;
+				DEVELOPMENT_TEAM = 3P8VW5SG6R;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -581,11 +581,12 @@
 				INFOPLIST_FILE = Chabok/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokmessenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -598,7 +599,7 @@
 				CODE_SIGN_ENTITLEMENTS = Chabok/Chabok.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 99XQ6TEKDW;
+				DEVELOPMENT_TEAM = 3P8VW5SG6R;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -609,11 +610,12 @@
 				INFOPLIST_FILE = Chabok/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adpdigital.chabokmessenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;

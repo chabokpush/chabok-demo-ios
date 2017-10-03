@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/CoreGeoLocation.h</key>
 		<data>
-		8A6UtLXjB2kDO29tRzf+s2/WJzk=
+		lvQ73MXCEQVJRcKMiCcxVq++mpo=
 		</data>
 		<key>Headers/DeliveryMessage.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Q6ihf/4If4OaU6jng7CXvt0hNXM=
+		2BQxYmmUpO3UKJgo96ORQlXaPtg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -73,11 +73,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8A6UtLXjB2kDO29tRzf+s2/WJzk=
+			lvQ73MXCEQVJRcKMiCcxVq++mpo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ofn1p7ULyu8rZ5MKRZcXEaMrTpI7XjfbejSIJilPhAA=
+			Vlqw48qKtSDnrJ58xDYBBBKvTrjoPno7zfwvf7jOJm8=
 			</data>
 		</dict>
 		<key>Headers/DeliveryMessage.h</key>

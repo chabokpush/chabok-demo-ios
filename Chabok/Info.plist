@@ -22,12 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow use to access your current location Always or InUse</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>App would like to use your location.</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Allow use to access your current location Always or InUse</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Allow use to access your current location so we can autofill your start/end</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow use to access your current location so we can autofill your start/end</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>IRANSans(FaNum).ttf</string>

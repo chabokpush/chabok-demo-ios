@@ -33,6 +33,8 @@
  */
 -(void) geoLocationAutorizationStatusChanged:(CLAuthorizationStatus)status;
 
+-(void) didStoppedTrackingMe;
+
 @end
 
 @interface CoreGeoLocation : NSObject <CLLocationManagerDelegate>
@@ -44,6 +46,24 @@ typedef enum {
     kWhileUseInApp = 0,
     kAlways = 1
 } locationAutorizationEnumType;
+
+/**
+ * trackingStateEnumType
+ *
+ * Discussion:
+ *      Type for checking state of tracking me.
+ *      kStopped means stoped after Expiring.
+ *      kExpired means was Expired and not stopped yet.
+ *      kTracking means tracking user.
+ *
+ * @author AdpDigital co.
+ *
+ */
+typedef enum {
+    kStopped = 0,
+    kExpired = 1,
+    kTracking = 2
+} trackingStateEnumType;
 
 /**
  *  allowsBackgroundLocationUpdates
@@ -131,14 +151,6 @@ typedef enum {
 @property (nonatomic) locationAutorizationEnumType locationAutorization;
 
 /**
- * isUserWasAutorizeLocation
- *
- * Discussion:
- *      Check user press allow for autorization or denied.
- */
-@property (nonatomic, readonly) BOOL isUserWasAutorizeLocation;
-
-/**
  * Singletone of coreGeoLocation
  */
 +(instancetype _Nonnull ) sharedInstance;
@@ -165,6 +177,14 @@ typedef enum {
  * return void
  */
 -(void) addDelegate:(id<CoreGeoLocationDelegate>) delegate;
+
+/**
+ * removeDelegate:delegate
+ * Discussion:
+ *      remove delegate from list of delegates.
+ * @author AdpDigital co.
+ */
+-(void) removeDelegate:(id<CoreGeoLocationDelegate>) delegate;
 
 /**
  * Get access to Location with 2 type authorization
@@ -221,5 +241,31 @@ typedef enum {
  *      delegate callback will be delivered with error location unknown.
  */
 -(void) requestSingleLocation:(void (^_Nullable)( CLLocation * _Nullable location,NSError * _Nullable error))locationCallBack;
+
+/*!
+ * @description Start tracking user in duration with change location by meter
+ * @param until, tracking until time was ended
+ * @param meter
+ *
+ * @author AdpDigital co.
+ *
+ */
+- (void) trackMeUntil:(NSTimeInterval) until byMeter:(CLLocationDistance) meter;
+
+/*!
+ * @description Get tracking me state
+ * @return trackingStateEnumType [kTracking, kExpired, kStopped]
+ * @see trackingStateEnumType
+ *
+ * @author AdpDigital co.
+ */
+- (trackingStateEnumType) trackingMeState;
+
+/*!
+ * @description Stop tracking user if trackMeUntil:byMeter was called.
+ *
+ * @author AdpDigital co.
+ */
+- (void) stopTracking;
     
 @end

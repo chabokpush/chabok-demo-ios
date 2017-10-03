@@ -24,7 +24,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     let mCntxt = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     var eventStatus = statusEnumType.idle
-
+    
     var lastIndexPath : IndexPath! {
         
         let sectionsAmount = self.tableView.numberOfSections - 1
@@ -106,7 +106,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         textViewMessage.delegate = self
         
         self.manager = PushClientManager.default()
-
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(hide))
         self.tableView.addGestureRecognizer(tap)
         textViewMessage.autocorrectionType = .no
@@ -114,11 +114,11 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         // NavBar Map Icon
         let mapBtn = UIBarButtonItem(image: UIImage(named: "mapIcon"), style: .plain, target: self, action: #selector(showPanel))
         self.navigationItem.rightBarButtonItem  = mapBtn
-
+        
         // online or offline observer
         NotificationCenter.default.addObserver(self, selector: #selector(self.pushClientServerConnectionStateHandler), name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
         NotificationCenter.default.post(name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
-
+        
     }
     
     func pushClientServerConnectionStateHandler(_ notification: Notification) {
@@ -167,7 +167,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         super.viewWillAppear(animated)
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -188,7 +188,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             eventStatus = statusEnumType.typing
             
             self.manager.publishEvent("captainStatus", data: ["status":"typing"])
-
+            
             print("istyping")
         }else{
             
@@ -196,7 +196,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
                 eventStatus = statusEnumType.idle
                 self.manager.publishEvent("captainStatus", data: ["status":"idle"])
                 print("idle")
-
+                
             }
         }
         return true
@@ -206,7 +206,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             eventStatus = statusEnumType.idle
             self.manager.publishEvent("captainStatus", data: ["status":"idle"])
             print("idle")
-
+            
         }
         return true
     }
@@ -242,24 +242,25 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChabokTableCell
             cell.msg.text = fetchMessage.message
-            print("seen cout >>>>>>@@@@ \(fetchMessage.deliveryCount?.stringValue)")
-//            cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
+            
+            print("seen cout >>>>>>@@@@ \(String(describing: fetchMessage.deliveryCount?.stringValue))")
+            cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
             
             if fetchMessage.sent == "sent" {
                 cell.messageState.text = "تحویل داده شد"
                 cell.deliverImg.isHidden = false
                 cell.failedImg.isHidden = true
-
+                
             } else if fetchMessage.sent == "send"{
                 cell.messageState.text = "خطا در ارسال"
                 cell.deliverImg.isHidden = true
                 cell.failedImg.isHidden = false
-
+                
             }else{
                 cell.messageState.text = "خطا در ارسال"
                 cell.deliverImg.isHidden = true
                 cell.failedImg.isHidden = false
-
+                
             }
             
             let dateFormatter = DateFormatter()
@@ -346,11 +347,11 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         let contentInsets = UIEdgeInsetsMake(0.0, 0.0,(keyboardSize?.height)!, 0.0)
         
-
+        
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
-    
-            
+        
+        
         if lastIndexPath.row > 0 {
             self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
         }
@@ -390,7 +391,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             self.textViewMessage.text = ""
             // send sent event
             self.tableView.contentInset = UIEdgeInsets.zero
-
+            
         }
     }
     
@@ -406,22 +407,22 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     }
     
     func showPanel() {
-    
+        
         let coreGeoLocation = self.manager.instanceCoreGeoLocation
         let lastLocation = coreGeoLocation?.lastLocation
         let lat = lastLocation?.coordinate.latitude
         let lng = lastLocation?.coordinate.longitude
         
         if lat != nil && lng != nil {
-//            let url = NSURL(string: "http://demo.chabokpush.com/?location=\(lat,lng)")
-//            UIApplication.shared.openURL(url! as URL)
-            let url = URL(string: "http://demo.chabokpush.com/?location=35.713,24.416")
-            UIApplication.shared.openURL(url!)
+            let url = URL(string: "http://demo.chabokpush.com/?location=\(lat!),\(lng!)")
+            print("http://demo.chabokpush.com/?location=\(lat!),\(lng!)")
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url!)
+            } else {
+                UIApplication.shared.openURL(url!)
+            }
         }
-        
-
-        
-        
     }
 }
 
@@ -445,8 +446,8 @@ class ChabokUserTableCell: UITableViewCell {
 
 class ChabokTableCell: UITableViewCell {
     
+    @IBOutlet weak var deliveryCounter: UILabel!
     @IBOutlet var sendImg: UIImageView!
-    @IBOutlet var deliveryCounter: UILabel!
     @IBOutlet var avatarView: UIView!
     @IBOutlet var msg: UILabel!
     @IBOutlet var msgBackground: UIView!

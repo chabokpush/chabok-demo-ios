@@ -12,7 +12,7 @@ import AdpPushClient
 import AudioToolbox
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,CoreGeoLocationDelegate {
     
     var window: UIWindow?
     var manager = PushClientManager()
@@ -39,18 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         self.manager = PushClientManager.default()
         self.manager.addDelegate(self)
         
+        self.manager.instanceCoreGeoLocation.add(self)
         
+        self.manager.application(application, didFinishLaunchingWithOptions: launchOptions)
+
         let userPass = AppDelegate.userNameAndPassword()
         self.manager.registerApplication(AppDelegate.applicationId(),
                                          apiKey : userPass.apikey,userName:userPass.userName ,password:userPass.password )
-        self.manager.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         if let userId = self.manager.userId {
             if !self.manager.registerUser(userId) {
                 print("Error : \(self.manager.failureError)")
             }
-            
-            
         }
         
         let attributes = [
@@ -82,8 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         self.manager.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
         
     }
-    
-    
+
     
     @available(iOS 8.0, *)
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
@@ -155,7 +154,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate 
         })
     }
     
-    
+    func receivedLocationUpdates(_ locations: [CLLocation]) {
+        
+        let lastLocation = locations.last
+        let data : NSDictionary = ["lat":lastLocation?.coordinate.latitude ?? 0,"lng" : lastLocation?.coordinate.longitude ?? 0,"ts": (lastLocation?.timestamp.timeIntervalSince1970)!*1000]
+        
+        self.manager.publishEvent("geo", data: data as! [AnyHashable : Any], live: false, stateful: true)
+        print("background location >>>>>>\(data)")
+    }
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: URL = {

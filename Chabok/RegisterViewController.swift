@@ -118,6 +118,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         self.manager.enableLocationOnLaunch = true
         
+        
         let registrationStateInWall = self.manager.registerUser(englishPhoneNumber, channels: ["public/wall"])
         let registrationStateInCaptain = self.manager.registerUser(englishPhoneNumber, channels: ["captain"])
 
@@ -130,6 +131,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             print("Error : \(self.manager.failureError)")
             return
         }
+        self.manager.instanceCoreGeoLocation.trackMe(until: 3600*3, byMeter: 50)
         
         let defaults = UserDefaults.standard
         defaults.setValue(self.familyName.text, forKey: "name")

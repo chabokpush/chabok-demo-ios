@@ -115,6 +115,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         let userInfo =  ["name":self.familyName.text ?? "چابک رسان" ,"avatarIdx": self.avatarIndex,"userId": englishPhoneNumber] as [String : Any]
         self.manager.userInfo = userInfo
         
+        self.manager.deliveryChannelEnabeled = true
         
         self.manager.enableLocationOnLaunch = true
         

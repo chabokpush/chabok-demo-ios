@@ -33,7 +33,7 @@
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
 		C5F49AB01F771A3D00FE3EB9 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */; };
-		C5FD213D1F8419FF00301D44 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
+		C5FD213F1F84569600301D44 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
 		C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */; };
 		F805EA271C6639A00098276A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805EA251C6639A00098276A /* Message.swift */; };
 		F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892DD5A1C60811600C1F355 /* AppDelegate.swift */; };
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FD213D1F8419FF00301D44 /* AdpPushClient.framework in Frameworks */,
+				C5FD213F1F84569600301D44 /* AdpPushClient.framework in Frameworks */,
 				F892DDB41C60A64E00C1F355 /* SystemConfiguration.framework in Frameworks */,
 				F892DDB21C60A64100C1F355 /* MobileCoreServices.framework in Frameworks */,
 				25DB0863E52E96644710C950 /* Pods_Chabok.framework in Frameworks */,

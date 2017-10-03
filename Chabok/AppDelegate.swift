@@ -145,15 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
             })
         }
     }
-    
-    
-    func pushClientManagerDidReceivedDelivery(_ delivery: DeliveryMessage!) {
-        
-        DispatchQueue.main.async(execute: {
-            Message.messageWithDeliveryId(delivery, context: self.managedObjectContext!)
-        })
-    }
-    
+
     func receivedLocationUpdates(_ locations: [CLLocation]) {
         
         let lastLocation = locations.last
@@ -162,6 +154,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         self.manager.publishEvent("geo", data: data as! [AnyHashable : Any], live: false, stateful: true)
         print("background location >>>>>>\(data)")
     }
+    
+    func pushClientManagerDidReceivedDelivery(_ delivery: DeliveryMessage!) {
+        
+        DispatchQueue.main.async(execute: {
+            Message.messageWithDeliveryId(delivery: delivery, context: self.managedObjectContext!)
+            
+        })
+    }
+    
+    
+    
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: URL = {

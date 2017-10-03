@@ -20,7 +20,7 @@ class RewardViewController: UIViewController {
 
         // lottie animation
         let animationView = LOTAnimationView(name: "trophy.json")
-        animationView.frame = CGRect(x: 10, y: 30, width: 300, height: 300)
+        animationView.frame = CGRect(x: (UIScreen.main.bounds.size.width/2)-125, y: (UIScreen.main.bounds.size.height/2)-200, width: 250, height: 250)
         animationView.loopAnimation = true
         self.view.addSubview(animationView)
         animationView.play()

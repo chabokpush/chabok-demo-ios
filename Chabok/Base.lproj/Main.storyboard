@@ -1262,6 +1262,6 @@
     </scenes>
     <resources>
         <image name="aboutlogo" width="82" height="82"/>
-        <image name="eye" width="12" height="6"/>
+        <image name="eye" width="9" height="5"/>
     </resources>
 </document>

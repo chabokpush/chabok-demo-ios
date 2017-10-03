@@ -61,7 +61,7 @@ class Message: NSManagedObject {
         
     }
     
-    class func messageWithDeliveryId(_ delivery:DeliveryMessage, context:NSManagedObjectContext) {
+    class func messageWithDeliveryId(delivery:DeliveryMessage, context:NSManagedObjectContext) {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
         let send = NSPredicate(format: "id == %@", delivery.messageId)
@@ -80,13 +80,9 @@ class Message: NSManagedObject {
                         
                     }
                 }
-                
-                
             }
         }
-        
     }
-    
     
     class func messageWithSent(_ message:PushClientMessage, context:NSManagedObjectContext) {
         
@@ -106,10 +102,7 @@ class Message: NSManagedObject {
                         
                     }
                 }
-                
-                
             }
         }
-        
     }
 }

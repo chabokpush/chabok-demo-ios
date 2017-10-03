@@ -68,7 +68,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         super.viewDidLoad()
 
         self.manager = PushClientManager.default()
-        if self.manager.userId == nil {
+        if self.manager.userId == nil || self.manager.userId.contains("@") {
             ShowFirstView()
         }
 

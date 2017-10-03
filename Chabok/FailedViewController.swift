@@ -15,7 +15,7 @@ class FailedViewController: UIViewController {
         super.viewDidLoad()
 
         // lottie animation
-        let animationView = LOTAnimationView(name: "empty_box (1).json")
+        let animationView = LOTAnimationView(name: "Failed.json")
         animationView.frame = CGRect(x: (UIScreen.main.bounds.size.width/2)-125, y: (UIScreen.main.bounds.size.height/2)-200, width: 250, height: 250)
         animationView.loopAnimation = true
         self.view.addSubview(animationView)

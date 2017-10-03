@@ -26,7 +26,7 @@ class DiscoveryViewController: UIViewController {
         super.viewDidLoad()
 
         // lottie animation
-        let animationView = LOTAnimationView(name: "search-ask_loop.json")
+        let animationView = LOTAnimationView(name: "Discovery.json")
         animationView.frame = CGRect(x: (UIScreen.main.bounds.size.width/2)-125, y: (UIScreen.main.bounds.size.height/2)-125, width: 250, height: 250)
         animationView.loopAnimation = true
         self.view.addSubview(animationView)

@@ -20,9 +20,9 @@
 		C55E59E71F65BB620051375A /* InboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C55E59E61F65BB620051375A /* InboxView.xib */; };
 		C55E59E91F65BE790051375A /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59E81F65BE790051375A /* InboxTableViewCell.swift */; };
 		C55E59EB1F65FB350051375A /* YellowGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E59EA1F65FB350051375A /* YellowGradientView.swift */; };
-		C55EBD921F7B16AC004AB4B4 /* empty_box (1).json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD8F1F7B16AC004AB4B4 /* empty_box (1).json */; };
-		C55EBD931F7B16AC004AB4B4 /* search-ask_loop.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD901F7B16AC004AB4B4 /* search-ask_loop.json */; };
-		C55EBD941F7B16AC004AB4B4 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD911F7B16AC004AB4B4 /* trophy.json */; };
+		C55EBD921F7B16AC004AB4B4 /* Failed.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD8F1F7B16AC004AB4B4 /* Failed.json */; };
+		C55EBD931F7B16AC004AB4B4 /* Discovery.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD901F7B16AC004AB4B4 /* Discovery.json */; };
+		C55EBD941F7B16AC004AB4B4 /* Reward.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD911F7B16AC004AB4B4 /* Reward.json */; };
 		C56B87081F703BFA004E4627 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B87071F703BFA004E4627 /* SettingViewController.swift */; };
 		C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E0F1F5DBC1400825675 /* GradientView.swift */; };
 		C59A9E121F5DCE8100825675 /* CornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E111F5DCE8100825675 /* CornerButton.swift */; };
@@ -72,9 +72,9 @@
 		C55E59E61F65BB620051375A /* InboxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxView.xib; sourceTree = "<group>"; };
 		C55E59E81F65BE790051375A /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		C55E59EA1F65FB350051375A /* YellowGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowGradientView.swift; sourceTree = "<group>"; };
-		C55EBD8F1F7B16AC004AB4B4 /* empty_box (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "empty_box (1).json"; sourceTree = "<group>"; };
-		C55EBD901F7B16AC004AB4B4 /* search-ask_loop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-ask_loop.json"; sourceTree = "<group>"; };
-		C55EBD911F7B16AC004AB4B4 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trophy.json; sourceTree = "<group>"; };
+		C55EBD8F1F7B16AC004AB4B4 /* Failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Failed.json; sourceTree = "<group>"; };
+		C55EBD901F7B16AC004AB4B4 /* Discovery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Discovery.json; sourceTree = "<group>"; };
+		C55EBD911F7B16AC004AB4B4 /* Reward.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Reward.json; sourceTree = "<group>"; };
 		C56B87071F703BFA004E4627 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C59A9E0F1F5DBC1400825675 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C59A9E111F5DCE8100825675 /* CornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
@@ -136,9 +136,9 @@
 		C56B87091F703CD0004E4627 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				C55EBD8F1F7B16AC004AB4B4 /* empty_box (1).json */,
-				C55EBD901F7B16AC004AB4B4 /* search-ask_loop.json */,
-				C55EBD911F7B16AC004AB4B4 /* trophy.json */,
+				C55EBD8F1F7B16AC004AB4B4 /* Failed.json */,
+				C55EBD901F7B16AC004AB4B4 /* Discovery.json */,
+				C55EBD911F7B16AC004AB4B4 /* Reward.json */,
 				C548B05F1F68AD010018C7C3 /* kiss.json */,
 			);
 			name = Animations;
@@ -345,10 +345,10 @@
 			files = (
 				C59A9E151F5DE73B00825675 /* IRANSans.ttf in Resources */,
 				C59A9E161F5DE73B00825675 /* IRANSans(FaNum).ttf in Resources */,
-				C55EBD931F7B16AC004AB4B4 /* search-ask_loop.json in Resources */,
-				C55EBD941F7B16AC004AB4B4 /* trophy.json in Resources */,
+				C55EBD931F7B16AC004AB4B4 /* Discovery.json in Resources */,
+				C55EBD941F7B16AC004AB4B4 /* Reward.json in Resources */,
 				C55E59E71F65BB620051375A /* InboxView.xib in Resources */,
-				C55EBD921F7B16AC004AB4B4 /* empty_box (1).json in Resources */,
+				C55EBD921F7B16AC004AB4B4 /* Failed.json in Resources */,
 				C548B0601F68AD010018C7C3 /* kiss.json in Resources */,
 				F892DD651C60811600C1F355 /* LaunchScreen.storyboard in Resources */,
 				F892DD621C60811600C1F355 /* Assets.xcassets in Resources */,

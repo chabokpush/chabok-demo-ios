@@ -29,6 +29,9 @@
 		C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E131F5DD7D200825675 /* CornerTextField.swift */; };
 		C59A9E151F5DE73B00825675 /* IRANSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D491F5CD0C700C45E60 /* IRANSans.ttf */; };
 		C59A9E161F5DE73B00825675 /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4A1F5CD0C700C45E60 /* IRANSans(FaNum).ttf */; };
+		C5AC5B8D1F85589600BDD425 /* d.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C5AC5B8A1F85589600BDD425 /* d.aiff */; };
+		C5AC5B8E1F85589600BDD425 /* n.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C5AC5B8B1F85589600BDD425 /* n.aiff */; };
+		C5AC5B8F1F85589600BDD425 /* w.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C5AC5B8C1F85589600BDD425 /* w.aiff */; };
 		C5BC1D4C1F5CD10300C45E60 /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */; };
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
@@ -79,6 +82,9 @@
 		C59A9E0F1F5DBC1400825675 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C59A9E111F5DCE8100825675 /* CornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
 		C59A9E131F5DD7D200825675 /* CornerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerTextField.swift; sourceTree = "<group>"; };
+		C5AC5B8A1F85589600BDD425 /* d.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = d.aiff; path = "../../chabok-kharj-ios/ChabokKharj/Sounds&Fonts/d.aiff"; sourceTree = "<group>"; };
+		C5AC5B8B1F85589600BDD425 /* n.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = n.aiff; path = "../../chabok-kharj-ios/ChabokKharj/Sounds&Fonts/n.aiff"; sourceTree = "<group>"; };
+		C5AC5B8C1F85589600BDD425 /* w.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = w.aiff; path = "../../chabok-kharj-ios/ChabokKharj/Sounds&Fonts/w.aiff"; sourceTree = "<group>"; };
 		C5BC1D491F5CD0C700C45E60 /* IRANSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSans.ttf; sourceTree = "<group>"; };
 		C5BC1D4A1F5CD0C700C45E60 /* IRANSans(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum).ttf"; sourceTree = "<group>"; };
 		C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Demo.storyboard; sourceTree = "<group>"; };
@@ -170,6 +176,9 @@
 		C5BC1D481F5CD09400C45E60 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				C5AC5B8A1F85589600BDD425 /* d.aiff */,
+				C5AC5B8B1F85589600BDD425 /* n.aiff */,
+				C5AC5B8C1F85589600BDD425 /* w.aiff */,
 				C5BC1D491F5CD0C700C45E60 /* IRANSans.ttf */,
 				C5BC1D4A1F5CD0C700C45E60 /* IRANSans(FaNum).ttf */,
 				F892DD721C608F1C00C1F355 /* IRANSans(FaNum)_Light.ttf */,
@@ -186,6 +195,7 @@
 				C56B87091F703CD0004E4627 /* Animations */,
 				C56B870A1F703CF4004E4627 /* Inbox Cell */,
 				C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */,
+				F892DDB91C60D22600C1F355 /* MessageViewController.swift */,
 				C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */,
 				C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */,
 				C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */,
@@ -234,11 +244,10 @@
 				C5BC1D481F5CD09400C45E60 /* Fonts */,
 				F805EA281C6639AB0098276A /* DataModel */,
 				F892DD7A1C608FB000C1F355 /* UIKitExtension */,
-				F892DDB71C60D16000C1F355 /* CAPSPageMenu.swift */,
 				F892DD5A1C60811600C1F355 /* AppDelegate.swift */,
+				F892DDB71C60D16000C1F355 /* CAPSPageMenu.swift */,
 				F892DD7B1C60956900C1F355 /* RegisterViewController.swift */,
 				F892DD5C1C60811600C1F355 /* ViewController.swift */,
-				F892DDB91C60D22600C1F355 /* MessageViewController.swift */,
 				F892DDBB1C60D23600C1F355 /* AboutViewController.swift */,
 				F892DD5E1C60811600C1F355 /* Main.storyboard */,
 				C5BC1D4D1F5CD10F00C45E60 /* Demo */,
@@ -351,8 +360,11 @@
 				C55EBD921F7B16AC004AB4B4 /* Failed.json in Resources */,
 				C548B0601F68AD010018C7C3 /* kiss.json in Resources */,
 				F892DD651C60811600C1F355 /* LaunchScreen.storyboard in Resources */,
+				C5AC5B8E1F85589600BDD425 /* n.aiff in Resources */,
+				C5AC5B8F1F85589600BDD425 /* w.aiff in Resources */,
 				F892DD621C60811600C1F355 /* Assets.xcassets in Resources */,
 				F892DD601C60811600C1F355 /* Main.storyboard in Resources */,
+				C5AC5B8D1F85589600BDD425 /* d.aiff in Resources */,
 				F892DD751C608F1F00C1F355 /* IRANSans(FaNum)_Light.ttf in Resources */,
 				F892DD761C608F1F00C1F355 /* IRANSans(FaNum)_Bold.ttf in Resources */,
 				F892DD771C608F1F00C1F355 /* IRANSans(FaNum)_Medium.ttf in Resources */,

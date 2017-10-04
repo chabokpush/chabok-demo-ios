@@ -101,7 +101,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         manager.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
     }
     
- 
+  
+    func pushClientManagerUILocalNotificationDidReceivedMessage(_ message: PushClientMessage) {
+        
+        if message.senderId == self.manager.userId {
+            return
+        }
+        let application = UIApplication.shared
+//        if application.applicationState != .active {
+            let localNotification = UILocalNotification()
+            localNotification.alertBody = message.messageBody
+            if message.data == nil {
+                localNotification.soundName = "n.aiff"
+            }else{
+                if message.data.keys.contains("type") {
+                    localNotification.soundName = (message.data["type"]) as! Int > 10  ? "d.aiff" : "w.aiff"
+                }else{
+                    localNotification.soundName = "n.aiff"
+                }
+            }
+            localNotification.applicationIconBadgeNumber = application.applicationIconBadgeNumber
+            application.presentLocalNotificationNow(localNotification)
+//        }
+    }
+    
     func pushClientManagerDidRegisterUser(_ registration: Bool) {
         
         print(registration)

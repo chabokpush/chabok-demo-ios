@@ -344,24 +344,11 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         print(keyboardSize?.height ?? 0)
-        
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0,(keyboardSize?.height)!, 0.0)
-        
-        
-        self.tableView.contentInset = contentInsets
-        self.tableView.scrollIndicatorInsets = contentInsets
-        
-        
-        if lastIndexPath.row > 0 {
-            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-        }
-        
+
         let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
         let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
         setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
-        
-        self.tableView.isScrollEnabled = false
     }
     
     func keyboardWillHide(_ notification:Notification)
@@ -371,8 +358,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
         setViewMoveUp(false, curve: curve, duration: duration)
-        self.tableView.isScrollEnabled = true
-        
     }
     
     func publishMessage () {
@@ -389,9 +374,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             self.manager.publishMessage(message)
             self.manager.publishEvent("captainStatus", data: ["status":"sent"])
             self.textViewMessage.text = ""
-            // send sent event
-            self.tableView.contentInset = UIEdgeInsets.zero
-            
         }
     }
     
@@ -402,6 +384,9 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         self.messageInputViewLayout.constant = originY
         self.view.layoutIfNeeded()
+        if lastIndexPath.row > 0 {
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
         
         UIView.commitAnimations()
     }

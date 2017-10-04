@@ -105,10 +105,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         }
         
         var englishPhoneNumber: String = persianNumberToEnglish(mobileNumber:phone.text!)
-
-        englishPhoneNumber = (englishPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 0, length: 1), with: "98")
-
-        print(englishPhoneNumber)
+        
+        if englishPhoneNumber .hasPrefix("0") {
+            englishPhoneNumber = (englishPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 0, length: 1), with: "98")
+            print(englishPhoneNumber)
+        }else{
+            print("English Phone Number with 98")
+        }
         
         self.manager = PushClientManager.default()
         
@@ -142,10 +145,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         
         // Navigate to Inbox
-        //            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-        //            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as! UINavigationController
-        //            let vc: UINavigationController? = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as? UINavigationController
-        //            self.navigationController?.pushViewController(newViewController, animated: true)
         performSegue(withIdentifier: "goToInbox", sender: self)
         
         
@@ -207,7 +206,4 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         return Formatter.string(from: newNum!)!
     }
-    
-
-
 }

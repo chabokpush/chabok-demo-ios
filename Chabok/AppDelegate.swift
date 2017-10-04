@@ -74,6 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         print(application.applicationIconBadgeNumber)
     }
     
+    // Notification Handling
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         self.manager.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
     }
@@ -83,7 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         
     }
 
-    
     @available(iOS 8.0, *)
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         self.manager.application(application, didRegister: notificationSettings)
@@ -93,7 +94,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         self.manager.application(application, didReceive: notification)
     }
     
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // Hook and Handle New Remote Notification
+        // must be use for remote payloads
+        // note : use this apis over
+        manager.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
+    }
     
+ 
     func pushClientManagerDidRegisterUser(_ registration: Bool) {
         
         print(registration)

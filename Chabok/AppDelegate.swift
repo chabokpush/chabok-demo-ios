@@ -101,6 +101,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         manager.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
     }
     
+    func application(_ application: UIApplication,
+                              supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int{
+        return UIDeviceOrientation.faceDown.rawValue;
+    }
   
     func pushClientManagerUILocalNotificationDidReceivedMessage(_ message: PushClientMessage) {
         

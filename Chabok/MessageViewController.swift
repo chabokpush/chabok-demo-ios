@@ -43,7 +43,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         let managedObjectContext = mCntxt!
         
         let entity = NSEntityDescription.entity(forEntityName: "Message", in: managedObjectContext)
-        let sort = NSSortDescriptor(key: "createdTime", ascending: true)
+        let sort = NSSortDescriptor(key: "receivedTime", ascending: true)
         let sortnew = NSSortDescriptor(key: "new", ascending: true)
         let req = NSFetchRequest<NSFetchRequestResult>()
         req.entity = entity
@@ -382,9 +382,9 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             var message:PushClientMessage!
             message = PushClientMessage(message: self.textViewMessage.text!, withData: ["name":defaults.value(forKey: "name")!], channel: "public/wall")
             message.alertText = "\(defaults.value(forKey: "name")!):\(self.textViewMessage.text!)"
-            let appcontext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+//            let appcontext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             DispatchQueue.main.async(execute: {
-                Message.messageWithMessage(message, context: appcontext!)
+                Message.messageWithMessage(message, context: self.mCntxt!)
             })
             self.manager.publishMessage(message)
             self.manager.publishEvent("captainStatus", data: ["status":"sent"])

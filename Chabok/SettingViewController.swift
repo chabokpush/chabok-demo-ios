@@ -13,9 +13,12 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var notificationSwitch: UISwitch!
     let manager = PushClientManager.default()
+    @IBOutlet weak var alertView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        alertView.layer.cornerRadius = 5
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(SettingViewController.hideView))
         self.view.addGestureRecognizer(tap)
@@ -30,6 +33,16 @@ class SettingViewController: UIViewController {
                 self.notificationSwitch.setOn(false, animated: true)
             }
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fade(inAnimation: self.view, withDuration: 0.3)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        fadeOutAnimation(self.view, withDuration: 0.05)
     }
     
     func hideView() {
@@ -50,5 +63,22 @@ class SettingViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func fade(inAnimation view: UIView, withDuration duration: Float) {
+        view.alpha = 0.0
+        //fade in
+        UIView.animate(withDuration: TimeInterval(duration) , delay: 0.15, options: .curveEaseIn, animations: {() -> Void in
+            view.alpha = 1.0
+        }) { _ in }
+    }
+    
+    func fadeOutAnimation(_ view: UIView, withDuration duration: Float) {
+        view.alpha = 1.0
+        //fade out
+        UIView.animate(withDuration: TimeInterval(duration), animations: {() -> Void in
+            view.alpha = 0.0
+        }) { _ in }
     }
 }

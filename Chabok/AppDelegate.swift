@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
   
     func pushClientManagerUILocalNotificationDidReceivedMessage(_ message: PushClientMessage) {
         
-        if message.senderId == self.manager.userId {
+        if message.senderId != nil && message.senderId == self.manager.userId {
             return
         }
         let application = UIApplication.shared

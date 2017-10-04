@@ -70,9 +70,9 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var messageInputView: UIView!
-    @IBOutlet var messageInputViewLayout: NSLayoutConstraint!
     @IBOutlet var buttonMessage: UIButton!
     @IBOutlet weak var textViewMessage: UITextView!
+    @IBOutlet weak var messageInputViewLayout: NSLayoutConstraint!
     
     var textIntry: UITextField!
     var manager = PushClientManager()
@@ -266,7 +266,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             let dateFormatter = DateFormatter()
             dateFormatter.calendar = Calendar(identifier: .persian)
             dateFormatter.locale = Locale(identifier: "fa_IR")
-            dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
+            dateFormatter.dateFormat = "HH:mm  YYYY/MM/dd"
             let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             cell.recieveTime.text = time
             
@@ -281,7 +281,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             let dateFormatter = DateFormatter()
             dateFormatter.calendar = Calendar(identifier: .persian)
             dateFormatter.locale = Locale(identifier: "fa_IR")
-            dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
+            dateFormatter.dateFormat = "HH:mm  YYYY/MM/dd"
             let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             cell.recieveTime.text = time
             

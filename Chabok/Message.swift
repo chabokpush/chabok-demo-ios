@@ -44,11 +44,12 @@ class Message: NSManagedObject {
         newMessage.id = message.id
         newMessage.createdTime = message.serverTime != nil ? message.serverTime : Date()
         newMessage.new = true
+//        
+//        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+//        let components = (cal as NSCalendar).components([.day , .month, .year ], from: message.receivedTime)
+//        let newDate = cal.date(from: components)
         
-        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-        let components = (cal as NSCalendar).components([.day , .month, .year ], from: message.receivedTime)
-        let newDate = cal.date(from: components)
-        newMessage.receivedTime = newDate
+        newMessage.receivedTime = message.receivedTime
         
         do {
             try context.save()

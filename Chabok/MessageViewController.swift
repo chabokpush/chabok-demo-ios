@@ -252,7 +252,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
                 cell.failedImg.isHidden = true
                 
             } else if fetchMessage.sent == "send"{
-                cell.messageState.text = "خطا در ارسال"
+                cell.messageState.text = "در حال ارسال"
                 cell.deliverImg.isHidden = true
                 cell.failedImg.isHidden = false
                 

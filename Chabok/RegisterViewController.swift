@@ -78,7 +78,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         if !isOnlyNumber(input: phone.text!) || (phone.text?.characters.count)! < 11 {
             message += "شماره تماس خود را وارد کنید"
         }
-        
+        if (phone.text?.characters.count)! > 12 {
+            message += "شماره تماس خود را اشتباه وارد کرده اید"
+        }
         if message.length > 0 {
             let alert = UIAlertController(title: actionTitle,
                                           message: message,

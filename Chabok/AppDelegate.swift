@@ -92,6 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         self.manager.application(application, didReceive: notification)
+        let topic = notification.userInfo?["topic"] as! String
+        notificationNavigation(topic)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -99,30 +101,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         // must be use for remote payloads
         // note : use this apis over
         manager.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
+        
+        let message = userInfo["aps"] as! NSDictionary
+        let category = message["category"] as! String
+        notificationNavigation(category)
+        print(">>>> didReceiveRemoteNotification\(userInfo)")
     }
     
+    func notificationNavigation(_ topic: String) {
+        var viewController = UIViewController();
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+        
+        if topic.contains("captain"){
+            viewController = mainStoryboard.instantiateViewController(withIdentifier: "InboxViewID") as! InboxViewController
+        } else {
+            viewController = mainStoryboard.instantiateViewController(withIdentifier: "msgViewID") as! MessageViewController
+        }
+        
+        let currentViewContoller = getCurrentViewController();
+        currentViewContoller.navigationController?.pushViewController(viewController, animated: true)
+    }
   
+    func getCurrentViewController() -> UIViewController {
+        return (self.window!.rootViewController?.childViewControllers.last)!;
+    }
+    
     func pushClientManagerUILocalNotificationDidReceivedMessage(_ message: PushClientMessage) {
         
         if message.senderId != nil && message.senderId == self.manager.userId {
             return
         }
+        
+        let currentViewContoller = getCurrentViewController();
+        if currentViewContoller.isKind(of: InboxViewController.self) && message.topicName.contains("captain") {
+            return
+        } else if currentViewContoller.isKind(of: MessageViewController.self) && message.topicName.contains("public/wall") {
+            return
+        }
+        
         let application = UIApplication.shared
-//        if application.applicationState != .active {
-            let localNotification = UILocalNotification()
-            localNotification.alertBody = message.messageBody
-            if message.data == nil {
-                localNotification.soundName = "n.aiff"
+        //        if application.applicationState != .active {
+        let localNotification = UILocalNotification()
+        localNotification.userInfo = ["topic":message.topicName]
+        
+        localNotification.alertBody = message.messageBody
+        if message.data == nil {
+            localNotification.soundName = "n.aiff"
+        }else{
+            if message.data.keys.contains("type") {
+                localNotification.soundName = (message.data["type"]) as! Int > 10  ? "d.aiff" : "w.aiff"
             }else{
-                if message.data.keys.contains("type") {
-                    localNotification.soundName = (message.data["type"]) as! Int > 10  ? "d.aiff" : "w.aiff"
-                }else{
-                    localNotification.soundName = "n.aiff"
-                }
+                localNotification.soundName = "n.aiff"
             }
-            localNotification.applicationIconBadgeNumber = application.applicationIconBadgeNumber
-            application.presentLocalNotificationNow(localNotification)
-//        }
+        }
+        localNotification.applicationIconBadgeNumber = application.applicationIconBadgeNumber
+        application.presentLocalNotificationNow(localNotification)
+        //        }
     }
     
     func pushClientManagerDidRegisterUser(_ registration: Bool) {

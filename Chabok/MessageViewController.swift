@@ -86,7 +86,6 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.showsVerticalScrollIndicator = false
-        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow(_:)),
@@ -164,18 +163,13 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         if lastIndexPath.row > 0 {
             self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         

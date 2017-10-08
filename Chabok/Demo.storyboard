@@ -905,7 +905,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQg-At-ElF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10627.5" y="77.112676056338032"/>
+            <point key="canvasLocation" x="10643" y="72"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="CsW-ER-a6K">
@@ -992,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MnO-MZ-v4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11413" y="75"/>
+            <point key="canvasLocation" x="11348" y="72"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="fi8-qK-5yI">
@@ -1199,7 +1199,7 @@
                                                     <rect key="frame" x="11" y="14" width="241" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h8w-fE-Bka">
-                                                            <rect key="frame" x="8" y="7" width="225" height="21"/>
+                                                            <rect key="frame" x="8" y="7" width="225" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="12"/>
                                                             <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1231,12 +1231,12 @@
                                                     <rect key="frame" x="11" y="53" width="241" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="چابک رسان" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="SRm-Px-Zs2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="22"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="9"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="hCt-as-e82">
-                                                            <rect key="frame" x="49" y="0.0" width="192" height="22"/>
+                                                            <rect key="frame" x="48.5" y="0.0" width="192.5" height="22"/>
                                                             <string key="text">	۱۲ شهریور ۱۳:۴۵</string>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="9"/>
                                                             <color key="textColor" red="0.5607843137254902" green="0.55686274509803924" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1315,7 +1315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZl-8e-Uq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9916.875" y="78.16901408450704"/>
+            <point key="canvasLocation" x="9908" y="75"/>
         </scene>
     </scenes>
     <resources>

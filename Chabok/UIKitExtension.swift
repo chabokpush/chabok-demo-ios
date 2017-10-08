@@ -130,25 +130,19 @@ extension String {
     
     func cellHeightForMessage(_ message:String) -> CGFloat {
         
-        var height:CGFloat = 40
+        var height:CGFloat = 50
         
         let size = CGSize(width: 304,height: CGFloat.greatestFiniteMagnitude)
         let  attributes = [NSFontAttributeName:UIFont.setFamilyFontFromAppFont(size: 14)]
         
         let text = message as NSString
-        
-        
         let rect = text.boundingRect(with: size, options:[.usesLineFragmentOrigin, .usesFontLeading, .truncatesLastVisibleLine] , attributes: attributes, context:nil).size.height
-        
-        
-        
+
         height += max(rect, 30) + 10
         
         return height
     }
-    
 }
-
 
 class ChabokTextField: UITextField {
     

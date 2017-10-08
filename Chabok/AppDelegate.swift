@@ -214,7 +214,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     func receivedLocationUpdates(_ locations: [CLLocation]) {
         
         let lastLocation = locations.last
-        let data : NSDictionary = ["lat":lastLocation?.coordinate.latitude ?? 0,"lng" : lastLocation?.coordinate.longitude ?? 0,"ts": (lastLocation?.timestamp.timeIntervalSince1970)!*1000]
+        let data : NSDictionary = ["lat":lastLocation?.coordinate.latitude ?? 0,"lng" : lastLocation?.coordinate.longitude ?? 0,"ts": (Date().timeIntervalSince1970)*1000]
         
         self.manager.publishEvent("geo", data: data as! [AnyHashable : Any], live: false, stateful: true)
         print("background location >>>>>>\(data)")
@@ -310,8 +310,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         }
         
     }
-    
-    
-    
+   
 }
 

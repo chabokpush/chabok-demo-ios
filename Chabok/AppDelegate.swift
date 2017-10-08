@@ -122,7 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
             viewController = mainStoryboard.instantiateViewController(withIdentifier: "msgViewID") as! MessageViewController
         }
         
-        let currentViewContoller = getCurrentViewController();
+        let currentViewContoller = getCurrentViewController()
+        currentViewContoller.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         currentViewContoller.navigationController?.pushViewController(viewController, animated: true)
     }
   

@@ -108,6 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         print(">>>> didReceiveRemoteNotification\(userInfo)")
     }
     
+    func application(_ application: UIApplication,
+                              supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int{
+        return UIDeviceOrientation.faceDown.rawValue;
+    }
     func notificationNavigation(_ topic: String) {
         var viewController = UIViewController();
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)

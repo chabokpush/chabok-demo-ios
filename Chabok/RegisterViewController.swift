@@ -51,15 +51,25 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         showAvatarImage()
     }
     
-//    private func textField(_ textField: phone.text, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if (textField.text as NSString?) != nil {
-//            
-//            let persianPhoneNumber: String = persianNumberToEnglish(mobileNumber:phone.text!)
-//            let phoneNum: String = (persianPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 0, length: 1), with: "98")
-//            self.manager.registerUser(phoneNum)
-//        }
-//        return true
-//    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        if textField != phone {
+            return true
+        }
+        if string.isEmpty{
+            return true
+        }
+        var englishPhoneNumber: String = persianNumberToEnglish(mobileNumber:textField.text!)
+
+        if (englishPhoneNumber.hasPrefix("0")) && (englishPhoneNumber.characters.count) < 11 {
+            return true
+        }else  if (englishPhoneNumber.hasPrefix("98")) && (englishPhoneNumber.characters.count) < 12 {
+            return true
+        }else if (englishPhoneNumber.characters.count) < 10 {
+            return true
+        }
+            
+        return false
+    }
     
     @IBAction func backBtnClick(_ sender: AnyObject) {
         
@@ -81,6 +91,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         if (phone.text?.characters.count)! > 12 {
             message += "شماره تماس خود را اشتباه وارد کرده اید"
         }
+
         if message.length > 0 {
             let alert = UIAlertController(title: actionTitle,
                                           message: message,
@@ -110,6 +121,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         if englishPhoneNumber .hasPrefix("0") {
             englishPhoneNumber = (englishPhoneNumber as NSString).replacingCharacters(in: NSRange(location: 0, length: 1), with: "98")
+
             print(englishPhoneNumber)
         }else{
             print("English Phone Number with 98")
@@ -148,8 +160,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         // Navigate to Inbox
         performSegue(withIdentifier: "goToInbox", sender: self)
-        
-        
+   
     }
     
     // Image Animation
@@ -198,6 +209,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     }
     
     func persianNumberToEnglish(mobileNumber: String) -> String {
+        if mobileNumber.isEmpty || mobileNumber == nil{
+            return ""
+        }
         let Formatter = NumberFormatter()
         let locale = NSLocale(localeIdentifier: "en")
         Formatter.locale = locale as Locale

@@ -11,7 +11,10 @@ import CoreData
 import AdpPushClient
 import AudioToolbox
 
+
+
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,CoreGeoLocationDelegate {
     
     var window: UIWindow?
@@ -92,9 +95,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         self.manager.application(application, didReceive: notification)
+        if (SYSTEM_VERSION_EQUAL_TO(version: "8.0") || SYSTEM_VERSION_EQUAL_TO(version: "9.0")) && application.applicationState == .active{
+            return
+        }
         let topic = notification.userInfo?["topic"] as! String
         notificationNavigation(topic)
-     
+        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -142,8 +148,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
             return
         } else if currentViewContoller.isKind(of: MessageViewController.self) && message.topicName.contains("public/wall") {
             return
+        } else if currentViewContoller.isKind(of: MessageViewController.self) && message.topicName.contains("\(self.manager.userId!)/\(self.manager.getRegistrationId()!)") {
+            return
         }
-        
         self.throttle(#selector(showLocalNotificationWithRateLimit), withObject: message, duration: 0.1)
     }
     
@@ -201,9 +208,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
             }
             DispatchQueue.main.async(execute: {
                 if message.topicName.contains("captain"){
-                    InboxModel.messageWithMessage(message, context: self.managedObjectContext!)
+                    
+                    if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
+                        
+                        if self.SYSTEM_VERSION_EQUAL_TO(version: "9.0") || self.SYSTEM_VERSION_EQUAL_TO(version: "8.0"){
+                            AudioServicesPlayAlertSound(1009)
+                        }
+                    }
                 }else{
-                    Message.messageWithMessage(message, context: self.managedObjectContext!)
+                    if  Message.messageWithMessage(message, context: self.managedObjectContext!) == true {
+                        if self.SYSTEM_VERSION_EQUAL_TO(version: "9.0") || self.SYSTEM_VERSION_EQUAL_TO(version: "8.0"){
+                            AudioServicesPlayAlertSound(1007)
+                        }
+                    }
                 }
             })
             
@@ -231,8 +248,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         })
     }
     
-    
-    
+    func SYSTEM_VERSION_EQUAL_TO(version: String) -> Bool {
+        return UIDevice.current.systemVersion.compare(version,options: NSString.CompareOptions.numeric) == ComparisonResult.orderedSame
+    }
+ 
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: URL = {

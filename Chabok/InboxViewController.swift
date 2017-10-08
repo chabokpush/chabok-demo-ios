@@ -232,22 +232,16 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // send location and publish event
         let coreGeoLocation = self.manager.instanceCoreGeoLocation
         let lastLocation = coreGeoLocation?.lastLocation
-        self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "","lng":lastLocation?.coordinate.longitude ?? ""])
 
         if lastLocation != nil {
+            self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "","lng":lastLocation?.coordinate.longitude ?? ""])
+
             let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
             self.navigationController?.pushViewController(newViewController, animated: true)
             self.navigationController?.setNavigationBarHidden(true, animated: true)
-            
         }else{
-            let alert = UIAlertController(title: title,
-                                          message: " دسترسی به لوکیشن خود را روشن کنید",
-                                          preferredStyle: UIAlertControllerStyle.alert)
-            let cancelAction = UIAlertAction(title: "باشه",
-                                             style: .cancel, handler: nil)
-            alert.addAction(cancelAction)
-            self.present(alert, animated: true, completion: nil)
+            showAlert()
         }
     }
     
@@ -255,5 +249,24 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
         let firstView = storyBoard.instantiateViewController(withIdentifier: "firstViewNavID")
         self.navigationController!.present(firstView, animated: true, completion: nil)
+    }
+    func showAlert() {
+        
+        let message = "دسترسی به لوکیشن خود را روشن کنید"
+        let alert = UIAlertController(title: title,message:message,preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "باشه",style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        // Change font of the title and message
+        let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 20)! ]
+        let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 14)! ]
+        
+        let attributedTitle = NSMutableAttributedString(string: "خطا", attributes: titleFont)
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

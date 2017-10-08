@@ -94,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         self.manager.application(application, didReceive: notification)
         let topic = notification.userInfo?["topic"] as! String
         notificationNavigation(topic)
+     
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -132,7 +133,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     }
     
     func pushClientManagerUILocalNotificationDidReceivedMessage(_ message: PushClientMessage) {
-        
         if message.senderId != nil && message.senderId == self.manager.userId {
             return
         }
@@ -144,8 +144,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
             return
         }
         
+        self.throttle(#selector(showLocalNotificationWithRateLimit), withObject: message, duration: 0.1)
+    }
+    
+    func showLocalNotificationWithRateLimit(_ message : PushClientMessage) {
         let application = UIApplication.shared
-        //        if application.applicationState != .active {
         let localNotification = UILocalNotification()
         localNotification.userInfo = ["topic":message.topicName]
         
@@ -161,7 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         }
         localNotification.applicationIconBadgeNumber = application.applicationIconBadgeNumber
         application.presentLocalNotificationNow(localNotification)
-        //        }
+        
     }
     
     func pushClientManagerDidRegisterUser(_ registration: Bool) {
@@ -198,14 +201,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
             }
             DispatchQueue.main.async(execute: {
                 if message.topicName.contains("captain"){
-                    if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
-                        AudioServicesPlayAlertSound(1009)
-                    }
-
+                    InboxModel.messageWithMessage(message, context: self.managedObjectContext!)
                 }else{
-                    if  Message.messageWithMessage(message, context: self.managedObjectContext!) == true {
-                        AudioServicesPlayAlertSound(1007)
-                    }
+                    Message.messageWithMessage(message, context: self.managedObjectContext!)
                 }
             })
             

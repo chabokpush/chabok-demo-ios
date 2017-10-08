@@ -36,6 +36,7 @@
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
 		C5F49AB01F771A3D00FE3EB9 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */; };
+		C5FA4CA21F89AA580011912D /* RateLimiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA4CA11F89AA580011912D /* RateLimiting.swift */; };
 		C5FD213F1F84569600301D44 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
 		C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */; };
 		F805EA271C6639A00098276A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805EA251C6639A00098276A /* Message.swift */; };
@@ -92,6 +93,7 @@
 		C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C5BC1D541F5CD26400C45E60 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
+		C5FA4CA11F89AA580011912D /* RateLimiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateLimiting.swift; sourceTree = "<group>"; };
 		C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerView.swift; sourceTree = "<group>"; };
 		F805EA251C6639A00098276A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F892DD571C60811600C1F355 /* Chabok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chabok.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 				C54205911F60CB980026661D /* RewardViewController.swift */,
 				C54205931F60D1000026661D /* FailedViewController.swift */,
 				C56B87071F703BFA004E4627 /* SettingViewController.swift */,
+				C5FA4CA11F89AA580011912D /* RateLimiting.swift */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */,
 				F892DD5B1C60811600C1F355 /* AppDelegate.swift in Sources */,
 				C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */,
+				C5FA4CA21F89AA580011912D /* RateLimiting.swift in Sources */,
 				C542058E1F60C76F0026661D /* NavigationViewController.swift in Sources */,
 				C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */,
 				F805EA271C6639A00098276A /* Message.swift in Sources */,

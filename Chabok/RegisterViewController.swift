@@ -159,8 +159,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         
         // Navigate to Inbox
-        performSegue(withIdentifier: "goToInbox", sender: self)
-   
+  
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "InboxViewNavID") as! NavigationViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window!.rootViewController = newViewController
+      
     }
     
     // Image Animation

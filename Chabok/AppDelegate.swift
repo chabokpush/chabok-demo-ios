@@ -95,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         self.manager.application(application, didReceive: notification)
-        if (SYSTEM_VERSION_EQUAL_TO(version: "8.0") || SYSTEM_VERSION_EQUAL_TO(version: "9.0")) && application.applicationState == .active{
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: "8.0") && SYSTEM_VERSION_LESS_THAN(version: "10.0")) && application.applicationState == .active{
             return
         }
         let topic = notification.userInfo?["topic"] as! String
@@ -211,13 +211,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
                     
                     if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
                         
-                        if self.SYSTEM_VERSION_EQUAL_TO(version: "9.0") || self.SYSTEM_VERSION_EQUAL_TO(version: "8.0"){
+                        if (self.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: "8.0") && self.SYSTEM_VERSION_LESS_THAN(version: "10.0")){
                             AudioServicesPlayAlertSound(1009)
                         }
                     }
                 }else{
                     if  Message.messageWithMessage(message, context: self.managedObjectContext!) == true {
-                        if self.SYSTEM_VERSION_EQUAL_TO(version: "9.0") || self.SYSTEM_VERSION_EQUAL_TO(version: "8.0"){
+                        if (self.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: "8.0") && self.SYSTEM_VERSION_LESS_THAN(version: "10.0")){
                             AudioServicesPlayAlertSound(1007)
                         }
                     }
@@ -250,6 +250,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     
     func SYSTEM_VERSION_EQUAL_TO(version: String) -> Bool {
         return UIDevice.current.systemVersion.compare(version,options: NSString.CompareOptions.numeric) == ComparisonResult.orderedSame
+    }
+    
+    func SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: String) -> Bool {
+        return UIDevice.current.systemVersion.compare(version,options: NSString.CompareOptions.numeric) != ComparisonResult.orderedAscending
+
+    }
+    
+    func SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(version: String) -> Bool {
+        return UIDevice.current.systemVersion.compare(version,options: NSString.CompareOptions.numeric) != ComparisonResult.orderedDescending
+    }
+    
+    func SYSTEM_VERSION_LESS_THAN(version: String) -> Bool {
+        return UIDevice.current.systemVersion.compare(version,options: NSString.CompareOptions.numeric) == ComparisonResult.orderedAscending
     }
  
     // MARK: - Core Data stack

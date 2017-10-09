@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         } else if currentViewContoller.isKind(of: MessageViewController.self) && message.topicName.contains("\(self.manager.userId!)/\(self.manager.getRegistrationId()!)") {
             return
         }
-        self.throttle(#selector(showLocalNotificationWithRateLimit), withObject: message, duration: 0.1)
+        self.throttle(#selector(showLocalNotificationWithRateLimit), withObject: message, duration: 2)
     }
     
     func showLocalNotificationWithRateLimit(_ message : PushClientMessage) {

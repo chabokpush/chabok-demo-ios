@@ -87,20 +87,17 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.gradientView.layer.addSublayer(gradient)
         
         inboxTableView.register(UINib(nibName: "InboxView", bundle: nil), forCellReuseIdentifier: "inboxCell")
-
-        
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
-    
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         PushClientManager.resetBadge()
-
     }
     
     // tableView methodes
@@ -121,7 +118,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         if (fetchMessage.data != nil) {
             let data = fetchMessage.data!;
-
+            
             let dataModel = DataModel(data: data as! NSDictionary)
             if (dataModel.imgUrl != nil) {
                 cell.inboxImage.isHidden = false
@@ -131,7 +128,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 cell.inboxImage.isHidden = true
                 cell.inboxImageHeight.constant = 0
             }
-            
         } else {
             cell.inboxImage.isHidden = true
             cell.inboxImageHeight.constant = 0
@@ -142,7 +138,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return UITableViewAutomaticDimension
 
     }
@@ -156,8 +151,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.inboxTableView.endUpdates()
     }
-    
-    
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
@@ -175,7 +169,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             break
             
         }
-        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
@@ -192,7 +185,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         default:
             break
         }
-        
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -223,7 +215,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake {
             self.publishCaptainStatusEvent()
-            
         }
     }
     
@@ -240,19 +231,15 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
             self.navigationController?.pushViewController(newViewController, animated: true)
             self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }else if coreGeoLocation?.locationAutorization == nil{
+            showAlert("دسترسی به لوکیشن امکان پذیر نیست")
         }else{
-            showAlert()
+            showAlert("دسترسی به لوکیشن خود را روشن کنید")
         }
     }
     
-    func ShowFirstView() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-        let firstView = storyBoard.instantiateViewController(withIdentifier: "firstViewNavID")
-        self.navigationController!.present(firstView, animated: true, completion: nil)
-    }
-    func showAlert() {
+    func showAlert(_ message: String) {
         
-        let message = "دسترسی به لوکیشن خود را روشن کنید"
         let alert = UIAlertController(title: title,message:message,preferredStyle: UIAlertControllerStyle.alert)
         let cancelAction = UIAlertAction(title: "باشه",style: .cancel, handler: nil)
         alert.addAction(cancelAction)
@@ -268,5 +255,11 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         alert.setValue(attributedMessage, forKey: "attributedMessage")
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func ShowFirstView() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+        let firstView = storyBoard.instantiateViewController(withIdentifier: "firstViewNavID")
+        self.navigationController!.present(firstView, animated: true, completion: nil)
     }
 }

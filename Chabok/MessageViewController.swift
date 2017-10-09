@@ -126,45 +126,36 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     
     func pushClientServerConnectionStateHandler(_ notification: Notification) {
         
-        
         if manager.connectionState == .connectedState {
             
-            imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
             image = UIImage(named: "online")!
-            imageView.image = image
-            
-            let title = UILabel(frame: CGRect(x:10, y: 0, width: 95, height: 40))
-            title.text = "دیوار چابک"
-            title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
-            title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            
-            let titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
-            
-            titleView.addSubview(imageView)
-            titleView.addSubview(title)
-            
-            navigationItem.titleView = titleView
-            
+            connectionLabel(connectionStateImage: image)
             
         } else if manager.connectionState == .disconnectedState || manager.connectionState == .disconnectedErrorState {
-            
-            imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
             image = UIImage(named: "offline")!
-            imageView.image = image
-            
-            let title = UILabel(frame: CGRect(x: 10, y: 0, width: 95, height: 40))
-            title.text = "دیوار چابک"
-            title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
-            title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            
-            let titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
-            
-            titleView.addSubview(imageView)
-            titleView.addSubview(title)
-            
-            navigationItem.titleView = titleView
+            connectionLabel(connectionStateImage: image)
         }
     }
+    
+    func connectionLabel(connectionStateImage: UIImage) {
+        
+        imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
+        image = connectionStateImage
+        imageView.image = image
+        
+        let title = UILabel(frame: CGRect(x:10, y: 0, width: 95, height: 40))
+        title.text = "دیوار چابک"
+        title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
+        title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        let titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
+        
+        titleView.addSubview(imageView)
+        titleView.addSubview(title)
+        
+        navigationItem.titleView = titleView
+    }
+    
     override func viewWillLayoutSubviews() {
         if lastIndexPath.row > 0 {
             self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)

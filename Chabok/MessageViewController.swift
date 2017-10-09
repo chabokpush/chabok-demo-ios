@@ -118,6 +118,10 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         NotificationCenter.default.addObserver(self, selector: #selector(self.pushClientServerConnectionStateHandler), name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
         NotificationCenter.default.post(name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
         
+        if UIScreen.main.sizeType != .iPhone5 {
+            self.tableView.rowHeight = UITableViewAutomaticDimension
+            self.tableView.estimatedRowHeight = 44.0
+        }
     }
     
     func pushClientServerConnectionStateHandler(_ notification: Notification) {
@@ -161,14 +165,18 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             navigationItem.titleView = titleView
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewWillLayoutSubviews() {
         if lastIndexPath.row > 0 {
             self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
         }
     }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        if lastIndexPath.row > 0 {
+//            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+//        }
+//    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -284,6 +292,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     }
     
     //MARK: - NSFetchResultController
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
         self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
@@ -414,13 +423,6 @@ class ChabokUserTableCell: UITableViewCell {
     @IBOutlet var avatarName: UILabel!
     @IBOutlet weak var recieveTime: UILabel!
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
 }
 
 class ChabokTableCell: UITableViewCell {
@@ -435,10 +437,21 @@ class ChabokTableCell: UITableViewCell {
     @IBOutlet weak var deliverImg: UIImageView!
     @IBOutlet weak var deliveryCount: UILabel!
     @IBOutlet weak var failedImg: UIImageView!
+
+}
+extension UIScreen {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    enum SizeType: CGFloat {
+        case Unknown = 0.0
+        case iPhone4 = 960.0
+        case iPhone5 = 1136.0
+        case iPhone6 = 1334.0
+        case iPhone6Plus = 1920.0
+    }
+    
+    var sizeType: SizeType {
+        let height = nativeBounds.height
+        guard let sizeType = SizeType(rawValue: height) else { return .Unknown }
+        return sizeType
     }
 }
-

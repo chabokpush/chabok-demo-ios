@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2z-iG-sZi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2z-iG-sZi">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -43,14 +41,14 @@
                                 <rect key="frame" x="35" y="307" width="250" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کاپیتان چابک" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFQ-Sf-9Ld">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="61.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Captain Chabok" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-b7-DIl">
-                                        <rect key="frame" x="0.0" y="42" width="250" height="28"/>
+                                        <rect key="frame" x="0.0" y="61.5" width="250" height="41"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -597,7 +595,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oBL-Uh-Ryr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6X1-MI-3T2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="182" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hz2-Jg-32N">
@@ -730,23 +728,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csD-VR-vuI" userLabel="logo">
-                                <rect key="frame" x="0.0" y="20" width="320" height="182"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chabok" translatesAutoresizingMaskIntoConstraints="NO" id="QRl-dp-FRN">
-                                        <rect key="frame" x="110" y="46" width="100" height="90"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="Zt4-F8-gt8"/>
-                                            <constraint firstAttribute="height" constant="90" id="dSO-PK-qs0"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="20" width="414" height="235"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="csD-VR-vuI" secondAttribute="height" multiplier="160:91" id="6Ts-l0-H53"/>
-                                    <constraint firstItem="QRl-dp-FRN" firstAttribute="centerY" secondItem="csD-VR-vuI" secondAttribute="centerY" id="Eay-kj-yle"/>
-                                    <constraint firstItem="QRl-dp-FRN" firstAttribute="centerX" secondItem="csD-VR-vuI" secondAttribute="centerX" id="Ogw-4k-KzE"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="182" id="UNy-4X-xVE"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maq-ZI-FZF">
                                 <rect key="frame" x="0.0" y="210" width="320" height="157"/>
@@ -881,12 +864,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zKE-Gk-R7Z" firstAttribute="leading" secondItem="OUJ-cR-CGW" secondAttribute="leading" id="0dK-5y-OPm"/>
-                            <constraint firstAttribute="trailing" secondItem="csD-VR-vuI" secondAttribute="trailing" id="4kx-Kk-tkf"/>
                             <constraint firstItem="maq-ZI-FZF" firstAttribute="centerY" secondItem="OUJ-cR-CGW" secondAttribute="centerY" constant="4.5" id="58h-Eg-GU7"/>
                             <constraint firstAttribute="trailing" secondItem="zKE-Gk-R7Z" secondAttribute="trailing" id="9sp-5e-Y9N"/>
                             <constraint firstAttribute="trailing" secondItem="maq-ZI-FZF" secondAttribute="trailing" id="B5N-sc-zsq"/>
                             <constraint firstItem="zKE-Gk-R7Z" firstAttribute="top" secondItem="Wc8-Wy-2SB" secondAttribute="bottom" constant="8" id="NOa-5S-af6"/>
                             <constraint firstItem="csD-VR-vuI" firstAttribute="top" secondItem="uFJ-ey-fMT" secondAttribute="bottom" id="QSA-Bw-Ckq"/>
+                            <constraint firstAttribute="trailing" secondItem="csD-VR-vuI" secondAttribute="trailing" constant="-94" id="X28-bS-qgR"/>
                             <constraint firstItem="Wc8-Wy-2SB" firstAttribute="leading" secondItem="OUJ-cR-CGW" secondAttribute="leading" constant="22" id="ZGo-sU-Q1a"/>
                             <constraint firstAttribute="trailing" secondItem="hdV-2Y-z1r" secondAttribute="trailing" id="ZL3-Ii-d1t"/>
                             <constraint firstItem="Lg4-cG-y0q" firstAttribute="top" secondItem="zKE-Gk-R7Z" secondAttribute="bottom" id="dgQ-e6-3Bl"/>
@@ -895,8 +878,9 @@
                             <constraint firstItem="Wc8-Wy-2SB" firstAttribute="centerX" secondItem="zKE-Gk-R7Z" secondAttribute="centerX" id="gkH-9q-eXm"/>
                             <constraint firstItem="Lg4-cG-y0q" firstAttribute="top" secondItem="hdV-2Y-z1r" secondAttribute="bottom" id="k4X-Ma-f8m"/>
                             <constraint firstItem="hdV-2Y-z1r" firstAttribute="leading" secondItem="OUJ-cR-CGW" secondAttribute="leading" id="lgp-2y-4cG"/>
-                            <constraint firstItem="csD-VR-vuI" firstAttribute="leading" secondItem="OUJ-cR-CGW" secondAttribute="leading" id="maF-H0-1lQ"/>
                             <constraint firstItem="hdV-2Y-z1r" firstAttribute="top" secondItem="OUJ-cR-CGW" secondAttribute="top" id="sxe-ea-0N2"/>
+                            <constraint firstAttribute="bottom" secondItem="csD-VR-vuI" secondAttribute="bottom" constant="313" id="u5Z-HK-xAL"/>
+                            <constraint firstItem="csD-VR-vuI" firstAttribute="leading" secondItem="maq-ZI-FZF" secondAttribute="leading" id="vyO-Od-ifJ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1010,7 +994,7 @@
                                 <rect key="frame" x="0.0" y="511" width="320" height="57"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vvO-sT-xrg">
-                                        <rect key="frame" x="51" y="11.5" width="265" height="34"/>
+                                        <rect key="frame" x="51" y="12" width="265" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="xWF-yB-Bxr"/>
@@ -1020,7 +1004,7 @@
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mA-lK-nWc" customClass="CornerButton" customModule="Chabok" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="15.5" width="26" height="26"/>
+                                        <rect key="frame" x="17" y="16" width="26" height="26"/>
                                         <color key="backgroundColor" red="0.17254901960784313" green="0.50588235294117645" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="5wr-4K-BgE"/>
@@ -1061,7 +1045,7 @@
                                                     <rect key="frame" x="72" y="19" width="237" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2jl-GD-r4h">
-                                                            <rect key="frame" x="8" y="7" width="221" height="25"/>
+                                                            <rect key="frame" x="8" y="7" width="214" height="23"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="12"/>
                                                             <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1077,12 +1061,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.7803921568627451" green="0.92156862745098034" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="2jl-GD-r4h" firstAttribute="top" secondItem="jtj-Zh-TIZ" secondAttribute="top" constant="7" id="IcI-E4-ZxO"/>
-                                                        <constraint firstAttribute="bottom" secondItem="AN5-Mw-8Qb" secondAttribute="bottom" id="Ix5-4y-9dn"/>
-                                                        <constraint firstAttribute="trailing" secondItem="2jl-GD-r4h" secondAttribute="trailing" constant="8" id="KQe-mj-NWR"/>
-                                                        <constraint firstAttribute="trailing" secondItem="AN5-Mw-8Qb" secondAttribute="trailing" id="Ts4-Pp-a6L"/>
-                                                        <constraint firstItem="2jl-GD-r4h" firstAttribute="leading" secondItem="jtj-Zh-TIZ" secondAttribute="leading" constant="8" id="Vka-ep-mFA"/>
-                                                        <constraint firstAttribute="bottom" secondItem="2jl-GD-r4h" secondAttribute="bottom" constant="5.5" id="hjM-Xu-Ujv"/>
+                                                        <constraint firstItem="AN5-Mw-8Qb" firstAttribute="leading" secondItem="2jl-GD-r4h" secondAttribute="trailing" constant="8" id="4Jk-eT-1ip"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2jl-GD-r4h" secondAttribute="bottom" constant="7" id="A7Y-PA-mbI"/>
+                                                        <constraint firstItem="2jl-GD-r4h" firstAttribute="top" secondItem="jtj-Zh-TIZ" secondAttribute="top" constant="7" id="LrB-FI-xhL"/>
+                                                        <constraint firstItem="2jl-GD-r4h" firstAttribute="leading" secondItem="jtj-Zh-TIZ" secondAttribute="leading" constant="8" id="XHF-iw-4dF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="AN5-Mw-8Qb" secondAttribute="bottom" id="XMI-PJ-AlI"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AN5-Mw-8Qb" secondAttribute="trailing" id="kEM-Lp-zw9"/>
                                                     </constraints>
                                                     <variation key="widthClass=compact">
                                                         <mask key="subviews">
@@ -1103,7 +1087,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl5-or-YTm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="59" height="12"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="12"/>
                                                             <string key="text">	۱۲ شهریور ۱۳:۴۵</string>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="9"/>
                                                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1124,9 +1108,9 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="NbW-1D-Iq4">
-                                                            <rect key="frame" x="89" y="4" width="8" height="4"/>
+                                                            <rect key="frame" x="89" y="4" width="8" height="5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="4" id="C6l-my-j1Z"/>
+                                                                <constraint firstAttribute="height" constant="5" id="C6l-my-j1Z"/>
                                                                 <constraint firstAttribute="width" constant="8" id="Q5f-mQ-x3K"/>
                                                             </constraints>
                                                         </imageView>
@@ -1199,13 +1183,13 @@
                                                     <rect key="frame" x="11" y="14" width="241" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h8w-fE-Bka">
-                                                            <rect key="frame" x="8" y="7" width="225" height="20.5"/>
+                                                            <rect key="frame" x="15" y="7" width="218" height="23"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="12"/>
                                                             <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MI-Cp-Dw1">
-                                                            <rect key="frame" x="0.0" y="15.5" width="7" height="15"/>
+                                                            <rect key="frame" x="0.0" y="22" width="7" height="15"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="7" id="PXv-I3-XKb"/>
@@ -1215,11 +1199,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="5MI-Cp-Dw1" firstAttribute="top" secondItem="cUT-Vy-C57" secondAttribute="top" constant="22" id="EMW-Fg-Yn1"/>
-                                                        <constraint firstItem="h8w-fE-Bka" firstAttribute="top" secondItem="cUT-Vy-C57" secondAttribute="top" constant="7" id="OWr-wg-HPk"/>
-                                                        <constraint firstItem="h8w-fE-Bka" firstAttribute="trailing" secondItem="cUT-Vy-C57" secondAttribute="trailingMargin" id="eBO-Ec-cT6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="h8w-fE-Bka" secondAttribute="trailing" constant="8" id="435-48-6nO"/>
+                                                        <constraint firstItem="h8w-fE-Bka" firstAttribute="top" secondItem="cUT-Vy-C57" secondAttribute="top" constant="7" id="5zK-iA-4op"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5MI-Cp-Dw1" secondAttribute="bottom" id="YSM-zj-zpR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="h8w-fE-Bka" secondAttribute="bottom" constant="7" id="o0J-bi-qQS"/>
+                                                        <constraint firstItem="h8w-fE-Bka" firstAttribute="leading" secondItem="5MI-Cp-Dw1" secondAttribute="trailing" constant="8" id="qt6-6c-U5R"/>
                                                         <constraint firstItem="5MI-Cp-Dw1" firstAttribute="leading" secondItem="cUT-Vy-C57" secondAttribute="leading" id="wh9-w6-LJR"/>
-                                                        <constraint firstItem="h8w-fE-Bka" firstAttribute="leading" secondItem="cUT-Vy-C57" secondAttribute="leadingMargin" id="y7O-MH-ZfI"/>
                                                     </constraints>
                                                     <variation key="widthClass=compact">
                                                         <mask key="subviews">
@@ -1315,7 +1300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZl-8e-Uq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9908" y="75"/>
+            <point key="canvasLocation" x="9907.5" y="75"/>
         </scene>
     </scenes>
     <resources>
@@ -1328,7 +1313,7 @@
         <image name="bottle" width="27" height="24"/>
         <image name="chabok" width="200" height="184"/>
         <image name="chabokBtn" width="26" height="24"/>
-        <image name="eye" width="9" height="5"/>
+        <image name="eye" width="8" height="5"/>
         <image name="failed" width="22" height="22"/>
         <image name="helpBackground" width="375" height="667"/>
         <image name="kolang" width="58" height="58"/>
@@ -1337,6 +1322,6 @@
         <image name="phone" width="10" height="16"/>
         <image name="sendIcon" width="12" height="14"/>
         <image name="start" width="55" height="64"/>
-        <image name="tick" width="12" height="12"/>
+        <image name="tick" width="22" height="22"/>
     </resources>
 </document>

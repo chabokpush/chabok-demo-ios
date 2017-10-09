@@ -170,13 +170,13 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
         }
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        if lastIndexPath.row > 0 {
-//            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-//        }
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if lastIndexPath.row > 0 {
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

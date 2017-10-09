@@ -77,9 +77,8 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     var textIntry: UITextField!
     var manager = PushClientManager()
     var AvatarImage = String()
-    var imageView = UIImageView()
     var image = UIImage()
-    
+    var titleView = UIView()
     
     //MARK: - LifeCycle Methods
     
@@ -114,20 +113,31 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         let mapBtn = UIBarButtonItem(image: UIImage(named: "mapIcon"), style: .plain, target: self, action: #selector(showPanel))
         self.navigationItem.rightBarButtonItem  = mapBtn
         
-        // online or offline observer
-        NotificationCenter.default.addObserver(self, selector: #selector(self.pushClientServerConnectionStateHandler), name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
-        NotificationCenter.default.post(name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
-        
+
         if UIScreen.main.sizeType != .iPhone5 {
             self.tableView.rowHeight = UITableViewAutomaticDimension
             self.tableView.estimatedRowHeight = 44.0
         }
+        
+        // Navigation Bar View
+        let title = UILabel(frame: CGRect(x:10, y: 0, width: 95, height: 40))
+        title.text = "دیوار چابک"
+        title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
+        title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
+        titleView.addSubview(title)
+        
+        navigationItem.titleView = titleView
+        
+        // online or offline observer
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pushClientServerConnectionStateHandler), name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
+        
     }
     
     func pushClientServerConnectionStateHandler(_ notification: Notification) {
         
         if manager.connectionState == .connectedState {
-            
             image = UIImage(named: "online")!
             connectionLabel(connectionStateImage: image)
             
@@ -138,22 +148,11 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     }
     
     func connectionLabel(connectionStateImage: UIImage) {
-        
-        imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
+        let imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
         image = connectionStateImage
         imageView.image = image
         
-        let title = UILabel(frame: CGRect(x:10, y: 0, width: 95, height: 40))
-        title.text = "دیوار چابک"
-        title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
-        title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        let titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
-        
         titleView.addSubview(imageView)
-        titleView.addSubview(title)
-        
-        navigationItem.titleView = titleView
     }
     
     override func viewWillLayoutSubviews() {

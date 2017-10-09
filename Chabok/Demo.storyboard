@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -728,8 +729,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csD-VR-vuI" userLabel="logo">
-                                <rect key="frame" x="0.0" y="20" width="414" height="235"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="173"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="csD-VR-vuI" secondAttribute="height" multiplier="320:173" id="Ppm-22-QA0"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maq-ZI-FZF">
                                 <rect key="frame" x="0.0" y="210" width="320" height="157"/>
@@ -867,9 +871,8 @@
                             <constraint firstItem="maq-ZI-FZF" firstAttribute="centerY" secondItem="OUJ-cR-CGW" secondAttribute="centerY" constant="4.5" id="58h-Eg-GU7"/>
                             <constraint firstAttribute="trailing" secondItem="zKE-Gk-R7Z" secondAttribute="trailing" id="9sp-5e-Y9N"/>
                             <constraint firstAttribute="trailing" secondItem="maq-ZI-FZF" secondAttribute="trailing" id="B5N-sc-zsq"/>
+                            <constraint firstItem="csD-VR-vuI" firstAttribute="top" secondItem="uFJ-ey-fMT" secondAttribute="bottom" id="M9h-Sb-Syw"/>
                             <constraint firstItem="zKE-Gk-R7Z" firstAttribute="top" secondItem="Wc8-Wy-2SB" secondAttribute="bottom" constant="8" id="NOa-5S-af6"/>
-                            <constraint firstItem="csD-VR-vuI" firstAttribute="top" secondItem="uFJ-ey-fMT" secondAttribute="bottom" id="QSA-Bw-Ckq"/>
-                            <constraint firstAttribute="trailing" secondItem="csD-VR-vuI" secondAttribute="trailing" constant="-94" id="X28-bS-qgR"/>
                             <constraint firstItem="Wc8-Wy-2SB" firstAttribute="leading" secondItem="OUJ-cR-CGW" secondAttribute="leading" constant="22" id="ZGo-sU-Q1a"/>
                             <constraint firstAttribute="trailing" secondItem="hdV-2Y-z1r" secondAttribute="trailing" id="ZL3-Ii-d1t"/>
                             <constraint firstItem="Lg4-cG-y0q" firstAttribute="top" secondItem="zKE-Gk-R7Z" secondAttribute="bottom" id="dgQ-e6-3Bl"/>
@@ -878,18 +881,19 @@
                             <constraint firstItem="Wc8-Wy-2SB" firstAttribute="centerX" secondItem="zKE-Gk-R7Z" secondAttribute="centerX" id="gkH-9q-eXm"/>
                             <constraint firstItem="Lg4-cG-y0q" firstAttribute="top" secondItem="hdV-2Y-z1r" secondAttribute="bottom" id="k4X-Ma-f8m"/>
                             <constraint firstItem="hdV-2Y-z1r" firstAttribute="leading" secondItem="OUJ-cR-CGW" secondAttribute="leading" id="lgp-2y-4cG"/>
+                            <constraint firstAttribute="trailing" secondItem="csD-VR-vuI" secondAttribute="trailing" id="pid-ry-spJ"/>
                             <constraint firstItem="hdV-2Y-z1r" firstAttribute="top" secondItem="OUJ-cR-CGW" secondAttribute="top" id="sxe-ea-0N2"/>
-                            <constraint firstAttribute="bottom" secondItem="csD-VR-vuI" secondAttribute="bottom" constant="313" id="u5Z-HK-xAL"/>
-                            <constraint firstItem="csD-VR-vuI" firstAttribute="leading" secondItem="maq-ZI-FZF" secondAttribute="leading" id="vyO-Od-ifJ"/>
+                            <constraint firstItem="csD-VR-vuI" firstAttribute="leading" secondItem="OUJ-cR-CGW" secondAttribute="leading" id="xv0-D2-ZFF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoView" destination="csD-VR-vuI" id="cny-ul-EXJ"/>
                         <outlet property="openUrl" destination="R9C-F5-znW" id="98l-mK-qVK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQg-At-ElF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10643" y="72"/>
+            <point key="canvasLocation" x="10642.5" y="71.83098591549296"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="CsW-ER-a6K">
@@ -1314,7 +1318,7 @@
         <image name="chabok" width="200" height="184"/>
         <image name="chabokBtn" width="26" height="24"/>
         <image name="eye" width="8" height="5"/>
-        <image name="failed" width="22" height="22"/>
+        <image name="failed" width="6" height="6"/>
         <image name="helpBackground" width="375" height="667"/>
         <image name="kolang" width="58" height="58"/>
         <image name="location" width="12" height="16"/>

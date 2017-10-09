@@ -12,7 +12,7 @@ import Lottie
 class AboutViewController: UIViewController {
     
     @IBOutlet weak var openUrl: UIButton!
-    @IBOutlet weak var animationView: UIView!
+    @IBOutlet weak var logoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,16 @@ class AboutViewController: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+    
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidLayoutSubviews()
         
         // lottie animation
         let animationView = LOTAnimationView(name: "chabok.json")
-        animationView.frame = CGRect(x: (UIScreen.main.bounds.size.width/2)-125, y: (UIScreen.main.bounds.size.height/2)-320, width: 250, height: 250)
+        animationView.frame = CGRect(x: (self.logoView.frame.size.width/2)-125, y: (self.logoView.frame.size.height/2)-125, width: 250, height: 250)
         animationView.loopAnimation = true
-        self.view.addSubview(animationView)
+        self.logoView.addSubview(animationView)
         animationView.play()
     }
     

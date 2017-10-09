@@ -218,16 +218,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
                 if message.topicName.contains("captain"){
                     
                     if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
-                        
-                        if (self.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: "8.0") && self.SYSTEM_VERSION_LESS_THAN(version: "10.0")){
-                            AudioServicesPlayAlertSound(1009)
-                        }
+                        self.throttle(#selector(self.captainNotifSound), withObject: message, duration: 2)
                     }
                 }else{
                     if  Message.messageWithMessage(message, context: self.managedObjectContext!) == true {
-                        if (self.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: "8.0") && self.SYSTEM_VERSION_LESS_THAN(version: "10.0")){
-                            AudioServicesPlayAlertSound(1007)
-                        }
+                        self.throttle(#selector(self.wallNotifSound), withObject: message, duration: 2)
                     }
                 }
             })
@@ -238,7 +233,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
             })
         }
     }
-
+    
+    func captainNotifSound() {
+        if (self.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: "8.0") && self.SYSTEM_VERSION_LESS_THAN(version: "10.0")){
+            AudioServicesPlayAlertSound(1009)
+        }
+    }
+    func wallNotifSound() {
+        if (self.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: "8.0") && self.SYSTEM_VERSION_LESS_THAN(version: "10.0")){
+            AudioServicesPlayAlertSound(1007)
+        }
+    }
+    
     func receivedLocationUpdates(_ locations: [CLLocation]) {
         
         let lastLocation = locations.last

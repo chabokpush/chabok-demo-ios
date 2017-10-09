@@ -135,7 +135,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     }
   
     func getCurrentViewController() -> UIViewController {
-        return (self.window!.rootViewController?.childViewControllers.last)!;
+        let rootVC = self.window!.rootViewController
+        if rootVC is UINavigationController {
+            let navVC = rootVC as! UINavigationController
+            if navVC.visibleViewController != nil {
+                return navVC.visibleViewController!
+            }
+            return navVC;
+        }
+        return (rootVC?.childViewControllers.last)!
     }
     
     func pushClientManagerUILocalNotificationDidReceivedMessage(_ message: PushClientMessage) {

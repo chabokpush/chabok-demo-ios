@@ -282,12 +282,25 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
     }
     
     //MARK: - NSFetchResultController
-
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.tableView.endUpdates()
-        self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
     }
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .delete:
+            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+            break
+        case .insert:
+            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+            break
+        case .update:
+            self.tableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
+            break
+        default:
+            break
+        }
+    }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
@@ -308,26 +321,10 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         }
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .delete:
-            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-            break
-        case .insert:
-            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-            break
-        case .update:
-            self.tableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
-            break
-        default:
-            break
-        }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+        self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
     }
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.tableView.beginUpdates()
-    }
-    
     
     func hide () {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)

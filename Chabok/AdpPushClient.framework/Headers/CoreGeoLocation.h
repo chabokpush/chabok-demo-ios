@@ -292,7 +292,7 @@ typedef enum {
 
 -(NSArray<CLRegion *> *_Nullable) getAllMonitoringRegions;
 
--(CLRegion *_Nullable) getRegionWithIdentifire:(NSString *_Nonnull) identifire;
+-(CLRegion *_Nullable) getRegionWithIdentifier:(NSString *_Nonnull) identifier;
 
 /*!
  *  startMonitoringRegion:center:radius:identifier

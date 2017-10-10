@@ -134,8 +134,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="avx-kN-K1N"/>
                                 </constraints>
-                                <string key="text">کاپیتان چابک، از یه نقشه خیلی قدیمی فهمیدیم کلی گنج زیر خاک این منطقه دفن شده.
- باید قبل از اینکه کسی پیداش کنه با کمک هم از زیر این خاک بیرون بیاریمش.</string>
+                                <mutableString key="text">  از یک نقشه گنج قدیمی فهمیدیم که کلی گنج زیر خاک این منطقه دفن شده، تو میتونی با زدن کلنگ در محوطه نمایشگاه شانست رو امتحان کنی .
+ با توجه به قوانین این بازی، تعامل بیشتر و  راهنمایی ما برای پیدا کردن گنج، محل جغرافیایی شما برای ما و سایر کاربران این بازی قابل مشاهده خواهد بود.</mutableString>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -538,12 +538,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="باید بیشتر کاوش کنیم.این طرفا خبری از گنج نیست!" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
                                 <rect key="frame" x="20" y="332" width="280" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="f0p-gB-eS9"/>
                                 </constraints>
+                                <string key="text">باید بیشتر کاوش کنیم این اطراف خبری از گنج نیست،
+ بیشتر در محوطه بچرخ و متنتظر راهنمایی های ما باش!</string>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -816,7 +818,7 @@
                                             <constraint firstAttribute="width" constant="12" id="t3I-g6-t9E"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تهران خیابان ملاصدرا - خیابان شیراز شمالی - خیابان حکیم اعظم - پلاک ۱۹" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivf-HI-8qV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" آدرس :میدان ونک، خیابان ملاصدرا، خیابان شیرازی شمالی، خیابان حکیم اعظم، پلاک 19" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivf-HI-8qV">
                                         <rect key="frame" x="35" y="49" width="242" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="peE-Y5-dGj"/>

@@ -25,7 +25,7 @@ class RewardViewController: UIViewController {
         self.view.addSubview(animationView)
         animationView.play()
     
-        self.msgLabel.text = "شما \(resualMessage) پیدا کردین!"
+        self.msgLabel.text = resualMessage
     }
 
     @IBAction func dismissBtnClick(_ sender: Any) {

@@ -470,11 +470,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CwM-DD-xeg">
-                                <rect key="frame" x="20" y="332" width="280" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CwM-DD-xeg">
+                                <rect key="frame" x="20" y="348" width="280" height="92"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="v7H-ug-3r9"/>
+                                    <constraint firstAttribute="height" constant="92" id="v7H-ug-3r9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -503,7 +503,7 @@
                             <constraint firstItem="qtW-hr-1uq" firstAttribute="top" secondItem="Anw-tM-R24" secondAttribute="bottom" id="4CG-yL-TYs"/>
                             <constraint firstAttribute="trailing" secondItem="Anw-tM-R24" secondAttribute="trailing" id="9Tn-XW-Kch"/>
                             <constraint firstItem="CwM-DD-xeg" firstAttribute="leading" secondItem="JOj-UL-vP1" secondAttribute="leading" constant="20" id="F3W-Yw-meh"/>
-                            <constraint firstItem="jEn-cb-oHv" firstAttribute="top" secondItem="CwM-DD-xeg" secondAttribute="bottom" constant="52" id="IXW-0d-Tgg"/>
+                            <constraint firstItem="jEn-cb-oHv" firstAttribute="top" secondItem="CwM-DD-xeg" secondAttribute="bottom" constant="24" id="IXW-0d-Tgg"/>
                             <constraint firstItem="jEn-cb-oHv" firstAttribute="centerX" secondItem="JOj-UL-vP1" secondAttribute="centerX" id="Ie4-DS-Bg0"/>
                             <constraint firstAttribute="trailing" secondItem="CwM-DD-xeg" secondAttribute="trailing" constant="20" id="UYr-3f-jWx"/>
                             <constraint firstAttribute="trailing" secondItem="Anw-tM-R24" secondAttribute="trailing" id="Whi-4m-MSl"/>

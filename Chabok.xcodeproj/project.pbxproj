@@ -24,7 +24,7 @@
 		C55EBD931F7B16AC004AB4B4 /* Discovery.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD901F7B16AC004AB4B4 /* Discovery.json */; };
 		C55EBD941F7B16AC004AB4B4 /* Reward.json in Resources */ = {isa = PBXBuildFile; fileRef = C55EBD911F7B16AC004AB4B4 /* Reward.json */; };
 		C56B87081F703BFA004E4627 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B87071F703BFA004E4627 /* SettingViewController.swift */; };
-		C5812CB11F8D5A2C00362300 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
+		C5812CB31F8D5B0900362300 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5812CB21F8D5B0900362300 /* AdpPushClient.framework */; };
 		C59A9E101F5DBC1400825675 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E0F1F5DBC1400825675 /* GradientView.swift */; };
 		C59A9E121F5DCE8100825675 /* CornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E111F5DCE8100825675 /* CornerButton.swift */; };
 		C59A9E141F5DD7D200825675 /* CornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A9E131F5DD7D200825675 /* CornerTextField.swift */; };
@@ -64,7 +64,6 @@
 		5D0B9025DB2930FC4343D07B /* Pods_Chabok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chabok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE31F371DD98D5D007EBC2F /* Chabok.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chabok.entitlements; sourceTree = "<group>"; };
 		B8A4838277C8E3DFB91398EF /* Pods-Chabok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chabok.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chabok/Pods-Chabok.release.xcconfig"; sourceTree = "<group>"; };
-		C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdpPushClient.framework; sourceTree = "<group>"; };
 		C54205891F609F1E0026661D /* View+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Animation.swift"; sourceTree = "<group>"; };
 		C542058B1F60B9770026661D /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		C542058D1F60C76F0026661D /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		C55EBD901F7B16AC004AB4B4 /* Discovery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Discovery.json; sourceTree = "<group>"; };
 		C55EBD911F7B16AC004AB4B4 /* Reward.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Reward.json; sourceTree = "<group>"; };
 		C56B87071F703BFA004E4627 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		C5812CB21F8D5B0900362300 /* AdpPushClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdpPushClient.framework; sourceTree = "<group>"; };
 		C59A9E0F1F5DBC1400825675 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C59A9E111F5DCE8100825675 /* CornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
 		C59A9E131F5DD7D200825675 /* CornerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerTextField.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5812CB11F8D5A2C00362300 /* AdpPushClient.framework in Frameworks */,
+				C5812CB31F8D5B0900362300 /* AdpPushClient.framework in Frameworks */,
 				F892DDB41C60A64E00C1F355 /* SystemConfiguration.framework in Frameworks */,
 				F892DDB21C60A64100C1F355 /* MobileCoreServices.framework in Frameworks */,
 				25DB0863E52E96644710C950 /* Pods_Chabok.framework in Frameworks */,
@@ -268,7 +268,7 @@
 		F892DD6E1C608BD300C1F355 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */,
+				C5812CB21F8D5B0900362300 /* AdpPushClient.framework */,
 				F892DDB51C60A65300C1F355 /* CoreData.framework */,
 				F892DDB31C60A64E00C1F355 /* SystemConfiguration.framework */,
 				F892DDB11C60A64100C1F355 /* MobileCoreServices.framework */,

@@ -13,7 +13,6 @@ import SDWebImage
 
 class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate {
     
-    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var discoveryBtn: UIButton!
     @IBOutlet weak var leftBarButtonIcon: UIBarButtonItem!
@@ -73,18 +72,6 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
         
         discoveryBtn.layer.cornerRadius = 45
-        
-        // Gradient
-        let gradient = CAGradientLayer()
-        
-        gradient.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: gradientView.frame.size.height)
-        
-        let color1 = UIColor.clear
-        let color2 = (#colorLiteral(red: 1, green: 0.831372549, blue: 0.5333333333, alpha: 1)).cgColor as CGColor
-        
-        gradient.colors = [color1, color2]
-        gradient.locations = [0.0, 1.0 , 0.95 , 1.0]
-        self.gradientView.layer.addSublayer(gradient)
         
         inboxTableView.register(UINib(nibName: "InboxView", bundle: nil), forCellReuseIdentifier: "inboxCell")
         

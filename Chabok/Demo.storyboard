@@ -129,14 +129,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NrN-fQ-hth">
-                                <rect key="frame" x="20" y="335" width="280" height="110"/>
+                                <rect key="frame" x="20" y="323" width="280" height="123"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="avx-kN-K1N"/>
-                                </constraints>
                                 <mutableString key="text">  از یک نقشه گنج قدیمی فهمیدیم که کلی گنج زیر خاک این منطقه دفن شده، تو میتونی با زدن کلنگ در محوطه نمایشگاه شانست رو امتحان کنی .
  با توجه به قوانین این بازی، تعامل بیشتر و  راهنمایی ما برای پیدا کردن گنج، محل جغرافیایی شما برای ما و سایر کاربران این بازی قابل مشاهده خواهد بود.</mutableString>
-                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -159,7 +156,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ym5-6z-0fN" firstAttribute="top" secondItem="Eim-rw-c17" secondAttribute="top" id="2pU-3I-mNu"/>
-                            <constraint firstItem="NrN-fQ-hth" firstAttribute="top" secondItem="Er3-6c-AyB" secondAttribute="bottom" constant="35" id="3Ch-Kx-hw8"/>
                             <constraint firstAttribute="trailing" secondItem="ym5-6z-0fN" secondAttribute="trailing" id="7vq-qg-jqd"/>
                             <constraint firstItem="DFR-bC-wbI" firstAttribute="centerX" secondItem="Eim-rw-c17" secondAttribute="centerX" id="98M-Bm-lW0"/>
                             <constraint firstAttribute="trailing" secondItem="NrN-fQ-hth" secondAttribute="trailing" constant="20" id="FhC-s2-yUf"/>
@@ -168,7 +164,8 @@
                             <constraint firstItem="Er3-6c-AyB" firstAttribute="top" secondItem="yyv-tM-3sZ" secondAttribute="bottom" constant="50" id="QVp-Rv-6xY"/>
                             <constraint firstItem="ym5-6z-0fN" firstAttribute="leading" secondItem="Eim-rw-c17" secondAttribute="leading" id="SJ8-YS-Lq1"/>
                             <constraint firstItem="NrN-fQ-hth" firstAttribute="leading" secondItem="Eim-rw-c17" secondAttribute="leading" constant="20" id="UJy-40-xfg"/>
-                            <constraint firstItem="NrN-fQ-hth" firstAttribute="centerX" secondItem="Eim-rw-c17" secondAttribute="centerX" id="gXm-fF-jpb"/>
+                            <constraint firstItem="DFR-bC-wbI" firstAttribute="top" secondItem="NrN-fQ-hth" secondAttribute="bottom" constant="18" id="YZ3-vo-mEH"/>
+                            <constraint firstItem="NrN-fQ-hth" firstAttribute="top" secondItem="Er3-6c-AyB" secondAttribute="bottom" constant="23" id="coW-MB-Twu"/>
                             <constraint firstItem="ym5-6z-0fN" firstAttribute="bottom" secondItem="aV6-nK-vlx" secondAttribute="top" id="v2q-yy-euQ"/>
                         </constraints>
                     </view>
@@ -545,7 +542,7 @@
                                     <constraint firstAttribute="height" constant="80" id="f0p-gB-eS9"/>
                                 </constraints>
                                 <string key="text">باید بیشتر کاوش کنیم این اطراف خبری از گنج نیست،
- بیشتر در محوطه بچرخ و متنتظر راهنمایی های ما باش!</string>
+ بیشتر در محوطه بچرخ و منتظر راهنمایی های ما باش!</string>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -609,14 +606,6 @@
                                     <outlet property="delegate" destination="hm5-J0-A4w" id="lrh-29-svk"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Muw-RB-uGO">
-                                <rect key="frame" x="0.0" y="384" width="320" height="120"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="zqc-Aa-s4h"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVL-RL-IqK">
                                 <rect key="frame" x="115" y="399" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -635,14 +624,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hz2-Jg-32N" firstAttribute="leading" secondItem="6X1-MI-3T2" secondAttribute="leading" id="6gE-XQ-jhh"/>
+                            <constraint firstItem="JVL-RL-IqK" firstAttribute="centerX" secondItem="hz2-Jg-32N" secondAttribute="centerX" id="Hr5-P1-K1P"/>
                             <constraint firstItem="hz2-Jg-32N" firstAttribute="top" secondItem="Wti-j9-zOC" secondAttribute="bottom" id="MUT-0v-95H"/>
+                            <constraint firstItem="oBL-Uh-Ryr" firstAttribute="top" secondItem="JVL-RL-IqK" secondAttribute="bottom" constant="15" id="WU8-fI-oFt"/>
                             <constraint firstAttribute="trailing" secondItem="hz2-Jg-32N" secondAttribute="trailing" id="WYD-AF-Sxv"/>
-                            <constraint firstItem="JVL-RL-IqK" firstAttribute="centerY" secondItem="Muw-RB-uGO" secondAttribute="centerY" id="ey1-YL-szy"/>
                             <constraint firstItem="oBL-Uh-Ryr" firstAttribute="top" secondItem="hz2-Jg-32N" secondAttribute="bottom" id="fv1-6n-F0R"/>
-                            <constraint firstItem="JVL-RL-IqK" firstAttribute="centerX" secondItem="Muw-RB-uGO" secondAttribute="centerX" id="g0Z-cs-eAe"/>
-                            <constraint firstItem="Muw-RB-uGO" firstAttribute="leading" secondItem="6X1-MI-3T2" secondAttribute="leading" id="hE2-wO-WCJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Muw-RB-uGO" secondAttribute="trailing" id="qLZ-LY-ozt"/>
-                            <constraint firstItem="oBL-Uh-Ryr" firstAttribute="top" secondItem="Muw-RB-uGO" secondAttribute="bottom" id="y3B-Hc-uzV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="کاپیتان چابک" id="QoV-sq-8Oj">
@@ -662,7 +648,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="discoveryBtn" destination="JVL-RL-IqK" id="IEy-ga-znp"/>
-                        <outlet property="gradientView" destination="Muw-RB-uGO" id="1qG-Di-GsE"/>
                         <outlet property="inboxTableView" destination="hz2-Jg-32N" id="fET-Wa-fAK"/>
                         <outlet property="leftBarButtonIcon" destination="Pt0-Ff-8zf" id="WIY-0f-blg"/>
                     </connections>
@@ -818,7 +803,7 @@
                                             <constraint firstAttribute="width" constant="12" id="t3I-g6-t9E"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" آدرس :میدان ونک، خیابان ملاصدرا، خیابان شیرازی شمالی، خیابان حکیم اعظم، پلاک 19" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivf-HI-8qV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="میدان ونک، خیابان ملاصدرا، خیابان شیرازی شمالی، خیابان حکیم اعظم، پلاک 19" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivf-HI-8qV">
                                         <rect key="frame" x="35" y="49" width="242" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="peE-Y5-dGj"/>

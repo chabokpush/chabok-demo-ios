@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/CoreGeoLocation.h</key>
 		<data>
-		lvQ73MXCEQVJRcKMiCcxVq++mpo=
+		9/KBF2E48Sm70UHNwrmzL/6oyEk=
 		</data>
 		<key>Headers/DeliveryMessage.h</key>
 		<data>
@@ -38,11 +38,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Q6ihf/4If4OaU6jng7CXvt0hNXM=
+		2BQxYmmUpO3UKJgo96ORQlXaPtg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		RmDHKtW9idpzUQnjH67XBUh0Fiw=
+		</data>
+		<key>PrivateHeaders/LocalSetting.h</key>
+		<data>
+		fVwLBTRzNY+y3hw9P4nIe5bM6Yc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -73,11 +77,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lvQ73MXCEQVJRcKMiCcxVq++mpo=
+			9/KBF2E48Sm70UHNwrmzL/6oyEk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vlqw48qKtSDnrJ58xDYBBBKvTrjoPno7zfwvf7jOJm8=
+			aWeuKOAtYOxpo81tYlRMlK10fnmu+biWq86H7DpXnN0=
 			</data>
 		</dict>
 		<key>Headers/DeliveryMessage.h</key>
@@ -144,6 +148,17 @@
 			<key>hash2</key>
 			<data>
 			nMIgXR0pjcv2luPdc3lEMDn2Ax2YyOWOW4oUMTvsry4=
+			</data>
+		</dict>
+		<key>PrivateHeaders/LocalSetting.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fVwLBTRzNY+y3hw9P4nIe5bM6Yc=
+			</data>
+			<key>hash2</key>
+			<data>
+			AKWuCpip30yU1/vRy7WoazgIvVTUqwZ5NSmJNu5Pwrw=
 			</data>
 		</dict>
 	</dict>

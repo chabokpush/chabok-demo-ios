@@ -33,7 +33,25 @@
  */
 -(void) geoLocationAutorizationStatusChanged:(CLAuthorizationStatus)status;
 
+/**
+ * Invoked when stopTracking method was called.
+ */
 -(void) didStoppedTrackingMe;
+
+/**
+ * Invoked when user became enter to region.
+ */
+-(void) didEnterToRegion:(CLRegion *_Nonnull) region;
+
+/**
+ * Invoked when user exit from region.
+ */
+-(void) didExitFromRegion:(CLRegion *_Nonnull) region;
+
+/**
+ * Invoked when startMonitoringRegion was called.
+ */
+-(void) didStartMonitoringRegion:(CLRegion *_Nonnull) region;
 
 @end
 
@@ -195,6 +213,8 @@ typedef enum {
  */
 - (BOOL) requestLocationAuthorization:(locationAutorizationEnumType) locationAutorization;
 
+- (CLAuthorizationStatus) authrizationState;
+
 /**
  * Start location tracking, First check location manager was enabled and after that
  * start tracking location
@@ -267,5 +287,58 @@ typedef enum {
  * @author AdpDigital co.
  */
 - (void) stopTracking;
+    
+#pragma mark - geofence
+
+-(NSArray<CLRegion *> *_Nullable) getAllMonitoringRegions;
+
+-(CLRegion *_Nullable) getRegionWithIdentifire:(NSString *_Nonnull) identifire;
+
+/*!
+ *  startMonitoringRegion:center:radius:identifier
+ *
+ * @description Start monitoring specified region
+ * @param center containt CLLocationCoordinate2D struct contain latitude and longitude
+ * @param radius of region
+ * @param identifier for region
+ *
+ * @author AdpDigital co.
+ */
+-(void) startMonitoringRegion:(CLLocationCoordinate2D) center radius:(CLLocationDistance) radius identifier:(NSString *_Nonnull) identifier;
+
+/*!
+ *  startMonitoringRegion:region
+ *
+ * @description Start monitoring specified region
+ * @param region
+ *
+ * @author AdpDigital co.
+ */
+-(void) startMonitoringRegion:(CLRegion *_Nonnull) region;
+
+/*!
+ *  stopMonitoringAllRegions
+ *
+ * @description stop monitoring all regions
+ *
+ * @author AdpDigital co.
+ */
+-(void) stopMonitoringAllRegions;
+
+/*!
+ *  stopMonitoringRegion:region
+ *
+ * @description stop monitoring specified region
+ * @param region
+ *
+ * @author AdpDigital co.
+ */
+-(void) stopMonitoringRegion:(CLRegion *_Nonnull) region;
+
+-(void) startMonitoringRegion:(CLRegion *_Nonnull) region
+                  expireCount:(NSInteger) count
+                     expireTs:(NSTimeInterval) ts
+                 enterMessage:(NSString *_Nullable) enter
+                  exitMessage:(NSString *_Nullable) exit;
     
 @end

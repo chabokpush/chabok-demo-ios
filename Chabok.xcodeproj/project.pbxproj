@@ -35,9 +35,9 @@
 		C5BC1D4C1F5CD10300C45E60 /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5BC1D4B1F5CD10300C45E60 /* Demo.storyboard */; };
 		C5BC1D4F1F5CD12E00C45E60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D4E1F5CD12E00C45E60 /* FirstViewController.swift */; };
 		C5BC1D531F5CD14200C45E60 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC1D521F5CD14200C45E60 /* InfoViewController.swift */; };
+		C5E9889E1F8C574200EFE400 /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
 		C5F49AB01F771A3D00FE3EB9 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F49AAF1F771A3D00FE3EB9 /* AvatarViewController.swift */; };
 		C5FA4CA21F89AA580011912D /* RateLimiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA4CA11F89AA580011912D /* RateLimiting.swift */; };
-		C5FA4CA51F8AA8520011912D /* AdpPushClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5228BD51F7C7D6A00D28F07 /* AdpPushClient.framework */; };
 		C5FA4CA71F8B03F50011912D /* chabok.json in Resources */ = {isa = PBXBuildFile; fileRef = C5FA4CA61F8B03F50011912D /* chabok.json */; };
 		C8B0AD601F6D0A7F007F9ACB /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0AD5F1F6D0A7F007F9ACB /* CornerView.swift */; };
 		F805EA271C6639A00098276A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805EA251C6639A00098276A /* Message.swift */; };
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FA4CA51F8AA8520011912D /* AdpPushClient.framework in Frameworks */,
+				C5E9889E1F8C574200EFE400 /* AdpPushClient.framework in Frameworks */,
 				F892DDB41C60A64E00C1F355 /* SystemConfiguration.framework in Frameworks */,
 				F892DDB21C60A64100C1F355 /* MobileCoreServices.framework in Frameworks */,
 				25DB0863E52E96644710C950 /* Pods_Chabok.framework in Frameworks */,

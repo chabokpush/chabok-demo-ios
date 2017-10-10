@@ -18,7 +18,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var discoveryBtn: UIButton!
     @IBOutlet weak var leftBarButtonIcon: UIBarButtonItem!
     var manager = PushClientManager()
-
+    
     var lastIndexPath : IndexPath! {
         
         let sectionsAmount = self.inboxTableView.numberOfSections - 1
@@ -66,12 +66,12 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.manager = PushClientManager.default()
         if self.manager.userId == nil || self.manager.userId.contains("@") {
             ShowFirstView()
         }
-
+        
         discoveryBtn.layer.cornerRadius = 45
         
         // Gradient
@@ -87,14 +87,14 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.gradientView.layer.addSublayer(gradient)
         
         inboxTableView.register(UINib(nibName: "InboxView", bundle: nil), forCellReuseIdentifier: "inboxCell")
-   
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         PushClientManager.resetBadge()
@@ -139,7 +139,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
-
+        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -151,7 +151,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.inboxTableView.endUpdates()
     }
-
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
@@ -204,7 +204,7 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationController?.pushViewController(newViewController, animated: true)
         
-        }
+    }
     
     @IBAction func discoveryBtnClick(_ sender: Any) {
         
@@ -223,24 +223,27 @@ class InboxViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // send location and publish event
         let coreGeoLocation = self.manager.instanceCoreGeoLocation
         let lastLocation = coreGeoLocation?.lastLocation
-
-        if lastLocation != nil {
-            self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "","lng":lastLocation?.coordinate.longitude ?? ""])
-
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
-            self.navigationController?.pushViewController(newViewController, animated: true)
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-        }else if coreGeoLocation?.locationAutorization == nil{
+        let authrization = coreGeoLocation?.authrizationState()
+        
+        if lastLocation == nil {
             showAlert("دسترسی به لوکیشن امکان پذیر نیست")
-        }else{
-            showAlert("دسترسی به لوکیشن خود را روشن کنید")
+            return
+        }else if (authrization == .notDetermined) || (authrization == .notDetermined) || (authrization == .denied){
+             showAlert("دسترسی به لوکیشن خود را روشن کنید")
+            return
         }
+        
+        self.manager.publishEvent("captainStatus", data: ["status":"digging","lat":lastLocation?.coordinate.latitude ?? "","lng":lastLocation?.coordinate.longitude ?? ""])
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "discoveryViewID") as! DiscoveryViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func showAlert(_ message: String) {
         
-        let alert = UIAlertController(title: title,message:message,preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title ,message:message,preferredStyle: UIAlertControllerStyle.alert)
         let cancelAction = UIAlertAction(title: "باشه",style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         

@@ -64,8 +64,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         UINavigationBar.appearance().titleTextAttributes = attributes
         UINavigationBar.appearance().tintColor = UIColor.white
         UIApplication.shared.statusBarStyle = .lightContent
-        
+ 
         return true
+    }
+
+    func showAlert(_ message: String) {
+
+        let topWindow = UIWindow(frame: UIScreen.main.bounds)
+        topWindow.rootViewController = UIViewController()
+        topWindow.windowLevel = UIWindowLevelAlert + 1
+        let alert = UIAlertController(title: "APNS", message: "received Notification", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "باشه",style: .cancel, handler: nil)
+        alert.addAction(cancelAction)            // continue your work
+
+        topWindow.makeKeyAndVisible()
+        
+        
+        // Change font of the title and message
+        let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 20)! ]
+        let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 14)! ]
+        
+        let attributedTitle = NSMutableAttributedString(string: "خطا", attributes: titleFont)
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        
+        topWindow.rootViewController?.present(alert, animated: true, completion: nil)
+        
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

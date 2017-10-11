@@ -164,7 +164,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         super.viewWillAppear(animated)
         
         if lastIndexPath.row > 0 {
-            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
         }
     }
 

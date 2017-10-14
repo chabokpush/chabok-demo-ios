@@ -62,6 +62,7 @@ class DiscoveryViewController: UIViewController {
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Demo", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "failedViewID") as! FailedViewController
+            newViewController.resualMessage = msg
             self.navigationController?.pushViewController(newViewController, animated: true)
         }
         print("end digging")

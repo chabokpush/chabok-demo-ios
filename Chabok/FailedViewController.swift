@@ -10,7 +10,9 @@ import UIKit
 import Lottie
 
 class FailedViewController: UIViewController {
-    
+    @IBOutlet weak var failedMsgLabel: UILabel!
+    var resualMessage = String()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,9 @@ class FailedViewController: UIViewController {
         self.view.addSubview(animationView)
         animationView.play()
         
+        
+        self.failedMsgLabel.text = resualMessage
+
     }
 
     @IBAction func dismissBtnClick(_ sender: Any) {

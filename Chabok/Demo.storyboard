@@ -131,8 +131,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NrN-fQ-hth">
                                 <rect key="frame" x="20" y="323" width="280" height="123"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">  از یک نقشه گنج قدیمی فهمیدیم که کلی گنج زیر خاک این منطقه دفن شده، تو میتونی با زدن کلنگ در محوطه نمایشگاه شانست رو امتحان کنی .
- با توجه به قوانین این بازی، تعامل بیشتر و  راهنمایی ما برای پیدا کردن گنج، محل جغرافیایی شما برای ما و سایر کاربران این بازی قابل مشاهده خواهد بود.</mutableString>
+                                <string key="text">  از یک نقشه گنج قدیمی فهمیدیم که کلی گنج زیر خاک این منطقه دفن شده، تو میتونی با زدن کلنگ در محوطه نمایشگاه شانست رو امتحان کنی .
+ با توجه به قوانین این بازی، تعامل بیشتر و  راهنمایی ما برای پیدا کردن گنج، محل جغرافیایی شما برای ما و سایر کاربران این بازی قابل مشاهده خواهد بود.</string>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -535,14 +535,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="------" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-gs-5oI">
                                 <rect key="frame" x="20" y="332" width="280" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="f0p-gB-eS9"/>
                                 </constraints>
-                                <string key="text">باید بیشتر کاوش کنیم این اطراف خبری از گنج نیست،
- بیشتر در محوطه بچرخ و منتظر راهنمایی های ما باش!</string>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -581,6 +579,9 @@
                             <constraint firstItem="c7p-em-mD4" firstAttribute="top" secondItem="NHl-gk-T9T" secondAttribute="top" id="yBO-4H-dHu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="failedMsgLabel" destination="nBE-gs-5oI" id="w5n-QI-rwZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLy-r5-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

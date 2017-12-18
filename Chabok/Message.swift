@@ -3,7 +3,7 @@
 //  Chabok
 //
 //  Created by Farshad Ghafari on 11/17/1394 AP.
-//  Copyright © 1394 Farshad Ghafari. All rights reserved.
+//  Copyright © 1394 ADP Digital Co. All rights reserved.
 //
 
 import Foundation
@@ -12,41 +12,44 @@ import AdpPushClient
 
 extension Message {
     
-    @NSManaged var createdTime: NSDate?
+    @NSManaged var createdTime: Date?
     @NSManaged var id: String?
     @NSManaged var data: NSObject?
     @NSManaged var message: String?
     @NSManaged var new: NSNumber?
-    @NSManaged var receivedTime: NSDate?
+    @NSManaged var receivedTime: Date?
     @NSManaged var senderId: String?
     @NSManaged var sent: String?
     @NSManaged var deliveryCount: NSNumber?
+    @NSManaged var topic: String?
     
 }
 
 
 class Message: NSManagedObject {
-
-    class func messageWithMessage(message: PushClientMessage, context:NSManagedObjectContext) -> Bool {
+    
+    class func messageWithMessage(_ message: PushClientMessage, context:NSManagedObjectContext) -> Bool {
         print(message)
-        let newMessage = NSEntityDescription.insertNewObjectForEntityForName("Message", inManagedObjectContext: context) as! Message
+        let newMessage = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         
         if message.data != nil {
-            newMessage.data = message.data
+            newMessage.data = message.data as NSObject?
         }
+//        newMessage.topic = message.topicName
         newMessage.sent = "send"
         newMessage.deliveryCount = 0
         newMessage.senderId = message.senderId
         newMessage.message = message.messageBody
         print(message.id)
         newMessage.id = message.id
-        newMessage.createdTime = message.serverTime != nil ? message.serverTime : NSDate()
+        newMessage.createdTime = message.serverTime != nil ? message.serverTime : Date()
         newMessage.new = true
-                
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        let components = cal!.components([.Day , .Month, .Year ], fromDate: message.receivedTime)
-        let newDate = cal!.dateFromComponents(components)
-        newMessage.receivedTime = newDate
+//        
+//        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+//        let components = (cal as NSCalendar).components([.day , .month, .year ], from: message.receivedTime)
+//        let newDate = cal.date(from: components)
+        
+        newMessage.receivedTime = message.receivedTime
         
         do {
             try context.save()
@@ -54,18 +57,18 @@ class Message: NSManagedObject {
         } catch {
             
         }
-    
+        
         return false
-
+        
     }
     
     class func messageWithDeliveryId(delivery:DeliveryMessage, context:NSManagedObjectContext) {
         
-        let fetchRequest = NSFetchRequest(entityName: "Message")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
         let send = NSPredicate(format: "id == %@", delivery.messageId)
         fetchRequest.predicate = send
         
-        if let fetchResult = (try? context.executeFetchRequest(fetchRequest)) as? [Message] {
+        if let fetchResult = (try? context.fetch(fetchRequest)) as? [Message] {
             
             if fetchResult.count > 0 {
                 
@@ -78,21 +81,17 @@ class Message: NSManagedObject {
                         
                     }
                 }
-                
-                
             }
         }
-        
     }
-
     
-    class func messageWithSent(message:PushClientMessage, context:NSManagedObjectContext) {
+    class func messageWithSent(_ message:PushClientMessage, context:NSManagedObjectContext) {
         
-        let fetchRequest = NSFetchRequest(entityName: "Message")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
         let send = NSPredicate(format: "id == %@", message.sentId)
         fetchRequest.predicate = send
         
-        if let fetchResult = (try? context.executeFetchRequest(fetchRequest)) as? [Message] {
+        if let fetchResult = (try? context.fetch(fetchRequest)) as? [Message] {
             
             if fetchResult.count > 0 {
                 
@@ -104,10 +103,7 @@ class Message: NSManagedObject {
                         
                     }
                 }
-                
-                
             }
         }
-
     }
 }

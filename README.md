@@ -1,59 +1,60 @@
-# Chabok iOS Documentation
+# Chabok Push SDK Documentation (ObjectiveC)
 
-Chabok framework is compatible with iOS 7 and later.
+Chabok Push provides you with an iOS framework which is compatible with iOS 7 and later.
 
 
-Import MobileCoreServices.framework and SystemConfiguration.framework, CoreData from Linked Library
+### Required Frameworks
 
+First make sure you have imported MobileCoreServices.framework, SystemConfiguration.framework and CoreData from Linked Library
+
+
+
+### Required Capabilities
 
 Please check *Remote Notifications* checkmark in Project Setting > Capabilities > Background Modes
 Please enable *Push Notifications* in Project Setting > Capabilities.
 
 
-Import framework and define a property in your AppDelegate to hold the Chabok Client Singleton.
+### Enabling Chabok Push
+
+Then add the Chabok framework which you have downloaded into your workspace. 
+Import it and define a property in your `AppDelegate.h` to hold the Chabok client singleton instance.
 
 ```objc
 #import <AdpPushClient/AdpPushClient.h>
 
 @interface AppDelegate () <PushClientManagerDelegate>
-@property (nonatomic, strong) PushClientManager *manager;
+  @property (nonatomic, strong) PushClientManager *manager;
 @end
 ```
 
-Then inside your `didFinishLaunchingWithOptions` method do the below:
 
+Then inside your `didFinishLaunchingWithOptions` method in `AppDelegate.m` do the below:
 
-for development and access to local server use +setDevelopment:develop
+For development accounts to select sandbox chabok servers use +setDevelopment:develop
 
 ```objc
 [PushClientManager setDevelopment:YES];
 ```
 
-Step1 : create singletone default manager of PushClientManager
+Now create a singleton instance of PushClientManager using `defaultManager`:
 ```objc
 self.manager = [PushClientManager defaultManager];
 ```
 
-
-Step2 Solution 1: add appDelegate as delegation for callback purpose
+add your AppDelegate as delegation for callback purposes:
 ```objc
 [self.manager addDelegate:self];
 ```
 
-Or Solution 2: use observer methods detailed down below.
 
-
-
-Step 3: Check Application Launch With Local Or remote Notification
+call didFinishLaunchingWithOptions of manager
 ```objc
-if ([self.manager application:application
-  didFinishLaunchingWithOptions:launchOptions]){
-    // handle backend and UI here
-}
+[self.manager application:application didFinishLaunchingWithOptions:launchOptions])
 ```
 
 
-Step 4: register APP_ID with version here and set username, password which server assign to APP_ID
+Now define your account APP_ID, SDK_USERNAME and SDK_PASSWORD. You can find your SDK_KEY from the chabok web panel:
 ```objc
 [self.manager registerApplication:@"YOUR_APP_ID"
                                    apiKey:@"YOUR_SDK_KEY"
@@ -61,22 +62,25 @@ Step 4: register APP_ID with version here and set username, password which serve
                                  password:@"SDK_PASSWORD"]
 ```
         
-Step 5: register user after registerApplication:appVersion:username:password return true otherwise handle failureError property of PushClientManager
-Register new user Id and pushClientManager store new userId using blocks
+        
+It's time to register the user with a userId
 ```objc
-[self.manager registerUser:@"989125336383"
-                              channels:@[@"alert" ]
+[self.manager registerUser:@"USER_ID"
+                              channels:@[@"YOUR_CHANNEL" ]
                    registrationHandler:^(BOOL isRegistered, NSString *userId, NSError *error) {
   // handle registration result from server
 }
 ```
-After first time registration, self.manager.userId property will be set, and you can check pushClientManager object has old userId or not.
-
-
+After the first time registration, `self.manager.userId` property will be set 
+and you may want to check manager's object to see if it has a registered userId or not.
 
 
 
 ### Enable Notification Delegation
+
+Include the code below inside your AppDelegate.m. 
+These helps Chabok client to handle remote and local notification delegates:
+
 ```objc
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
                                                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
@@ -113,6 +117,8 @@ After first time registration, self.manager.userId property will be set, and you
 
 ### PushClientManager Delegation Callback
 
+After calling `manager.addDelegate(self)` as shown above, you can use the following delegates
+to receive internal events of Chabok framework. These include:
 
 ```objc
 - (void)pushClientManagerDidRegisterUser:(BOOL)registration{
@@ -154,6 +160,9 @@ After first time registration, self.manager.userId property will be set, and you
 
 ### Using Observing which require NSNotificationCenter
 
+As an alternative, you can use NSNotificationCenter's observer methods to receive events.
+To receive events this way, you can add any of these osbervers:
+
 ```objc
 [[NSNotificationCenter defaultCenter] addObserver:self
 	selector:@selector(pushClientFailureHandler:)
@@ -176,7 +185,7 @@ After first time registration, self.manager.userId property will be set, and you
     	name:kPushClientDidChangeServerReachabilityNotification object:nil];
 ```
 
-and implement following observer methods:
+and then implement following observer methods to receive Chabok events:
 
 ```objc
 - (void)pushClientNewMessageHandler:(NSNotification*)notification{
@@ -206,14 +215,20 @@ and implement following observer methods:
 
 
 ### Channel Subscription
-```objc
-[self.manager subscribe:@"public/sport"];
 
-[self.manager unsubscribe:@"public/+"];
+To subscribe to a channel you can use the following:
+
+```objc
+[self.manager subscribe:@"myAlerts"]; // private (personal) channel
+[self.manager subscribe:@"public/sport"]; // public channel
+
+[self.manager unsubscribe:@"public/+"]; // all public channels
 ```
 
 
 ### Publishing Messages
+
+To publish a message from client to Chabok server, use this:
 
 ```objc
 PushClientMessage *message = [[PushClientMessage alloc]
@@ -221,14 +236,17 @@ PushClientMessage *message = [[PushClientMessage alloc]
                                   withData:@{
                                              @"test": @"value"
                                              }
-                                  topic:@"989395336383/default"];
-message.alertText = @"New Message Alert";
+                                  topic:@"USER_ID/CHANNEL_NAME"];
+message.alertText = @"New Message Alert Text";
+
 [self.manager publish:message];
 ```
 
 
 
 ### Receive Deliveries
+
+To enable receive of delivery acknowledgements of a published message, you should enable the deliveries before: 
 
 ```objc
 self.manager.deliveryChannelEnabeled = YES;
@@ -237,6 +255,8 @@ self.manager.deliveryChannelEnabeled = YES;
 
 ### Badge Handling
 
+If you want to reset your application badge number, you can simply:
+
 ```objc
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [PushClientManager resetBadge];
@@ -244,6 +264,4 @@ self.manager.deliveryChannelEnabeled = YES;
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [PushClientManager resetBadge];
 }
-
-
 ```

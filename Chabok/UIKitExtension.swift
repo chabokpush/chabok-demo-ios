@@ -15,8 +15,8 @@ import UIKit
             setupView()
         }
     }
-    private func setupView() {
-        self.layer.borderColor = self.bdColor.CGColor
+    fileprivate func setupView() {
+        self.layer.borderColor = self.bdColor.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 3
         
@@ -29,8 +29,8 @@ import UIKit
             setupView()
         }
     }
-    private func setupView() {
-        self.layer.borderColor = self.bdColor.CGColor
+    fileprivate func setupView() {
+        self.layer.borderColor = self.bdColor.cgColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 3
         
@@ -39,7 +39,7 @@ import UIKit
 
 extension UIColor {
     
-    class func fromRGB(rgb:UInt32) -> UIColor {
+    class func fromRGB(_ rgb:UInt32) -> UIColor {
         return UIColor(
             red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
@@ -47,6 +47,15 @@ extension UIColor {
             alpha: CGFloat(1.0)
         )
         
+    }
+    
+    class func fromRGBA(_ rgb:UInt32,alpha:CGFloat) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgb & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
     }
     
     
@@ -95,14 +104,14 @@ extension UIFont {
         case Medium = "medium"
     }
     
-    class func setFamilyFontFromAppFont(family:IRANSansFontFamily = .Medium, size: CGFloat) -> UIFont {
+    class func setFamilyFontFromAppFont(_ family:IRANSansFontFamily = .Medium, size: CGFloat) -> UIFont {
         let familyName = "IRANSans(FaNum)"
-        let fontNames = UIFont.fontNamesForFamilyName(familyName) as [String]
+        let fontNames = UIFont.fontNames(forFamilyName: familyName) as [NSString]
         var boldFont: UIFont!
-    
+        
         for fontName: NSString in fontNames
         {
-            if fontName.rangeOfString(family.rawValue, options: .CaseInsensitiveSearch).location != NSNotFound {
+            if fontName.range(of: family.rawValue, options: .caseInsensitive).location != NSNotFound {
                 boldFont = UIFont(name: fontName as String, size: size)
                 
             }
@@ -116,25 +125,24 @@ extension UIFont {
 extension String {
     
     var length: Int { return self.characters.count}
-    subscript (i: Int) -> Character {return self[self.startIndex.advancedBy(i)]}
+    subscript (i: Int) -> Character {return self[self.characters.index(self.startIndex, offsetBy: i)]}
     subscript (i: Int) -> String    {return String(self[i] as Character)}
     
-    func cellHeightForMessage(message:String) -> CGFloat {
+    func cellHeightForMessage(_ message:String) -> CGFloat {
         
-        var height:CGFloat = 70
+        var height:CGFloat = 40
         
-        let size = CGSizeMake(304,CGFloat.max)
+        let size = CGSize(width: 304,height: CGFloat.greatestFiniteMagnitude)
         let  attributes = [NSFontAttributeName:UIFont.setFamilyFontFromAppFont(size: 14)]
         
         let text = message as NSString
-        let rect = text.boundingRectWithSize(size, options:[.UsesLineFragmentOrigin, .UsesFontLeading, .TruncatesLastVisibleLine] , attributes: attributes, context:nil).size.height
-        height += max(rect, 30)
+        let rect = text.boundingRect(with: size, options:[.usesLineFragmentOrigin, .usesFontLeading, .truncatesLastVisibleLine] , attributes: attributes, context:nil).size.height
+
+        height += max(rect, 30) + 10
         
         return height
     }
-    
 }
-
 
 class ChabokTextField: UITextField {
     
@@ -147,7 +155,7 @@ class ChabokTextField: UITextField {
         ]
         
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes:attributes)
-
+        
     }
 }
 

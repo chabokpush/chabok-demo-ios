@@ -1,60 +1,47 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ktz-ni-And">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jsz-LO-Pfo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="IRANSans(FaNum)_Bold.ttf">
+        <array key="IRANSans(FaNum)_Bold.ttf">
             <string>IRANSansFaNum-Bold</string>
-            <string>IRANSansFaNum-Bold</string>
-        </mutableArray>
-        <mutableArray key="IRANSans(FaNum)_Light.ttf">
+        </array>
+        <array key="IRANSans(FaNum)_Light.ttf">
             <string>IRANSansFaNum-Light</string>
-            <string>IRANSansFaNum-Light</string>
-            <string>IRANSansFaNum-Light</string>
-            <string>IRANSansFaNum-Light</string>
-            <string>IRANSansFaNum-Light</string>
-            <string>IRANSansFaNum-Light</string>
-            <string>IRANSansFaNum-Light</string>
-        </mutableArray>
-        <mutableArray key="IRANSans(FaNum)_Medium.ttf">
+        </array>
+        <array key="IRANSans(FaNum)_Medium.ttf">
             <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-            <string>IRANSansFaNum-Medium</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
-        <!--Register View Controller-->
+        <!--View Controller-->
         <scene sceneID="hp2-aw-hID">
             <objects>
-                <viewController storyboardIdentifier="reg" id="jsz-LO-Pfo" customClass="RegisterViewController" customModule="Chabok" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reg" id="jsz-LO-Pfo" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MtX-SC-nJ7"/>
                         <viewControllerLayoutGuide type="bottom" id="E6p-0B-sfA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qbe-wp-mu3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="برای مشاهده دمو لطفا مشخصات خود را وارد کنید:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iee-Fn-Hg6">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="59" y="20" width="257" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="3UB-PC-Mqc"/>
                                     <constraint firstAttribute="width" constant="257" id="GWr-tr-O6h"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.22745098039215686" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.22745098039215686" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -70,11 +57,11 @@
                                 </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="نام و نام خانوادگی" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EEn-Ba-4VW" customClass="ChabokTextField" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <rect key="frame" x="40" y="91" width="295" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="61P-q3-TQy"/>
                                 </constraints>
-                                <color key="textColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <variation key="default">
@@ -89,8 +76,8 @@
                                 </variation>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lii-Rc-dPr">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.32156862749999998" green="0.36470588240000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="40" y="125" width="295" height="2"/>
+                                <color key="backgroundColor" red="0.32156862749999998" green="0.36470588240000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Gao-a9-fKS"/>
                                 </constraints>
@@ -106,11 +93,11 @@
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="نام شرکت (اختیاری)" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5b8-VW-NXs" customClass="ChabokTextField" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <rect key="frame" x="40" y="149" width="295" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8cL-gw-tJ6"/>
                                 </constraints>
-                                <color key="textColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <variation key="default">
@@ -125,8 +112,8 @@
                                 </variation>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zey-CD-xrF">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.32156862749999998" green="0.36470588240000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="40" y="183" width="295" height="2"/>
+                                <color key="backgroundColor" red="0.32156862749999998" green="0.36470588240000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="ODS-6m-3i2"/>
                                 </constraints>
@@ -142,11 +129,11 @@
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="آدرس ایمیل" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zn-vX-wcf" customClass="ChabokTextField" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <rect key="frame" x="40" y="213" width="295" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="mpn-4l-C7R"/>
                                 </constraints>
-                                <color key="textColor" red="0.32156862749999998" green="0.36470588240000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.32156862749999998" green="0.36470588240000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <variation key="default">
@@ -161,8 +148,8 @@
                                 </variation>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvJ-VI-Uuu">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="40" y="247" width="295" height="2"/>
+                                <color key="backgroundColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="8d3-uV-gmG"/>
                                 </constraints>
@@ -178,18 +165,18 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-TR-1W9" customClass="CUButton" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0039215686274509803" green="0.8901960784313725" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="40" y="296" width="295" height="48"/>
+                                <color key="backgroundColor" red="0.0039215686274509803" green="0.8901960784313725" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Mwg-b7-ZEi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="15"/>
                                 <state key="normal" title="ارسال و ادامه">
-                                    <color key="titleColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bdColor">
-                                        <color key="value" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
@@ -202,12 +189,9 @@
                                         <include reference="Mwg-b7-ZEi"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <action selector="RegisterInChabok:" destination="jsz-LO-Pfo" eventType="touchUpInside" id="AoW-Eq-3a0"/>
-                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5b8-VW-NXs" firstAttribute="leading" secondItem="qbe-wp-mu3" secondAttribute="leadingMargin" constant="24" id="01W-YG-yTu"/>
                             <constraint firstItem="EEn-Ba-4VW" firstAttribute="top" secondItem="Iee-Fn-Hg6" secondAttribute="bottom" constant="9" id="1yW-d7-wo3"/>
@@ -310,11 +294,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <connections>
-                        <outlet property="company" destination="5b8-VW-NXs" id="QS2-e7-q58"/>
-                        <outlet property="email" destination="6Zn-vX-wcf" id="Qlo-m3-Ky2"/>
-                        <outlet property="familyName" destination="EEn-Ba-4VW" id="gdm-ld-eF2"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avr-2E-uIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -329,9 +308,9 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ue7-HR-Yiq"/>
                 </viewController>
@@ -348,21 +327,21 @@
                         <viewControllerLayoutGuide type="bottom" id="lE2-6Q-kcq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XpI-yZ-0C9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekh-0m-SJ8">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="-4" y="617" width="383" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCK-oA-cJN">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.89019607840000003" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="12" y="8" width="73" height="34"/>
+                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.89019607840000003" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="73" id="ZWi-V1-uxq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="14"/>
                                         <state key="normal" title="ارسال">
-                                            <color key="titleColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -376,14 +355,14 @@
                                         </variation>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJZ-mt-QJg">
-                                        <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="0.85882352939999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="93" y="8" width="278" height="34"/>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.85882352939999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXw-Z1-bA1">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="383" height="1"/>
+                                        <color key="backgroundColor" red="0.32156862745098036" green="0.36470588235294116" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Vq9-LX-Csx"/>
                                         </constraints>
@@ -399,7 +378,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="sJZ-mt-QJg" firstAttribute="top" secondItem="Ekh-0m-SJ8" secondAttribute="top" constant="8" id="Cd2-Sc-P8k"/>
                                     <constraint firstItem="pXw-Z1-bA1" firstAttribute="top" secondItem="Ekh-0m-SJ8" secondAttribute="top" id="DSq-Gn-Lzz"/>
@@ -423,16 +402,16 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="ozg-Yd-heh"/>
+                                        <exclude reference="DSq-Gn-Lzz"/>
+                                        <exclude reference="UT9-Kg-0zy"/>
+                                        <exclude reference="Wxt-T0-yky"/>
+                                        <exclude reference="YbK-SF-xVI"/>
+                                        <exclude reference="ruM-MG-1Q6"/>
+                                        <exclude reference="z22-eb-6eS"/>
                                         <exclude reference="Cd2-Sc-P8k"/>
                                         <exclude reference="F9F-X3-LCb"/>
                                         <exclude reference="gMT-La-YEP"/>
                                         <exclude reference="vqd-vi-ZN8"/>
-                                        <exclude reference="YbK-SF-xVI"/>
-                                        <exclude reference="ruM-MG-1Q6"/>
-                                        <exclude reference="z22-eb-6eS"/>
-                                        <exclude reference="DSq-Gn-Lzz"/>
-                                        <exclude reference="UT9-Kg-0zy"/>
-                                        <exclude reference="Wxt-T0-yky"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -443,32 +422,32 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="ozg-Yd-heh"/>
+                                        <include reference="DSq-Gn-Lzz"/>
+                                        <include reference="UT9-Kg-0zy"/>
+                                        <include reference="Wxt-T0-yky"/>
+                                        <include reference="YbK-SF-xVI"/>
+                                        <include reference="ruM-MG-1Q6"/>
+                                        <include reference="z22-eb-6eS"/>
                                         <include reference="Cd2-Sc-P8k"/>
                                         <include reference="F9F-X3-LCb"/>
                                         <include reference="gMT-La-YEP"/>
                                         <include reference="vqd-vi-ZN8"/>
-                                        <include reference="YbK-SF-xVI"/>
-                                        <include reference="ruM-MG-1Q6"/>
-                                        <include reference="z22-eb-6eS"/>
-                                        <include reference="DSq-Gn-Lzz"/>
-                                        <include reference="UT9-Kg-0zy"/>
-                                        <include reference="Wxt-T0-yky"/>
                                     </mask>
                                 </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nrp-7W-LgG">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="617"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="112" id="TAz-1m-Wfv" customClass="ChabokTableCell" customModule="Chabok" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="383" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TAz-1m-Wfv" id="2Nv-mU-q3W">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="چابک رسان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-VP-v7M">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="190" y="15" width="150" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="98" id="FMv-kx-uqt">
                                                             <variation key="widthClass=compact" constant="150"/>
@@ -476,7 +455,7 @@
                                                         <constraint firstAttribute="height" constant="29" id="h7W-DB-wt5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -484,8 +463,7 @@
                                                             <exclude reference="h7W-DB-wt5"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="47" y="15" width="150" height="29"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="FMv-kx-uqt"/>
                                                             <include reference="h7W-DB-wt5"/>
@@ -493,7 +471,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:53 1394/11/31" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwO-rh-scy">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="18" y="19" width="100" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="Fja-3V-v2E"/>
                                                         <constraint firstAttribute="width" constant="135" id="MC4-ge-RtF">
@@ -501,7 +479,7 @@
                                                         </constraint>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -517,19 +495,16 @@
                                                     </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyQ-nN-YBl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="18" y="45" width="322" height="56"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUM-Jw-RzP">
-                                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                            <rect key="frame" x="8" y="7" width="306" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="15"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="8" y="7" width="323" height="17.5"/>
-                                                            </variation>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="vUM-Jw-RzP" secondAttribute="trailing" constant="8" id="2em-ba-k7G"/>
                                                         <constraint firstAttribute="bottom" secondItem="vUM-Jw-RzP" secondAttribute="bottom" constant="6" id="8Z3-Ft-SUk"/>
@@ -549,8 +524,7 @@
                                                             <exclude reference="xpb-zC-7Ct"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="18" y="45" width="179" height="56"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="subviews">
                                                             <include reference="vUM-Jw-RzP"/>
                                                         </mask>
@@ -564,7 +538,7 @@
                                                     </variation>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4AJ-mv-RaM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="343" y="89" width="12" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12" id="cGr-Hw-foI"/>
                                                         <constraint firstAttribute="height" constant="12" id="kJf-Wa-7Cs"/>
@@ -575,8 +549,7 @@
                                                             <exclude reference="kJf-Wa-7Cs"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="200" y="89" width="12" height="12"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="cGr-Hw-foI"/>
                                                             <include reference="kJf-Wa-7Cs"/>
@@ -584,7 +557,7 @@
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="GMm-I7-wP0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="18" y="103" width="13" height="8"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="13" id="VPU-2J-EQl"/>
                                                         <constraint firstAttribute="height" constant="8" id="gKc-Oa-Qtd"/>
@@ -603,13 +576,13 @@
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmd-9u-kKX">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="33" y="103" width="33" height="11"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="11" id="8mC-vR-q4r"/>
                                                         <constraint firstAttribute="width" constant="33" id="eCQ-5d-Fca"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="10"/>
-                                                    <color key="textColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -625,8 +598,8 @@
                                                     </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHp-5m-coA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" red="0.80000000000000004" green="0.85882352941176465" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="348" y="19" width="26" height="26"/>
+                                                    <color key="backgroundColor" red="0.80000000000000004" green="0.85882352941176465" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="Oc4-gT-0Io"/>
                                                         <constraint firstAttribute="width" constant="26" id="vgB-vJ-vRF"/>
@@ -637,8 +610,7 @@
                                                             <exclude reference="vgB-vJ-vRF"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="205" y="19" width="26" height="26"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="Oc4-gT-0Io"/>
                                                             <include reference="vgB-vJ-vRF"/>
@@ -685,24 +657,24 @@
                                                     <exclude reference="YHp-5m-coA"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="6rs-Fo-lEZ"/>
-                                                    <exclude reference="l6q-tv-dCr"/>
-                                                    <exclude reference="iFr-EN-u2v"/>
-                                                    <exclude reference="zXO-mQ-mNV"/>
                                                     <exclude reference="PI9-Sh-tDO"/>
                                                     <exclude reference="eOg-Jx-ajf"/>
-                                                    <exclude reference="8Wx-na-mCe"/>
-                                                    <exclude reference="asv-ra-bX7"/>
-                                                    <exclude reference="ftw-3x-1N8"/>
-                                                    <exclude reference="UMJ-xh-EVh"/>
-                                                    <exclude reference="shj-JM-jGf"/>
                                                     <exclude reference="7Af-LK-GYN"/>
                                                     <exclude reference="AmR-kh-fat"/>
                                                     <exclude reference="Tug-8Y-1cc"/>
                                                     <exclude reference="eeW-bB-Ac5"/>
                                                     <exclude reference="peI-Xu-OHV"/>
+                                                    <exclude reference="UMJ-xh-EVh"/>
+                                                    <exclude reference="shj-JM-jGf"/>
+                                                    <exclude reference="6rs-Fo-lEZ"/>
+                                                    <exclude reference="l6q-tv-dCr"/>
+                                                    <exclude reference="iFr-EN-u2v"/>
+                                                    <exclude reference="zXO-mQ-mNV"/>
                                                     <exclude reference="A76-Og-TGY"/>
                                                     <exclude reference="VmR-dJ-18l"/>
+                                                    <exclude reference="8Wx-na-mCe"/>
+                                                    <exclude reference="asv-ra-bX7"/>
+                                                    <exclude reference="ftw-3x-1N8"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -716,24 +688,24 @@
                                                     <include reference="YHp-5m-coA"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="6rs-Fo-lEZ"/>
-                                                    <include reference="l6q-tv-dCr"/>
-                                                    <include reference="iFr-EN-u2v"/>
-                                                    <include reference="zXO-mQ-mNV"/>
                                                     <include reference="PI9-Sh-tDO"/>
                                                     <include reference="eOg-Jx-ajf"/>
-                                                    <include reference="8Wx-na-mCe"/>
-                                                    <include reference="asv-ra-bX7"/>
-                                                    <include reference="ftw-3x-1N8"/>
-                                                    <include reference="UMJ-xh-EVh"/>
-                                                    <include reference="shj-JM-jGf"/>
                                                     <include reference="7Af-LK-GYN"/>
                                                     <exclude reference="AmR-kh-fat"/>
                                                     <include reference="Tug-8Y-1cc"/>
                                                     <include reference="eeW-bB-Ac5"/>
                                                     <include reference="peI-Xu-OHV"/>
+                                                    <include reference="UMJ-xh-EVh"/>
+                                                    <include reference="shj-JM-jGf"/>
+                                                    <include reference="6rs-Fo-lEZ"/>
+                                                    <include reference="l6q-tv-dCr"/>
+                                                    <include reference="iFr-EN-u2v"/>
+                                                    <include reference="zXO-mQ-mNV"/>
                                                     <include reference="A76-Og-TGY"/>
                                                     <include reference="VmR-dJ-18l"/>
+                                                    <include reference="8Wx-na-mCe"/>
+                                                    <include reference="asv-ra-bX7"/>
+                                                    <include reference="ftw-3x-1N8"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -748,14 +720,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="uCell" rowHeight="106" id="vaw-ht-2Xi" customClass="ChabokUserTableCell" customModule="Chabok" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="140" width="383" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vaw-ht-2Xi" id="7t2-M2-c32">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="106"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="چابک رسان" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I86-99-9uv">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="46" y="15" width="150" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="Mcv-Si-NFC"/>
                                                         <constraint firstAttribute="width" constant="98" id="YE0-dJ-rPG">
@@ -763,7 +735,7 @@
                                                         </constraint>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="16"/>
-                                                    <color key="textColor" red="0.38823529411764707" green="0.14117647058823529" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.38823529411764707" green="0.14117647058823529" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -779,7 +751,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:24 1394/11/12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xba-aa-BaI">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <rect key="frame" x="268" y="19" width="100" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="3cb-pN-w1P"/>
                                                         <constraint firstAttribute="width" constant="135" id="G5u-Ub-heF">
@@ -787,7 +759,7 @@
                                                         </constraint>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -795,8 +767,7 @@
                                                             <exclude reference="G5u-Ub-heF"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="125" y="19" width="100" height="23"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="3cb-pN-w1P"/>
                                                             <include reference="G5u-Ub-heF"/>
@@ -804,19 +775,16 @@
                                                     </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFD-Nm-OUD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="46" y="45" width="322" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلام" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxs-V0-mYY">
-                                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                            <rect key="frame" x="8" y="7" width="306" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="15"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="8" y="7" width="163" height="18"/>
-                                                            </variation>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.93725490196078431" green="0.9137254901960784" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.93725490196078431" green="0.9137254901960784" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="Pxs-V0-mYY" firstAttribute="top" secondItem="CFD-Nm-OUD" secondAttribute="top" constant="7" id="2A0-Bj-ZOK"/>
                                                         <constraint firstAttribute="bottom" secondItem="Pxs-V0-mYY" secondAttribute="bottom" constant="6" id="2bT-pe-2SN"/>
@@ -838,8 +806,7 @@
                                                             <exclude reference="r2p-1s-FNX"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="46" y="45" width="179" height="50"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="subviews">
                                                             <include reference="Pxs-V0-mYY"/>
                                                         </mask>
@@ -854,8 +821,8 @@
                                                     </variation>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFS-fZ-7WL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.80000000000000004" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="11" y="19" width="26" height="26"/>
+                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.80000000000000004" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="6yC-Gf-ur7"/>
                                                         <constraint firstAttribute="width" constant="26" id="k91-cq-cbI"/>
@@ -897,17 +864,17 @@
                                                     <exclude reference="sFS-fZ-7WL"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="FyW-VR-Fvm"/>
+                                                    <exclude reference="rMd-Ko-KgD"/>
                                                     <exclude reference="htY-HX-tWC"/>
                                                     <exclude reference="nE1-X6-qFR"/>
                                                     <exclude reference="zES-bp-dsW"/>
-                                                    <exclude reference="gII-zN-vkk"/>
-                                                    <exclude reference="jPM-01-vIh"/>
                                                     <exclude reference="27I-6O-VTy"/>
                                                     <exclude reference="AuP-tJ-sJb"/>
                                                     <exclude reference="KkH-ct-WXU"/>
                                                     <exclude reference="wR9-jm-R3s"/>
-                                                    <exclude reference="FyW-VR-Fvm"/>
-                                                    <exclude reference="rMd-Ko-KgD"/>
+                                                    <exclude reference="gII-zN-vkk"/>
+                                                    <exclude reference="jPM-01-vIh"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -918,17 +885,17 @@
                                                     <include reference="sFS-fZ-7WL"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="FyW-VR-Fvm"/>
+                                                    <include reference="rMd-Ko-KgD"/>
                                                     <include reference="htY-HX-tWC"/>
                                                     <include reference="nE1-X6-qFR"/>
                                                     <exclude reference="zES-bp-dsW"/>
-                                                    <include reference="gII-zN-vkk"/>
-                                                    <include reference="jPM-01-vIh"/>
                                                     <include reference="27I-6O-VTy"/>
                                                     <include reference="AuP-tJ-sJb"/>
                                                     <include reference="KkH-ct-WXU"/>
                                                     <include reference="wR9-jm-R3s"/>
-                                                    <include reference="FyW-VR-Fvm"/>
-                                                    <include reference="rMd-Ko-KgD"/>
+                                                    <include reference="gII-zN-vkk"/>
+                                                    <include reference="jPM-01-vIh"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -947,7 +914,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nrp-7W-LgG" firstAttribute="top" secondItem="XpI-yZ-0C9" secondAttribute="topMargin" id="0GB-9U-EBU"/>
                             <constraint firstItem="Ekh-0m-SJ8" firstAttribute="top" secondItem="nrp-7W-LgG" secondAttribute="bottom" id="9IG-Mh-iPU"/>
@@ -976,12 +943,12 @@
                             <mask key="constraints">
                                 <exclude reference="HtY-xu-fYz"/>
                                 <exclude reference="f8m-ct-Szl"/>
-                                <exclude reference="9IG-Mh-iPU"/>
-                                <exclude reference="Siy-yu-3ml"/>
-                                <exclude reference="r1S-rI-FVb"/>
                                 <exclude reference="0GB-9U-EBU"/>
                                 <exclude reference="Dsl-fB-jnu"/>
                                 <exclude reference="LUv-fk-QJ5"/>
+                                <exclude reference="9IG-Mh-iPU"/>
+                                <exclude reference="Siy-yu-3ml"/>
+                                <exclude reference="r1S-rI-FVb"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -992,12 +959,12 @@
                             <mask key="constraints">
                                 <exclude reference="HtY-xu-fYz"/>
                                 <include reference="f8m-ct-Szl"/>
-                                <include reference="9IG-Mh-iPU"/>
-                                <include reference="Siy-yu-3ml"/>
-                                <include reference="r1S-rI-FVb"/>
                                 <include reference="0GB-9U-EBU"/>
                                 <include reference="Dsl-fB-jnu"/>
                                 <include reference="LUv-fk-QJ5"/>
+                                <include reference="9IG-Mh-iPU"/>
+                                <include reference="Siy-yu-3ml"/>
+                                <include reference="r1S-rI-FVb"/>
                             </mask>
                         </variation>
                     </view>
@@ -1011,7 +978,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ec-a6-1qU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2365.5" y="177"/>
+            <point key="canvasLocation" x="2361" y="193"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="XLt-AR-CRD">
@@ -1022,11 +989,11 @@
                         <viewControllerLayoutGuide type="bottom" id="74k-Y8-E5e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ly9-Md-LSk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutlogo" translatesAutoresizingMaskIntoConstraints="NO" id="j9u-na-NJH">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="147.5" y="60" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="6sm-7c-VlJ">
                                         <variation key="widthClass=compact" constant="80"/>
@@ -1049,13 +1016,13 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="چابک" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpq-gn-QZV">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="149.5" y="159" width="76" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="JjW-ne-oGl"/>
                                     <constraint firstAttribute="width" constant="76" id="lSs-d6-nUh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="28"/>
-                                <color key="textColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1071,13 +1038,13 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="راهکاری برای ارتباط پیشرفته با کاربران" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l8-hF-6je">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="49.5" y="204" width="276" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="276" id="J2L-ZQ-aGk"/>
                                     <constraint firstAttribute="height" constant="21" id="ekf-Yh-I80"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.19607843137254902" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1093,18 +1060,18 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjM-6A-5b2" customClass="CUButton" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="67.5" y="250" width="240" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="5rj-fs-tC8"/>
                                     <constraint firstAttribute="height" constant="42" id="8iW-Wz-o5k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="15"/>
                                 <state key="normal" title="http://chabokpush.com">
-                                    <color key="titleColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bdColor">
-                                        <color key="value" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
@@ -1121,18 +1088,18 @@
                                 </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7U-62-D9x" customClass="CUButton" customModule="Chabok" customModuleProvider="target">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="67.5" y="308" width="240" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Of9-Kb-OWP"/>
                                     <constraint firstAttribute="height" constant="42" id="Xvw-1K-gFA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="15"/>
                                 <state key="normal" title="021-87965">
-                                    <color key="titleColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bdColor">
-                                        <color key="value" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
@@ -1149,13 +1116,13 @@
                                 </variation>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="چابک محصولی از شرکت آتیه داده پرداز" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neu-fh-fJj">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="65" y="571" width="245" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="OUI-V0-Up2"/>
                                     <constraint firstAttribute="width" constant="245" id="Pu3-4I-iem"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Medium" family="IRANSans(FaNum)" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1171,12 +1138,12 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تهران خیابان ملاصدرا - خیابان شیراز - خیابان حکیم اعظم - پلاک ۱۹" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvP-iT-HvP">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="31" y="599" width="313" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="dVp-yZ-rhW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.1960784314" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1190,7 +1157,7 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mpq-gn-QZV" firstAttribute="centerX" secondItem="ly9-Md-LSk" secondAttribute="centerX" id="25b-mR-qBl"/>
                             <constraint firstItem="j9u-na-NJH" firstAttribute="top" secondItem="NbA-e2-5Cn" secondAttribute="bottom" constant="75" id="3Gf-kc-j7r">
@@ -1225,19 +1192,19 @@
                             <mask key="constraints">
                                 <exclude reference="JIx-s0-Fve"/>
                                 <exclude reference="VqJ-oc-yQP"/>
-                                <exclude reference="HAy-KT-9mv"/>
-                                <exclude reference="yBB-f0-cqM"/>
-                                <exclude reference="9Py-yd-udX"/>
-                                <exclude reference="o1D-H7-lVb"/>
-                                <exclude reference="Hpe-aP-0lC"/>
-                                <exclude reference="Qaa-VE-9m6"/>
-                                <exclude reference="9y8-ai-cdh"/>
-                                <exclude reference="VQG-Ap-lXR"/>
-                                <exclude reference="25b-mR-qBl"/>
-                                <exclude reference="wT5-LM-ztG"/>
-                                <exclude reference="ogV-5Q-656"/>
                                 <exclude reference="3Gf-kc-j7r"/>
                                 <exclude reference="cWt-8S-GcA"/>
+                                <exclude reference="Hpe-aP-0lC"/>
+                                <exclude reference="Qaa-VE-9m6"/>
+                                <exclude reference="25b-mR-qBl"/>
+                                <exclude reference="wT5-LM-ztG"/>
+                                <exclude reference="9Py-yd-udX"/>
+                                <exclude reference="o1D-H7-lVb"/>
+                                <exclude reference="HAy-KT-9mv"/>
+                                <exclude reference="yBB-f0-cqM"/>
+                                <exclude reference="ogV-5Q-656"/>
+                                <exclude reference="9y8-ai-cdh"/>
+                                <exclude reference="VQG-Ap-lXR"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1253,19 +1220,19 @@
                             <mask key="constraints">
                                 <include reference="JIx-s0-Fve"/>
                                 <include reference="VqJ-oc-yQP"/>
-                                <include reference="HAy-KT-9mv"/>
-                                <include reference="yBB-f0-cqM"/>
-                                <include reference="9Py-yd-udX"/>
-                                <include reference="o1D-H7-lVb"/>
-                                <include reference="Hpe-aP-0lC"/>
-                                <include reference="Qaa-VE-9m6"/>
-                                <include reference="9y8-ai-cdh"/>
-                                <include reference="VQG-Ap-lXR"/>
-                                <include reference="25b-mR-qBl"/>
-                                <include reference="wT5-LM-ztG"/>
-                                <include reference="ogV-5Q-656"/>
                                 <include reference="3Gf-kc-j7r"/>
                                 <include reference="cWt-8S-GcA"/>
+                                <include reference="Hpe-aP-0lC"/>
+                                <include reference="Qaa-VE-9m6"/>
+                                <include reference="25b-mR-qBl"/>
+                                <include reference="wT5-LM-ztG"/>
+                                <include reference="9Py-yd-udX"/>
+                                <include reference="o1D-H7-lVb"/>
+                                <include reference="HAy-KT-9mv"/>
+                                <include reference="yBB-f0-cqM"/>
+                                <include reference="ogV-5Q-656"/>
+                                <include reference="9y8-ai-cdh"/>
+                                <include reference="VQG-Ap-lXR"/>
                             </mask>
                         </variation>
                     </view>
@@ -1295,6 +1262,6 @@
     </scenes>
     <resources>
         <image name="aboutlogo" width="82" height="82"/>
-        <image name="eye" width="12" height="7"/>
+        <image name="eye" width="9" height="5"/>
     </resources>
 </document>

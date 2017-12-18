@@ -13,19 +13,28 @@ import AdpPushClient
 let KOffset:CGFloat = 219
 var keyboardshow: Bool = false
 
-class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource,NSFetchedResultsControllerDelegate{
-    let mCntxt = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+enum statusEnumType {
+    case typing
+    case idle
+    case sent
     
-    var lastIndexPath : NSIndexPath! {
+}
+
+class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource,NSFetchedResultsControllerDelegate,UITextViewDelegate{
+    let mCntxt = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+    
+    var eventStatus = statusEnumType.idle
+    
+    var lastIndexPath : IndexPath! {
         
         let sectionsAmount = self.tableView.numberOfSections - 1
-        let rowAmount = self.tableView.numberOfRowsInSection(sectionsAmount)
-        let lastIndexPath = NSIndexPath(forRow: rowAmount - 1, inSection: 0)
+        let rowAmount = self.tableView.numberOfRows(inSection: sectionsAmount)
+        let lastIndexPath = IndexPath(row: rowAmount - 1, section: 0)
         return lastIndexPath
         
     }
-    var _fetchedResultsController: NSFetchedResultsController?
-    var fetchedResultsController: NSFetchedResultsController {
+    var _fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> {
         
         if self._fetchedResultsController != nil {
             return self._fetchedResultsController!
@@ -33,10 +42,10 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         let managedObjectContext = mCntxt!
         
-        let entity = NSEntityDescription.entityForName("Message", inManagedObjectContext: managedObjectContext)
-        let sort = NSSortDescriptor(key: "createdTime", ascending: true)
+        let entity = NSEntityDescription.entity(forEntityName: "Message", in: managedObjectContext)
+        let sort = NSSortDescriptor(key: "receivedTime", ascending: true)
         let sortnew = NSSortDescriptor(key: "new", ascending: true)
-        let req = NSFetchRequest()
+        let req = NSFetchRequest<NSFetchRequestResult>()
         req.entity = entity
         req.sortDescriptors = [sort,sortnew]
         req.fetchBatchSize = 10
@@ -57,282 +66,379 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
         
         return self._fetchedResultsController!
     }
-
+    
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var messageInputView: UIView!
-    @IBOutlet var messageInputViewLayout: NSLayoutConstraint!
     @IBOutlet var buttonMessage: UIButton!
-    @IBOutlet var textfieldMessage: UITextField!
+    @IBOutlet weak var textViewMessage: UITextView!
+    @IBOutlet weak var messageInputViewLayout: NSLayoutConstraint!
     
     var textIntry: UITextField!
     var manager = PushClientManager()
-    
-    
-    
+    var AvatarImage = String()
+    var image = UIImage()
+    var titleView = UIView()
     
     //MARK: - LifeCycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.showsVerticalScrollIndicator = false
-        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10 , 0.0)
-        buttonMessage.layer.borderWidth = 1
-        buttonMessage.layer.borderColor = UIColor.fromRGB(0x00325d).CGColor
-        buttonMessage.layer.cornerRadius = 3
-        buttonMessage.addTarget(self, action: "publishMessage", forControlEvents: .TouchUpInside)
         
-        textfieldMessage.layer.borderWidth = 1
-        textfieldMessage.layer.borderColor = UIColor.fromRGB(0x525d7a).CGColor
-        textfieldMessage.layer.cornerRadius = 3
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
         
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 35))
-        textfieldMessage.leftView = paddingView
-        textfieldMessage.rightView = paddingView
-        textfieldMessage.leftViewMode = .Always
-        textfieldMessage.rightViewMode = .Always
+        buttonMessage.layer.cornerRadius = 13
+        buttonMessage.addTarget(self, action: #selector(publishMessage), for: .touchUpInside)
         
-        self.manager = PushClientManager.defaultManager()
+        textViewMessage.layer.borderWidth = 0.25
+        textViewMessage.layer.borderColor = UIColor.fromRGB(0x525d7a).cgColor
+        textViewMessage.layer.cornerRadius = 15
+        textViewMessage.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: Selector("keyboardWillShow:"),
-            name: UIKeyboardWillShowNotification,
-            object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: Selector("keyboardWillHide:"),
-            name: UIKeyboardWillHideNotification,
-            object: nil)
+        self.manager = PushClientManager.default()
         
-        let tap = UITapGestureRecognizer(target: self, action: "hide")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hide))
         self.tableView.addGestureRecognizer(tap)
+        textViewMessage.autocorrectionType = .no
+        
+        // NavBar Map Icon
+        let mapBtn = UIBarButtonItem(image: UIImage(named: "mapIcon"), style: .plain, target: self, action: #selector(showPanel))
+        self.navigationItem.rightBarButtonItem  = mapBtn
+        
+
+        if UIScreen.main.sizeType != .iPhone5 {
+            self.tableView.rowHeight = UITableViewAutomaticDimension
+            self.tableView.estimatedRowHeight = 44.0
+        }
+        
+        // Navigation Bar View
+        let title = UILabel(frame: CGRect(x:10, y: 0, width: 95, height: 40))
+        title.text = "دیوار چابک"
+        title.font = UIFont(name: "IRANSans(FaNum)", size: 17)
+        title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        titleView = UIView(frame: CGRect(x: (UIScreen.main.bounds.width)/1.5, y: 20, width: 100, height: 40))
+        titleView.addSubview(title)
+        
+        navigationItem.titleView = titleView
+        
+        // online or offline observer
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pushClientServerConnectionStateHandler), name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.pushClientDidChangeServerConnectionState, object: nil)
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    func pushClientServerConnectionStateHandler(_ notification: Notification) {
         
-        if lastIndexPath.row > 0 {
-            self.tableView.scrollToRowAtIndexPath(lastIndexPath, atScrollPosition: .Bottom, animated: true)
+        if manager.connectionState == .connectedState {
+            image = UIImage(named: "online")!
+            connectionLabel(connectionStateImage: image)
+            
+        } else if manager.connectionState == .disconnectedState || manager.connectionState == .disconnectedErrorState {
+            image = UIImage(named: "offline")!
+            connectionLabel(connectionStateImage: image)
         }
     }
     
+    func connectionLabel(connectionStateImage: UIImage) {
+        let imageView = UIImageView(frame: CGRect(x: 90, y: 18, width: 8, height: 8))
+        image = connectionStateImage
+        imageView.image = image
+        
+        titleView.addSubview(imageView)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        if lastIndexPath.row > 0 {
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if lastIndexPath.row > 0 {
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        PushClientManager.resetBadge()
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        // isTyping event
+        if eventStatus != statusEnumType.typing {
+            eventStatus = statusEnumType.typing
+            
+            self.manager.publishEvent("captainStatus", data: ["status":"typing"])
+            
+            print("istyping")
+        }else{
+            
+            if textViewMessage.text.isEmpty && eventStatus != statusEnumType.idle {
+                eventStatus = statusEnumType.idle
+                self.manager.publishEvent("captainStatus", data: ["status":"idle"])
+                print("idle")
+                
+            }
+        }
+        return true
+    }
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        if eventStatus != statusEnumType.idle {
+            eventStatus = statusEnumType.idle
+            self.manager.publishEvent("captainStatus", data: ["status":"idle"])
+            print("idle")
+            
+        }
+        return true
+    }
     
     //MARK: - table view delegates and data source
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         let sectionCount = self.fetchedResultsController.sections!.count;
         return sectionCount
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let fetchInfo = self.fetchedResultsController.sections! as [NSFetchedResultsSectionInfo]
         return fetchInfo[section].numberOfObjects
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let fetchMessage = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Message
+        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! Message
         return String().cellHeightForMessage(fetchMessage.message!)
-        
     }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let fetchMessage = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Message
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let fetchMessage = self.fetchedResultsController.object(at: indexPath) as! Message
+        
         var sender:String = "چابک رسان"
-        if let senderName = fetchMessage.data?.valueForKey("name") {
+        if let senderName = fetchMessage.data?.value(forKey: "name") {
             sender = senderName as! String
         }
-
-        if sender == NSUserDefaults.standardUserDefaults().valueForKey("name") as! String {
+        
+        if sender == UserDefaults.standard.value(forKey: "name") as! String {
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ChabokTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChabokTableCell
             cell.msg.text = fetchMessage.message
-            cell.avatarName.text = sender
+            
+            print("seen cout >>>>>>@@@@ \(String(describing: fetchMessage.deliveryCount?.stringValue))")
             cell.deliveryCounter.text = fetchMessage.deliveryCount?.stringValue
-            if fetchMessage.sent == "send" {
-                cell.sendImg.image = UIImage(named: "tick")
-            } else {
-                cell.sendImg.image = UIImage(named: "tick-green")
+            
+            if fetchMessage.sent == "sent" {
+                cell.messageState.text = "تحویل داده شد"
+                cell.deliverImg.isHidden = false
+                cell.failedImg.isHidden = true
+                
+            } else if fetchMessage.sent == "send"{
+                cell.messageState.text = "در حال ارسال"
+                cell.deliverImg.isHidden = true
+                cell.failedImg.isHidden = false
+                
+            }else{
+                cell.messageState.text = "خطا در ارسال"
+                cell.deliverImg.isHidden = true
+                cell.failedImg.isHidden = false
+                
             }
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.calendar = NSCalendar(calendarIdentifier: "persian")
-            dateFormatter.locale = NSLocale(localeIdentifier: "fa_IR")
-            dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            let time =  dateFormatter.stringFromDate(fetchMessage.createdTime!)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.calendar = Calendar(identifier: .persian)
+            dateFormatter.locale = Locale(identifier: "fa_IR")
+            dateFormatter.dateFormat = "HH:mm  YYYY/MM/dd"
+            let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             cell.recieveTime.text = time
+            
             return cell
             
         } else {
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("uCell", forIndexPath: indexPath) as! ChabokUserTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "uCell", for: indexPath) as! ChabokUserTableCell
             cell.msg.text  = fetchMessage.message
             cell.avatarName.text = sender
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.calendar = NSCalendar(calendarIdentifier: "persian")
-            dateFormatter.locale = NSLocale(localeIdentifier: "fa_IR")
-            dateFormatter.dateFormat = "HH:mm YYYY/MM/dd"
-            let time =  dateFormatter.stringFromDate(fetchMessage.createdTime!)
             
+            let dateFormatter = DateFormatter()
+            dateFormatter.calendar = Calendar(identifier: .persian)
+            dateFormatter.locale = Locale(identifier: "fa_IR")
+            dateFormatter.dateFormat = "HH:mm  YYYY/MM/dd"
+            let time =  dateFormatter.string(from: fetchMessage.createdTime! as Date)
             cell.recieveTime.text = time
+            
             return cell
         }
-        
     }
-
+    
     //MARK: - NSFetchResultController
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.endUpdates()
-        self.tableView.scrollToRowAtIndexPath(lastIndexPath, atScrollPosition: .Bottom, animated: true)
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
     }
     
-    
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-        case .Delete:
-            self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+        case .delete:
+            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
             break
-        case .Insert:
-            self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+        case .insert:
+            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
             break
-        case .Move:
-            self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
-            self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
-            break
-        case .Update:
-            self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
-            break
-
-        }
-        
-    }
-    
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-        switch type {
-        case .Delete:
-            self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
-            break
-        case .Insert:
-            self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
-            break
-        case .Update:
-            self.tableView.reloadSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+        case .update:
+            self.tableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
             break
         default:
             break
         }
-
     }
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.beginUpdates()
-    }
-    
-
-    func hide () {
-        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
-    }
-
-    func keyboardWillShow(notification:NSNotification) {
-
-        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
-        print(keyboardSize?.height)
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height , 0.0)
-        self.tableView.scrollIndicatorInsets = contentInsets
-        if lastIndexPath.row > 0 {
-            self.tableView.scrollToRowAtIndexPath(lastIndexPath, atScrollPosition: .Bottom, animated: true)
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+            break
+        case .insert:
+            self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
+            break
+        case .move:
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+            self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
+            break
+        case .update:
+            self.tableView.reloadRows(at: [indexPath!], with: .automatic)
+            break
+            
         }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+        self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
+    }
+    
+    func hide () {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+    }
+    
+    func keyboardWillShow(_ notification:Notification) {
         
-        let curve = UIViewAnimationCurve(rawValue: notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]!.integerValue)!
+        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        print(keyboardSize?.height ?? 0)
+
+        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
         let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
-        
         setViewMoveUp(true,originY: keyboardSize!.height,curve: curve , duration:duration)
-
     }
     
-    
-    func keyboardWillHide(notification:NSNotification)
+    func keyboardWillHide(_ notification:Notification)
     {
-        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero
-        
-        
-        let curve = UIViewAnimationCurve(rawValue: notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]!.integerValue)!
+        self.tableView.contentInset = UIEdgeInsets.zero
+        let curve = UIViewAnimationCurve(rawValue: (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue)!
         let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         
         setViewMoveUp(false, curve: curve, duration: duration)
     }
-  	
     
     func publishMessage () {
-        self.manager = PushClientManager.defaultManager()
-        if self.textfieldMessage.text != "" {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            let message = PushClientMessage(message: self.textfieldMessage.text!, withData: ["name":defaults.valueForKey("name")!], topic: "public/wall")
-            
-            let appcontext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-            dispatch_async(dispatch_get_main_queue(), {
-                Message.messageWithMessage(message, context: appcontext!)
+        self.manager = PushClientManager.default()
+        if self.textViewMessage.text != "" {
+            let defaults = UserDefaults.standard
+            var message:PushClientMessage!
+            message = PushClientMessage(message: self.textViewMessage.text!, withData: ["name":defaults.value(forKey: "name")!], channel: "public/wall")
+            message.alertText = "\(defaults.value(forKey: "name")!):\(self.textViewMessage.text!)"
+//            let appcontext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+            DispatchQueue.main.async(execute: {
+                Message.messageWithMessage(message, context: self.mCntxt!)
             })
             self.manager.publish(message)
-            self.textfieldMessage.text = ""
-            
+            self.manager.publishEvent("captainStatus", data: ["status":"sent"])
+            self.textViewMessage.text = ""
         }
-        
     }
     
-    func setViewMoveUp(moveUp:Bool,originY:CGFloat = 0,curve:UIViewAnimationCurve, duration:Double) {
+    func setViewMoveUp(_ moveUp:Bool,originY:CGFloat = 0,curve:UIViewAnimationCurve, duration:Double) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(duration)
         UIView.setAnimationCurve(curve)
-      
+        
         self.messageInputViewLayout.constant = originY
         self.view.layoutIfNeeded()
-
+        if lastIndexPath.row > 0 {
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
+        
         UIView.commitAnimations()
     }
-
+    
+    func showPanel() {
+        
+        let coreGeoLocation = self.manager.instanceCoreGeoLocation
+        let lastLocation = coreGeoLocation?.lastLocation
+        let lat = lastLocation?.coordinate.latitude
+        let lng = lastLocation?.coordinate.longitude
+        
+        if lat != nil && lng != nil {
+            let url = URL(string: "http://demo.chabokpush.com/?location=\(lat!),\(lng!)")
+            print("http://demo.chabokpush.com/?location=\(lat!),\(lng!)")
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url!)
+            } else {
+                UIApplication.shared.openURL(url!)
+            }
+        }
+    }
 }
 
 class ChabokUserTableCell: UITableViewCell {
     
-    @IBOutlet var recieveTime: UILabel!
+    @IBOutlet weak var sendImage: UIImageView!
     @IBOutlet var msgBackground: UIView!
     @IBOutlet var avatarView: UIView!
     @IBOutlet var msg: UILabel!
     @IBOutlet var avatarName: UILabel!
+    @IBOutlet weak var recieveTime: UILabel!
     
-
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    
-        self.msgBackground.layer.cornerRadius = 3
-        self.avatarView.layer.cornerRadius = 13
-        self.avatarView.layer.borderWidth = 1.5
-        self.avatarView.layer.borderColor = UIColor.fromRGB(0x65527a).CGColor
-    }
 }
 
 class ChabokTableCell: UITableViewCell {
     
+    @IBOutlet weak var deliveryCounter: UILabel!
     @IBOutlet var sendImg: UIImageView!
-    @IBOutlet var recieveTime: UILabel!
-    @IBOutlet var deliveryCounter: UILabel!
     @IBOutlet var avatarView: UIView!
     @IBOutlet var msg: UILabel!
     @IBOutlet var msgBackground: UIView!
-    @IBOutlet var avatarName: UILabel!
-    
+    @IBOutlet var messageState: UILabel!
+    @IBOutlet weak var recieveTime: UILabel!
+    @IBOutlet weak var deliverImg: UIImageView!
+    @IBOutlet weak var deliveryCount: UILabel!
+    @IBOutlet weak var failedImg: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+}
+extension UIScreen {
     
-        
-        self.msgBackground.layer.cornerRadius = 3
-        self.avatarView.layer.cornerRadius = 13
-        self.avatarView.layer.borderWidth = 1.5
-        self.avatarView.layer.borderColor = UIColor.fromRGB(0x525d7a).CGColor
+    enum SizeType: CGFloat {
+        case Unknown = 0.0
+        case iPhone4 = 960.0
+        case iPhone5 = 1136.0
+        case iPhone6 = 1334.0
+        case iPhone6Plus = 1920.0
+    }
+    
+    var sizeType: SizeType {
+        let height = nativeBounds.height
+        guard let sizeType = SizeType(rawValue: height) else { return .Unknown }
+        return sizeType
     }
 }

@@ -3,7 +3,7 @@
 //  Chabok
 //
 //  Created by Farshad Ghafari on 11/13/1394 AP.
-//  Copyright © 1394 Farshad Ghafari. All rights reserved.
+//  Copyright © 1394 ADP Digital Co. All rights reserved.
 //
 
 import UIKit
@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     var manager = PushClientManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
-        self.manager = PushClientManager.defaultManager()
+        self.navigationController?.isNavigationBarHidden = true
+        self.manager = PushClientManager.default()
         if self.manager.userId == nil {
             ShowRegisterView()
         }
@@ -35,9 +35,9 @@ class ViewController: UIViewController {
         
 
         let connectionStatus = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-        connectionStatus.textColor = UIColor.lightGrayColor()
+        connectionStatus.textColor = UIColor.lightGray
         connectionStatus.font = UIFont.setFamilyFontFromAppFont(size: 12)
-        connectionStatus.textAlignment = .Left
+        connectionStatus.textAlignment = .left
         connectionStatus.text = "آفلاین"
         connectionStatus.frame.origin.x = 30
         connectionStatus.frame.origin.y = 30
@@ -46,11 +46,11 @@ class ViewController: UIViewController {
         self.view.addSubview(connectionStatus)
 
         self.manager.serverConnectionStateHandler = {() -> Void in
-            if self.manager.connectionState == .ConnectedState {
+            if self.manager.connectionState == .connectedState {
                  connectionStatus.text = "آنلاین"
                 
-            } else if self.manager.connectionState == .DisconnectedState ||
-                self.manager.connectionState == .DisconnectedErrorState {
+            } else if self.manager.connectionState == .disconnectedState ||
+                self.manager.connectionState == .disconnectedErrorState {
                     connectionStatus.text = "آفلاین"
             } else {
                 connectionStatus.text = "در حال ارتباط"
@@ -59,40 +59,40 @@ class ViewController: UIViewController {
         }
         
         
-        let messageView = self.storyboard?.instantiateViewControllerWithIdentifier("msg")
+        let messageView = self.storyboard?.instantiateViewController(withIdentifier: "msg")
         messageView?.title = "پیام رسان"
         controllerArray.append(messageView!)
         
-        let aboutView =  self.storyboard?.instantiateViewControllerWithIdentifier("abt")
+        let aboutView =  self.storyboard?.instantiateViewController(withIdentifier: "abt")
         aboutView?.title = "درباره چابک"
         controllerArray.append(aboutView!)
 
         let parameters: [FAGHPageMenuOption] = [
-            .ScrollMenuBackgroundColor(UIColor.scrollMenuBackgroundColor()),
-            .ViewBackgroundColor(UIColor.whiteColor()),
-            .SelectionIndicatorColor(UIColor.selectionIndicatorColor()),
-            .BottomMenuHairlineColor(UIColor.bottomMenuHairlineColor()),
-            .SelectedMenuItemLabelColor(UIColor.selectedMenuItemLabelColor()),
-            .UnselectedMenuItemLabelColor(UIColor.unselectedMenuItemLabelColor()),
-            .SelectionIndicatorHeight(4.0),
-            .MenuItemFont(UIFont.setFamilyFontFromAppFont(size: 17)),
-            .MenuHeight(30.0),
-            .MenuItemWidth(85),
-            .MenuMargin(50.0),
-            .MenuItemSeparatorRoundEdges(true),
-            .CenterMenuItems(true)]
+            .scrollMenuBackgroundColor(UIColor.scrollMenuBackgroundColor()),
+            .viewBackgroundColor(UIColor.white),
+            .selectionIndicatorColor(UIColor.selectionIndicatorColor()),
+            .bottomMenuHairlineColor(UIColor.bottomMenuHairlineColor()),
+            .selectedMenuItemLabelColor(UIColor.selectedMenuItemLabelColor()),
+            .unselectedMenuItemLabelColor(UIColor.unselectedMenuItemLabelColor()),
+            .selectionIndicatorHeight(4.0),
+            .menuItemFont(UIFont.setFamilyFontFromAppFont(size: 17)),
+            .menuHeight(30.0),
+            .menuItemWidth(85),
+            .menuMargin(50.0),
+            .menuItemSeparatorRoundEdges(true),
+            .centerMenuItems(true)]
         
-        pageMenu = FAGHPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 70, self.view.frame.width, self.view.frame.height - 70), pageMenuOptions: parameters)
+        pageMenu = FAGHPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0.0, y: 70, width: self.view.frame.width, height: self.view.frame.height - 70), pageMenuOptions: parameters)
         
         self.view.addSubview(pageMenu!.view)
         self.addChildViewController(pageMenu!)
-        pageMenu?.didMoveToParentViewController(self)
+        pageMenu?.didMove(toParentViewController: self)
     
     }
     
     func ShowRegisterView() {
-        let regView = self.storyboard?.instantiateViewControllerWithIdentifier("reg")
-        self.navigationController!.presentViewController(regView!, animated: true, completion: nil)
+        let regView = self.storyboard?.instantiateViewController(withIdentifier: "reg")
+        self.navigationController!.present(regView!, animated: true, completion: nil)
     }
  
 

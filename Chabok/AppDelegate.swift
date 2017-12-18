@@ -222,8 +222,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     func pushClientManagerDidChangedServerConnectionState() {
         if self.manager.connectionState == .connectedState {
             print("we are connected")
-            self.manager.subscribeEvent("treasure")
-            
+            self.manager.subscribeEvent("treasure", installationId: self.manager.getInstallationId())
         }
     }
     

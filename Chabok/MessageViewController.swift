@@ -361,7 +361,7 @@ class MessageViewController: UIViewController,UITextFieldDelegate,UITableViewDel
             DispatchQueue.main.async(execute: {
                 Message.messageWithMessage(message, context: self.mCntxt!)
             })
-            self.manager.publishMessage(message)
+            self.manager.publish(message)
             self.manager.publishEvent("captainStatus", data: ["status":"sent"])
             self.textViewMessage.text = ""
         }

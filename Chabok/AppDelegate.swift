@@ -178,11 +178,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
         }
         
         let currentViewContoller = getCurrentViewController();
-        if currentViewContoller.isKind(of: InboxViewController.self) && message.topicName.contains("captain") {
+        if currentViewContoller.isKind(of: InboxViewController.self) && message.channel.contains("captain") {
             return
-        } else if currentViewContoller.isKind(of: MessageViewController.self) && message.topicName.contains("public/wall") {
+        } else if currentViewContoller.isKind(of: MessageViewController.self) && message.channel.contains("public/wall") {
             return
-        } else if currentViewContoller.isKind(of: MessageViewController.self) && message.topicName.contains("\(self.manager.userId!)/\(self.manager.getRegistrationId()!)") {
+        } else if currentViewContoller.isKind(of: MessageViewController.self) && message.channel.contains("\(self.manager.userId!)/\(self.manager.getInstallationId()!)") {
             return
         }
         self.throttle(#selector(showLocalNotificationWithRateLimit), withObject: message, duration: 2)
@@ -191,7 +191,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     func showLocalNotificationWithRateLimit(_ message : PushClientMessage) {
         let application = UIApplication.shared
         let localNotification = UILocalNotification()
-        localNotification.userInfo = ["topic":message.topicName]
+        localNotification.userInfo = ["topic":message.channel]
         
         localNotification.alertBody = message.messageBody
         if message.data == nil {
@@ -222,7 +222,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     func pushClientManagerDidChangedServerConnectionState() {
         if self.manager.connectionState == .connectedState {
             print("we are connected")
-            self.manager.enableEventDelivery("treasure")
+            self.manager.subscribeEvent("treasure")
             
         }
     }
@@ -241,7 +241,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
                 return
             }
             DispatchQueue.main.async(execute: {
-                if message.topicName.contains("captain"){
+                if message.channel.contains("captain"){
                     
                     if InboxModel.messageWithMessage(message, context: self.managedObjectContext!) == true {
                         self.throttle(#selector(self.captainNotifSound), withObject: message, duration: 2)

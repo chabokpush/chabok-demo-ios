@@ -5,5 +5,5 @@ target 'Chabok' do
 
    pod 'lottie-ios'
    pod 'SDWebImage'
-
+   pod 'ChabokPush'
 end

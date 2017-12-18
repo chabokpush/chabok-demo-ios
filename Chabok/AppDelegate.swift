@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     
     
     class func applicationId() -> String{
-        return "chabok-demo"
+        return "APP_ID"
     }
     
     class func applicationVersion() -> String{
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,PushClientManagerDelegate,
     }
     
     class func userNameAndPassword() -> (userName : String, password : String, apikey : String){
-        return ("chabokdemo","chabokdemo","1bd0c7e26ab5bf18ec940d8f7216ce39972aea9b")
+        return ("SDK_USERNAME","SDK_PASSWORD","API_KEY")
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
